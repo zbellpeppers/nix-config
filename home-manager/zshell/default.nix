@@ -5,7 +5,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      update = "home/zachary/nix-config/update.sh";
+      update = "/home/zachary/nix-config/update.sh";
     };
     history = {
       save = 10000;
