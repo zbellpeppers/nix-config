@@ -23,6 +23,11 @@
         success_symbol = "[➜](bold green)";
         error_symbol = "[➜](bold red)";
       };
+      format = "$time $directory\n$character "; # Custom format for prompt
+      time = {
+        format = "🕙[\[ $time \]]($style) ";
+        time_format = "%T";
+      };
     };
   };
 }
