@@ -25,7 +25,7 @@
       };
       format = "$time $directory\n$character "; # Custom format for prompt
       time = {
-        use_12hr = "true";
+        use_12hr = true;
         format = "%I:%M %p";
         time_format = "%T";
       };
