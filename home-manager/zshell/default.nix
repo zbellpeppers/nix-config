@@ -18,12 +18,15 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
+      format = "
+        ┌───────────────────>](bold green)
+        [│](bold green)$time$directory$rust$package
+        [└─>](bold green) ";
       add_newline = true;
       character = {
         success_symbol = "[➜](bold green)";
         error_symbol = "[➜](bold red)";
       };
-      format = "$time $directory\n$character "; # Custom format for prompt
       time = {
         disabled = false;
         format = "[$time]($style)";
