@@ -58,6 +58,7 @@
     winetricks
     protontricks
     mangohud
+    shadps4
 
     # Torrenting
     calibre
