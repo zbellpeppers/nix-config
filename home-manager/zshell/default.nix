@@ -18,10 +18,7 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      format = "
-        ┌───────────────────>](bold green)
-        [│](bold green)$time$directory$rust$package
-        [└─>](bold green) ";
+      format = "$time $directory\n$character ";
       add_newline = true;
       character = {
         success_symbol = "[➜](bold green)";
