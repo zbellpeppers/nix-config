@@ -28,7 +28,6 @@
         disabled = false;
         format = "[$time]($style)";
         use_12hr = true;
-        time_format = "%T";
       };
     };
   };
