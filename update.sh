@@ -8,6 +8,9 @@ set -e
 config_dir="/home/zachary/nix-config"
 nixos_dir="/etc/nixos"
 
+# Change to git directory and update flake
+cd "$config_dir" && sudo nix flake update
+
 # Remove existing files in /etc/nixos
 sudo rm -rf "$nixos_dir/"*
 echo "Removed existing files in $nixos_dir."
@@ -21,7 +24,7 @@ sudo chown -R root: "$nixos_dir/" || { echo "Ownership change failed"; exit 1; }
 echo "Changed ownership of files in $nixos_dir to root."
 
 # Update Nix Flake and Rebuild
-cd "$nixos_dir" && sudo nix flake update && sudo nixos-rebuild switch
+cd "$nixos_dir" && sudo nixos-rebuild switch
 
 # Check if rebuild was successful
 if [ $? -eq 0 ]; then
