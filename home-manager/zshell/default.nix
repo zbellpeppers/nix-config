@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  # ZSH Configuration - ZSH is enabled system wide in /system/packages/default.nix
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -10,17 +11,18 @@
     history = {
       save = 10000;
     };
-    oh-my-zsh = {
-      enable = true;
-      theme = "robbyrussell";
-      plugins = [
-        "git"
-        "npm"
-        "history"
-        "node"
-        "rust"
-        "deno"
-      ];
+  };
+
+  # Starship configuration + ZSH Integration
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      add_newline = true;
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
+      };
     };
   };
 }
