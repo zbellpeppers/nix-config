@@ -8,9 +8,6 @@ set -e
 config_dir="/home/zachary/nix-config"
 nixos_dir="/etc/nixos"
 
-# Change to git directory and update flake
-cd "$config_dir" && sudo nix flake update
-
 # Remove existing files in /etc/nixos
 sudo rm -rf "$nixos_dir/"*
 echo "Removed existing files in $nixos_dir."
@@ -23,14 +20,14 @@ echo "Copied files from $config_dir to $nixos_dir."
 sudo chown -R root: "$nixos_dir/" || { echo "Ownership change failed"; exit 1; }
 echo "Changed ownership of files in $nixos_dir to root."
 
-# Update Nix Flake and Rebuild
-cd "$nixos_dir" && sudo nixos-rebuild switch
+# Rebuild System
+sudo nixos-rebuild switch
 
 # Check if rebuild was successful
 if [ $? -eq 0 ]; then
     echo "NIXOS REBUILD HAS COMPLETED SUCCESSFULLY"
 
-    # Change back to the config directory
+    # Change to nix-config directory
     cd "$config_dir"
 
     # Check if in a Git repository
@@ -40,11 +37,11 @@ if [ $? -eq 0 ]; then
     fi
 
     # Git commit and push
-  if ! git diff-index --quiet HEAD --; then
-      read -p "Enter commit message: " commit_message
-      git add .
-      git commit -m "$commit_message"
-      git push origin master
+    if ! git diff-index --quiet HEAD --; then
+        read -p "Enter commit message: " commit_message
+        git add .
+        git commit -m "$commit_message"
+        git push origin master
     else
         echo "No changes to commit."
     fi
