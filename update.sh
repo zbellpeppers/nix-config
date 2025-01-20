@@ -7,6 +7,11 @@ set -e
 # Define directories
 config_dir="/home/zachary/nix-config"
 nixos_dir="/etc/nixos"
+backup_dir=$(mktemp -d)
+
+# Backup existing /etc/nixos
+sudo cp -r "$nixos_dir" "$backup_dir"
+echo "Backed up existing $nixos_dir to $backup_dir."
 
 # Remove existing files in /etc/nixos
 sudo rm -rf "$nixos_dir/"*
@@ -20,11 +25,8 @@ echo "Copied files from $config_dir to $nixos_dir."
 sudo chown -R root: "$nixos_dir/" || { echo "Ownership change failed"; exit 1; }
 echo "Changed ownership of files in $nixos_dir to root."
 
-# Rebuild System
-sudo nixos-rebuild switch
-
-# Check if rebuild was successful
-if [ $? -eq 0 ]; then
+# Attempt to rebuild the system
+if sudo nixos-rebuild switch; then
     echo "NIXOS REBUILD HAS COMPLETED SUCCESSFULLY"
 
     # Change to nix-config directory
@@ -47,4 +49,11 @@ if [ $? -eq 0 ]; then
     fi
 else
     echo "NIXOS REBUILD FAILED"
+    echo "Restoring previous configuration..."
+    sudo rm -rf "$nixos_dir"
+    sudo cp -r "$backup_dir/nixos" "$nixos_dir"
+    echo "Previous configuration restored. Please check your changes and try again."
 fi
+
+# Clean up the temporary backup
+sudo rm -rf "$backup_dir"
