@@ -6,7 +6,8 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      upgit = "/home/zachary/nix-config/update.sh";
+      upgit = "/home/zachary/nix-config/upgit.sh";
+      update = "/home/zachary/nix-config/update.sh";
     };
     history = {
       save = 10000;
