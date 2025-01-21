@@ -10,7 +10,6 @@
         dontPatchELF = true;
         nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
       }))
-    sddm-sugar-dark
   ];
   programs = {
     steam = {

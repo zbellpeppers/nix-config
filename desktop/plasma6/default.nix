@@ -9,7 +9,7 @@
     displayManager = {
       sddm = {
         enable = true;
-        theme = "${pkgs.sddm-sugar-dark}/share/sddm/themes/sugar-dark";
+        theme = "~/Documents/monochrome";
         wayland.enable = true;
         wayland.compositor = "kwin";
       };
