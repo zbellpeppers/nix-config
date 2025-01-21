@@ -6,14 +6,13 @@
   inherit (self) inputs;
   mkHost = name: system:
     nixpkgs.lib.nixosSystem {
-      modules =
-        [
-          {
-            networking.hostName = name;
-            nixpkgs.hostPlatform = system;
-          }
-          ./${name}
-        ];
+      modules = [
+        {
+          networking.hostName = name;
+          nixpkgs.hostPlatform = system;
+        }
+        ./${name}
+      ];
 
       # This allows to easily access flake inputs and outputs
       # from nixos modules, so it's a little bit cleaner
