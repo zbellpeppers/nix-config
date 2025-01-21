@@ -2,7 +2,6 @@
   imports = [
     ./audio
     ./boot
-    ./hardware
     ./network
     ./nix
     ./printer
