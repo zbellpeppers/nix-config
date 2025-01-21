@@ -6,7 +6,6 @@
     ./nix
     ./printer
     ./packages
-    ./users
   ];
 
   time = {

@@ -26,7 +26,7 @@ sudo chown -R root: "$nixos_dir/" || { echo "Ownership change failed"; exit 1; }
 echo "Changed ownership of files in $nixos_dir to root."
 
 # Attempt to rebuild the system
-if sudo nixos-rebuild switch; then
+if sudo nixos-rebuild switch --show-trace; then
     echo "NIXOS REBUILD HAS COMPLETED SUCCESSFULLY"
 
     # Change to nix-config directory
