@@ -1,4 +1,17 @@
 {pkgs, ...}: {
+  # Adding automatic nix flake updates:
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:tkmockingbird/nix-config";
+    flags = [
+      "--update-input"
+      "nixpkgs"
+      "--commit-lock-file"
+    ];
+    dates = "06:15";
+    persistent = true;
+  };
+
   nix = {
     # Enable lix
     package = pkgs.lix;
