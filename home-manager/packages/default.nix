@@ -17,6 +17,8 @@
     p7zip
     fastfetch
     ddcutil
+    vkbasalt
+    vkbasalt-cli
 
     # Entertainment
     stremio
