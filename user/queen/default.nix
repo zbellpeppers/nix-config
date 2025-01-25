@@ -3,9 +3,9 @@
   config,
   ...
 }: {
-  users.users.zachary = {
+  users.users.sarah = {
     isNormalUser = true;
-    description = "Zachary Bell Peppers";
+    description = "Sarah Nicole Smallwood";
     shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"

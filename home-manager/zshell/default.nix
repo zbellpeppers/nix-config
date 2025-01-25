@@ -6,8 +6,8 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      upgit = "/home/zachary/nix-config/gitupdate.sh";
-      update = "/home/zachary/nix-config/update.sh";
+      upgit = "/etc/nixos/gitupdate.sh";
+      update = "/etc/nixos/update.sh";
     };
     history = {
       save = 10000;
