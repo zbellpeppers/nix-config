@@ -6,10 +6,10 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
+    mutableExtensionsDir = true;
     userSettings = {
       "workbench.colorTheme" = "One Dark Pro Darker";
       "workbench.iconTheme" = "material-icon-theme";
-      "workbench.preferredDarkColorTheme" = "One Dark Pro Darker";
       editor = {
         "fontFamily" = "Fira Code";
         "fontWeight" = "600";
