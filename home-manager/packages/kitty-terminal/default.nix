@@ -2,7 +2,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "Fira Code";
+      name = "Meslo LGS NF";
       size = 12;
     };
     shellIntegration.enableZshIntegration = true;
