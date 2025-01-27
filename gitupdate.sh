@@ -18,25 +18,22 @@ backup_dir=$(mktemp -d)
 
 # Backup existing /etc/nixos
 sudo cp -r "$nixos_dir" "$backup_dir"
-echo "Backed up existing $nixos_dir to $backup_dir."
+echo "NixOS Configuration backed up to: $backup_dir."
 
 # Remove existing files in /etc/nixos
 sudo rm -rf "$nixos_dir/"*
-echo "Removed existing files in $nixos_dir."
 
 # Copy files from ~/nix-config to /etc/nixos
 sudo cp -r "$config_dir/"* "$nixos_dir/" || { echo "Copy failed"; exit 1; }
-echo "Copied files from $config_dir to $nixos_dir."
 
 # Attempt to rebuild the system
 if sudo nixos-rebuild switch; then
-    echo "NIXOS REBUILD HAS COMPLETED SUCCESSFULLY"
+    echo "NIXOS REBUILD COMPLETED"
     
     if [ -f "/etc/nixos/flake.lock" ]; then
-        echo "Copying updated flake.lock to nix-config directory..."
+        echo "Updating git's flake.lock"
         sudo cp "/etc/nixos/flake.lock" "/home/$current_user/nix-config/flake.lock"
         sudo chown $current_user:users "/home/$current_user/nix-config/flake.lock"
-        echo "flake.lock updated successfully."
     else
         echo "No flake.lock found in /etc/nixos. Skipping flake.lock update."
     fi
@@ -64,11 +61,9 @@ if sudo nixos-rebuild switch; then
         echo "No changes to commit."
     fi
 else
-    echo "NIXOS REBUILD FAILED"
-    echo "Restoring previous configuration..."
+    echo "NIXOS REBUILD FAILED. Previous configuration restored."
     sudo rm -rf "$nixos_dir"
     sudo cp -r "$backup_dir/nixos" "$nixos_dir"
-    echo "Previous configuration restored. Please check your changes and try again."
 fi
 
 # Clean up the temporary backup
