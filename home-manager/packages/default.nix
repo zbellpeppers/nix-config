@@ -18,6 +18,8 @@
     fastfetch
     ddcutil
 
+    firefox
+
     # Windows
     bottles
 

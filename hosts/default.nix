@@ -1,7 +1,6 @@
 {
   nixpkgs,
   self,
-  nix-vscode-extensions,
   ...
 }: let
   inherit (self) inputs;
@@ -20,7 +19,6 @@
       specialArgs = {
         inherit inputs;
         flake = self;
-        inherit nix-vscode-extensions;
       };
     };
 in {

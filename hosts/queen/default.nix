@@ -19,7 +19,6 @@
       home-manager.users.sarah = import ../../home-manager;
       home-manager.backupFileExtension = "backup";
     }
-    inputs.chaotic.nixosModules.default
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "thunderbolt" "usbhid" "uas" "sd_mod"];

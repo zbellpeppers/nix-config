@@ -19,7 +19,6 @@
       home-manager.users.zachary = import ../../home-manager;
       home-manager.backupFileExtension = "backup";
     }
-    inputs.chaotic.nixosModules.default
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "thunderbolt" "usbhid" "uas" "sd_mod"];
@@ -27,21 +26,21 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/adcfd1ca-2ed0-4d9b-b239-04503964d9b3";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/adcfd1ca-2ed0-4d9b-b239-04503964d9b3";
+    fsType = "btrfs";
+    options = ["subvol=@"];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/78D3-1750";
-      fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/78D3-1750";
+    fsType = "vfat";
+    options = ["fmask=0077" "dmask=0077"];
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/ffd3351c-758d-4eb7-9216-9f84b9c14591"; }
-    ];
+  swapDevices = [
+    {device = "/dev/disk/by-uuid/ffd3351c-758d-4eb7-9216-9f84b9c14591";}
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
