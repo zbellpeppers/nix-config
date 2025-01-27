@@ -29,8 +29,9 @@
       sync_to_monitor = "yes";
 
       # Window Layout
-      initial_window_width = 1050;
-      initial_window_height = 420;
+      remember_window_size = "no";
+      initial_window_width = 1080;
+      initial_window_height = 560;
 
       # Tab Bar
       tab_bar_edge = "top";
