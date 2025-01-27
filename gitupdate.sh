@@ -9,6 +9,7 @@ exec > >(tee -a "$log_file") 2>&1
 set -e
 
 # Define directories
+config_dir="/home/zachary/nix-config"
 nixos_dir="/etc/nixos"
 backup_dir=$(mktemp -d)
 
@@ -16,12 +17,24 @@ backup_dir=$(mktemp -d)
 sudo cp -r "$nixos_dir" "$backup_dir"
 echo "Backed up existing $nixos_dir to $backup_dir."
 
+# Remove existing files in /etc/nixos
+sudo rm -rf "$nixos_dir/"*
+echo "Removed existing files in $nixos_dir."
+
+# Copy files from ~/nix-config to /etc/nixos
+sudo cp -r "$config_dir/"* "$nixos_dir/" || { echo "Copy failed"; exit 1; }
+echo "Copied files from $config_dir to $nixos_dir."
+
+# Change ownership of the copied files to root
+sudo chown -R root: "$nixos_dir/" || { echo "Ownership change failed"; exit 1; }
+echo "Changed ownership of files in $nixos_dir to root."
+
 # Attempt to rebuild the system
 if sudo nixos-rebuild switch; then
     echo "NIXOS REBUILD HAS COMPLETED SUCCESSFULLY"
 
     # Change to nix-config directory
-    cd "$nixos_dir"
+    cd "$config_dir"
 
     # Check if in a Git repository
     if [ ! -d ".git" ]; then
@@ -30,11 +43,11 @@ if sudo nixos-rebuild switch; then
     fi
 
     # Git commit and push
-    if [[ -n $(git status --porcelain) ]]; then
+    if ! git diff-index --quiet HEAD --; then
         read -p "Enter commit message: " commit_message
-        git add . || { echo "Git add failed"; exit 1; }
-        git commit -m "$commit_message" || { echo "Git commit failed"; exit 1; }
-        git push origin master || { echo "Git push failed"; exit 1; }
+        git add .
+        git commit -m "$commit_message"
+        git push origin master
     else
         echo "No changes to commit."
     fi
