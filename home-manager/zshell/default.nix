@@ -28,6 +28,12 @@
       update = "/home/zachary/nix-config/update.sh";
     };
 
+    initExtra = ''
+      if [[ -o interactive ]]; then
+        fastfetch
+      fi
+    '';
+
     history = {
       save = 10000;
     };

@@ -36,9 +36,6 @@
       # Tab Bar
       tab_bar_edge = "top";
       tab_bar_style = "powerline";
-
-      # Advanced
-      startup_session = "./startup/startup.conf";
     };
   };
 }
