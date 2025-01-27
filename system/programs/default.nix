@@ -1,8 +1,13 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
+  environment.systemPackages = [
+    inputs.zen-browser.packages.${pkgs.system}.default
+  ];
+
   programs = {
     steam = {
       enable = true;
