@@ -5,7 +5,7 @@
     ./network
     ./nix
     ./printer
-    ./packages
+    ./programs
   ];
 
   time = {

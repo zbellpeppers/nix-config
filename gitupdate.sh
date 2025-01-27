@@ -8,8 +8,11 @@ exec > >(tee -a "$log_file") 2>&1
 # Exit Immediately if any command fails
 set -e
 
+# Get the current user
+current_user=$(whoami)
+
 # Define directories
-config_dir="/home/zachary/nix-config"
+config_dir="/home/$current_user/nix-config"
 nixos_dir="/etc/nixos"
 backup_dir=$(mktemp -d)
 
