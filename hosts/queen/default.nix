@@ -11,7 +11,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../system
     ../../desktop
-    ../../user
+    ../../user/queen
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;
