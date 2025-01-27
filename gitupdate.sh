@@ -28,13 +28,22 @@ echo "Removed existing files in $nixos_dir."
 sudo cp -r "$config_dir/"* "$nixos_dir/" || { echo "Copy failed"; exit 1; }
 echo "Copied files from $config_dir to $nixos_dir."
 
-# Change ownership of the copied files to root
-sudo chown -R root: "$nixos_dir/" || { echo "Ownership change failed"; exit 1; }
-echo "Changed ownership of files in $nixos_dir to root."
-
 # Attempt to rebuild the system
 if sudo nixos-rebuild switch; then
     echo "NIXOS REBUILD HAS COMPLETED SUCCESSFULLY"
+    
+    if [ -f "/etc/nixos/flake.lock" ]; then
+        echo "Copying updated flake.lock to nix-config directory..."
+        sudo cp "/etc/nixos/flake.lock" "/home/$current_user/nix-config/flake.lock"
+        sudo chown $current_user:users "/home/$current_user/nix-config/flake.lock"
+        echo "flake.lock updated successfully."
+    else
+        echo "No flake.lock found in /etc/nixos. Skipping flake.lock update."
+    fi
+
+    # Change ownership of the copied files to root
+    sudo chown -R root: "$nixos_dir/" || { echo "Ownership change failed"; exit 1; }
+    echo "Changed ownership of files in $nixos_dir to root."
 
     # Change to nix-config directory
     cd "$config_dir"
