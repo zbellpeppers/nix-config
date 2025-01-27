@@ -4,18 +4,21 @@
   ...
 }: let
   inherit (self) inputs;
+
   mkHost = name: system:
     nixpkgs.lib.nixosSystem {
       modules = [
-        {
+        ({
+          config,
+          pkgs,
+          ...
+        }: {
           networking.hostName = name;
           nixpkgs.hostPlatform = system;
-        }
-        ./${name}
+        })
+        (./. + "/${name}")
       ];
 
-      # This allows to easily access flake inputs and outputs
-      # from nixos modules, so it's a little bit cleaner
       specialArgs = {
         inherit inputs;
         flake = self;
