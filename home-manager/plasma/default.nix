@@ -25,9 +25,9 @@
       exec = "speedcrunch";
       icon = "org.gnome.Calculator";
     };
-    "foot" = {
+    "kitty" = {
       name = "Terminal";
-      exec = "foot";
+      exec = "kitty";
       icon = "terminal";
     };
   };
