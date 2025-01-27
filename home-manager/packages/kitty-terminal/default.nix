@@ -31,7 +31,6 @@
       # Window Layout
       initial_window_width = 1050;
       initial_window_height = 420;
-      window_resize_step_cells = 1;
 
       # Tab Bar
       tab_bar_edge = "top";
