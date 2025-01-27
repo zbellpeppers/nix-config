@@ -9,6 +9,7 @@
     ./tealdeer
     ./vscode
     ./foot-terminal
+    ./kitty-terminal
   ];
   home.packages = with pkgs; [
     # CLI Tools
