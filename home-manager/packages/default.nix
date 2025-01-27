@@ -18,7 +18,10 @@
     fastfetch
     ddcutil
 
-    # Windows
+    # Browser Related
+    persepolis
+
+    # Windows Emulation
     bottles
 
     # Entertainment
