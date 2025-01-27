@@ -17,8 +17,9 @@
     p7zip
     fastfetch
     ddcutil
-    vkbasalt
-    vkbasalt-cli
+
+    # Windows
+    bottles
 
     # Entertainment
     stremio
@@ -60,11 +61,12 @@
     winetricks
     protontricks
     mangohud
-    shadps4
+    vkbasalt
+    vkbasalt-cli
 
     # Torrenting
     calibre
-    qbittorrent-enhanced
+    rqbit
 
     # Fonts
     roboto
