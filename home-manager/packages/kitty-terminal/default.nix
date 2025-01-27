@@ -29,8 +29,8 @@
       sync_to_monitor = "yes";
 
       # Window Layout
-      initial_window_width = 1100;
-      initial_window_height = 450;
+      initial_window_width = 1080;
+      initial_window_height = 440;
       window_resize_step_cells = 1;
 
       # Tab Bar
