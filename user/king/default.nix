@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   users.users.zachary = {
@@ -26,5 +27,14 @@
     extraConfig = ''
       AddKeysToAgent yes
     '';
+  };
+
+  # Flatpak Configuration
+  services.flatpak = {
+    enable = true;
+    update.onActivation = true;
+    packages = [
+      "io.github.brunofin.Cohesion"
+    ];
   };
 }

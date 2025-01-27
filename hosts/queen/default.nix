@@ -20,6 +20,7 @@
       home-manager.backupFileExtension = "backup";
     }
     inputs.chaotic.nixosModules.default
+    inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "thunderbolt" "usbhid" "uas" "sd_mod"];
