@@ -31,8 +31,6 @@
 
   # User specific packages
   environment.systemPackages = with pkgs; [
-    librewolf
-    firedragon
   ];
 
   # Flatpak Configuration
