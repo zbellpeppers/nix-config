@@ -29,6 +29,11 @@
     '';
   };
 
+  # User specific packages
+  environment.systemPackages = with pkgs; [
+    librewolf
+  ];
+
   # Flatpak Configuration
   services.flatpak = {
     enable = true;
