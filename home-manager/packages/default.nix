@@ -40,7 +40,6 @@
     hunspell
     hunspellDicts.en-us
     kdePackages.skanpage
-    onlyoffice-desktopeditors
 
     # Spell Checks and Dictionaries
     aspell
