@@ -31,6 +31,7 @@
 
   # User specific packages
   environment.systemPackages = with pkgs; [
+    firedragon
   ];
 
   # Flatpak Configuration
