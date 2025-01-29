@@ -1,4 +1,12 @@
 {pkgs, ...}: {
+  programs.gnome-shell = {
+    enable = true;
+    theme = {
+      name = "Orchis";
+      package = pkgs.orchis-theme;
+    };
+  };
+
   xdg.desktopEntries = {
     "smartcode-stremio" = {
       name = "Stremio";
