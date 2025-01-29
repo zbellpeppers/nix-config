@@ -10,7 +10,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../system
-    ../../desktop
+    ../../desktop-environments/plasma6
     ../../user/queen
     inputs.home-manager.nixosModules.home-manager
     {
