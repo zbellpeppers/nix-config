@@ -16,6 +16,8 @@
     autoRepeatInterval = 32;
   };
 
+  programs.dconf.enable = true;
+
   environment.gnome.excludePackages = with pkgs; [
     orca
     evince
