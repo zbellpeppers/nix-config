@@ -3,6 +3,7 @@
     orchis-theme
     papirus-icon-theme
     papirus-folders
+    dconf2nix
   ];
 
   programs.gnome-shell = {
@@ -42,5 +43,7 @@
       exec = "kitty";
       icon = "terminal";
     };
+  };
+  dconf.settings = {
   };
 }
