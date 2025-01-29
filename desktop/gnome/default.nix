@@ -24,6 +24,10 @@
     gnome-builder
   ];
 
+  environment.sessionVariables = rec {
+    GSK_RENDERER = "gl";
+  };
+
   environment.gnome.excludePackages = with pkgs; [
     orca
     evince
