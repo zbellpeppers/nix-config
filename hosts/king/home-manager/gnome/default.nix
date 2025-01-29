@@ -8,6 +8,9 @@
     papirus-icon-theme
     papirus-folders
     dconf2nix
+    gnome-tweaks
+    gnome-shell-extensions
+    gnome-builder
   ];
 
   programs.gnome-shell = {

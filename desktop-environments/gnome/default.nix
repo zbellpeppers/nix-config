@@ -16,16 +16,6 @@
     autoRepeatInterval = 32;
   };
 
-  environment.systemPackages = with pkgs; [
-    gnome-tweaks
-    gnome-shell-extensions
-    gnome-builder
-  ];
-
-  services.gnome = {
-    gnome-browser-connector.enable = true;
-  };
-
   environment.gnome.excludePackages = with pkgs; [
     orca
     evince
