@@ -1,5 +1,6 @@
 {...}: {
   imports = [
-    ./plasma6
+    #./plasma6
+    ./gnome
   ];
 }
