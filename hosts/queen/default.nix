@@ -52,14 +52,17 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    graphics.enable = true;
-    amdgpu.amdvlk = {
+    graphics = {
       enable = true;
-      support32Bit.enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        vulkan-loader
+        vulkan-validation-layers
+        vulkan-extension-layer
+      ];
     };
     # Monitor Brightness Control
     i2c.enable = true;
-
     bluetooth = {
       enable = true;
       powerOnBoot = true;

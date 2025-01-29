@@ -19,13 +19,11 @@
   environment.systemPackages = with pkgs; [
     gnome-tweaks
     gnome-shell-extensions
-    vlc
-    ffmpeg
     gnome-builder
   ];
 
-  environment.sessionVariables = rec {
-    GSK_RENDERER = "gl";
+  services.gnome = {
+    gnome-browser-connector.enable = true;
   };
 
   environment.gnome.excludePackages = with pkgs; [

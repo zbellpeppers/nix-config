@@ -26,10 +26,10 @@
 
     # Entertainment
     stremio
+    vlc
 
     # File Search
     fsearch
-    kdePackages.filelight
 
     #Communication
     equibop

@@ -42,5 +42,8 @@ in {
     desktopManager.plasma6.enableQt5Integration = true;
   };
 
-  environment.systemPackages = [monochrome-sddm-theme];
+  environment.systemPackages = with pkgs; [
+    monochrome-sddm-theme
+    kdePackages.filelight
+  ];
 }
