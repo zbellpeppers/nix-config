@@ -12,7 +12,6 @@
     gnome-tweaks
     gnome-shell-extensions
     gnome-builder
-    gnomeExtensions.dash-to-panel
   ];
 
   programs.gnome-shell = {
@@ -21,6 +20,10 @@
       name = "Orchis-Dark-Compact";
       package = pkgs.orchis-theme;
     };
+    extensions = [
+      {package = pkgs.gnomeExtensions.dash-to-panel;}
+      {package = pkgs.gnomeExtensions.brightness-control-using-ddcutil;}
+    ];
   };
 
   xdg.desktopEntries = {
