@@ -20,9 +20,10 @@
       name = "Orchis-Dark-Compact";
       package = pkgs.orchis-theme;
     };
-    extensions = [
-      {package = pkgs.gnomeExtensions.dash-to-panel;}
-      {package = pkgs.gnomeExtensions.brightness-control-using-ddcutil;}
+    extensions = with pkgs.gnomeExtensions; [
+      {package = dash-to-panel;}
+      {package = brightness-control-using-ddcutil;}
+      {package = extension-list;}
     ];
   };
 
