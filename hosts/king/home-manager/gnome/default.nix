@@ -32,11 +32,6 @@
       exec = "equibop";
       icon = "discord";
     };
-    "codium" = {
-      name = "Code - OSS";
-      exec = "codium";
-      icon = "code-oss";
-    };
     "org.speedcrunch.SpeedCrunch" = {
       name = "Calculator";
       exec = "speedcrunch";
@@ -48,9 +43,6 @@
       icon = "terminal";
     };
   };
-  dconf = {
-    enable = true;
-    settings = {
-    };
+  dconf.settings = {
   };
 }

@@ -22,6 +22,7 @@
     gnome-builder
   ];
 
+  programs.dconf.enable = true;
   services.gnome = {
     gnome-browser-connector.enable = true;
   };
