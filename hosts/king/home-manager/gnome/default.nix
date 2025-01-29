@@ -11,6 +11,9 @@
       name = "Orchis-Dark-Compact";
       package = pkgs.orchis-theme;
     };
+    extensions = [
+      {package = pkgs.gnomeExtensions.dash-to-panel;}
+    ];
   };
 
   xdg.desktopEntries = {
