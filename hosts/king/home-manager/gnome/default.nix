@@ -24,6 +24,8 @@
       {package = dash-to-panel;}
       {package = brightness-control-using-ddcutil;}
       {package = extension-list;}
+      {package = desktop-icons-ng-ding;}
+      {package = just-perfection;}
     ];
   };
 
