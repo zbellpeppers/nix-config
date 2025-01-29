@@ -31,7 +31,7 @@
 
   # User specific packages
   environment.systemPackages = with pkgs; [
-    firedragon
+    inputs.zen-browser.packages.${pkgs.system}.default
   ];
 
   # Flatpak Configuration
