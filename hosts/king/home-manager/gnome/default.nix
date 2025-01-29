@@ -43,6 +43,9 @@
       icon = "terminal";
     };
   };
-  dconf.settings = {
+  dconf = {
+    enable = true;
+    settings = {
+    };
   };
 }
