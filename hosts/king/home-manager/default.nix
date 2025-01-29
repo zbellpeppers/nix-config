@@ -6,8 +6,9 @@
 }: {
   imports = [
     ./packages
-    ./plasma
+    #./plasma
     ./zshell
+    ./gnome
   ];
   home.username = "zachary";
   home.homeDirectory = "/home/zachary";
