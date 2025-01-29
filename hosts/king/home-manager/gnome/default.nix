@@ -1,8 +1,13 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
+  home.file.".config/dconf/user".text = ''
+    user-db:user
+    system-db:local
+  '';
   home.packages = with pkgs; [
     orchis-theme
     papirus-icon-theme
@@ -46,9 +51,6 @@
       icon = "terminal";
     };
   };
-  dconf = {
-    enable = true;
-    settings = {
-    };
+  dconf.settings = {
   };
 }

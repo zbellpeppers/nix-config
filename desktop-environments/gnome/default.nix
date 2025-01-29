@@ -16,6 +16,7 @@
     autoRepeatInterval = 32;
   };
 
+  # Dconf Settings
   programs.dconf.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
