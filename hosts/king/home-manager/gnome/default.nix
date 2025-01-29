@@ -4,10 +4,6 @@
   config,
   ...
 }: {
-  home.file.".config/dconf/user".text = ''
-    user-db:user
-    system-db:local
-  '';
   home.packages = with pkgs; [
     orchis-theme
     papirus-icon-theme
@@ -16,6 +12,7 @@
     gnome-tweaks
     gnome-shell-extensions
     gnome-builder
+    gnomeExtensions.dash-to-panel
   ];
 
   programs.gnome-shell = {
@@ -24,9 +21,6 @@
       name = "Orchis-Dark-Compact";
       package = pkgs.orchis-theme;
     };
-    extensions = [
-      {package = pkgs.gnomeExtensions.dash-to-panel;}
-    ];
   };
 
   xdg.desktopEntries = {
