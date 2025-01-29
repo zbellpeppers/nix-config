@@ -10,7 +10,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../system
-    ../../desktop-environments/gnome
+    ../../desktop-environments/plasma
     ../../user/king
     inputs.home-manager.nixosModules.home-manager
     {

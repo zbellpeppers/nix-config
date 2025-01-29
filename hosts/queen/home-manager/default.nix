@@ -6,11 +6,11 @@
 }: {
   imports = [
     ./packages
-    ./plasma
+    /plasma
     ./zshell
     #./gnome
   ];
-  home.username = "zachary";
-  home.homeDirectory = "/home/zachary";
+  home.username = "sarah";
+  home.homeDirectory = "/home/sarah";
   home.stateVersion = "24.11";
 }
