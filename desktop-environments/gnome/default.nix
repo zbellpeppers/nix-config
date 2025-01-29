@@ -20,9 +20,6 @@
     gnome-tweaks
     gnome-shell-extensions
     gnome-builder
-    orchis-theme
-    papirus-icon-theme
-    papirus-folders
   ];
 
   services.gnome = {

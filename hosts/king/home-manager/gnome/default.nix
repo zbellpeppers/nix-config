@@ -1,8 +1,14 @@
 {pkgs, ...}: {
+  home.packages = with pkgs; [
+    orchis-theme
+    papirus-icon-theme
+    papirus-folders
+  ];
+
   programs.gnome-shell = {
     enable = true;
     theme = {
-      name = "Orchis";
+      name = "Orchis-Dark-Compact";
       package = pkgs.orchis-theme;
     };
   };
