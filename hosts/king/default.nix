@@ -17,7 +17,7 @@
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.users.zachary = import ./home-manager;
-      home-manager.backupFileExtension = "0001";
+      home-manager.backupFileExtension = "0002";
     }
     inputs.chaotic.nixosModules.default
     inputs.nix-flatpak.nixosModules.nix-flatpak
