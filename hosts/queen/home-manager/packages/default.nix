@@ -19,6 +19,7 @@
     p7zip
     fastfetch
     ddcutil
+    nix-prefetch-github
 
     # Browser Related
     persepolis
