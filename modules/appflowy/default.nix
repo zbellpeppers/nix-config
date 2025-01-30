@@ -15,7 +15,7 @@
     rec {
       x86_64-linux = {
         urlSuffix = "linux-x86_64.tar.gz";
-        hash = "sha256-fn1UK8+7+vFL4nTnnRbfjCgttVYSw6pmmqabeHqTY3g=";
+        hash = "sha256-mg5bME6Of+Jk4O1HyKTAZskuNhSpqEbxvFXtXG41Z3M=";
       };
       x86_64-darwin = {
         urlSuffix = "macos-universal.zip";

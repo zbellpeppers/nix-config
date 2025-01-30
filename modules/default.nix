@@ -1,3 +1,0 @@
-{
-  appflowy = import ./appflowy;
-}
