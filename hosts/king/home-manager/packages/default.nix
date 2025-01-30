@@ -40,6 +40,7 @@
     # Office Apps
     kdePackages.skanpage
     onlyoffice-desktopeditors
+    appflowy
 
     # Spell Checks and Dictionaries
     aspell
