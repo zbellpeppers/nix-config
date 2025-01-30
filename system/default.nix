@@ -6,7 +6,6 @@
     ./nix
     ./printer
     ./programs
-    ./fonts
   ];
 
   time = {
