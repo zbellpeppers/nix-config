@@ -11,6 +11,17 @@
     ./vscode
     ./kitty-terminal
   ];
+
+  home.file.".config/onlyoffice/DesktopEditors.conf".text = ''
+    [fonts]
+    font-text-name=Roboto
+    font-text-size=11
+    font-heading-name=Roboto
+    font-heading-size=14
+    font-spreadsheet-name=Roboto
+    font-spreadsheet-size=12
+  '';
+
   home.packages = with pkgs; [
     # CLI Tools
     wget
