@@ -73,11 +73,5 @@
     # Torrenting
     calibre
     rqbit
-
-    # Fonts
-    roboto
-    roboto-mono
-    roboto-serif
-    fira-code
   ];
 }
