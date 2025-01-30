@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -20,6 +21,7 @@
 
     # Browser Related
     persepolis
+    firedragon
 
     # Windows Emulation
     bottles
@@ -40,6 +42,7 @@
     hunspell
     hunspellDicts.en-us
     kdePackages.skanpage
+    onlyoffice-desktopeditors
 
     # Spell Checks and Dictionaries
     aspell
