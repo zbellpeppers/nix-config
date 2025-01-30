@@ -11,15 +11,6 @@
     ./vscode
     ./kitty-terminal
   ];
-  # home.file.".config/onlyoffice/DesktopEditors.conf".text = ''
-  #   [fonts]
-  #   font-text-name=Roboto
-  #   font-text-size=11
-  #   font-heading-name=Roboto
-  #   font-heading-size=14
-  #   font-spreadsheet-name=Roboto
-  #   font-spreadsheet-size=12
-  # '';
   home.packages = with pkgs; [
     # CLI Tools
     wget
@@ -46,16 +37,15 @@
     equibop
     kdePackages.kdeconnect-kde
 
-    # Office Suite
-    libreoffice-qt-fresh
-    hunspell
-    hunspellDicts.en-us
+    # Office Apps
     kdePackages.skanpage
     onlyoffice-desktopeditors
 
     # Spell Checks and Dictionaries
     aspell
     aspellDicts.en
+    hunspell
+    hunspellDicts.en-us
 
     # Proton Apps
     protonmail-desktop

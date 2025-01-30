@@ -38,16 +38,15 @@
     equibop
     kdePackages.kdeconnect-kde
 
-    # Office Suite
-    libreoffice-qt-fresh
-    hunspell
-    hunspellDicts.en-us
+    # Office Apps
     kdePackages.skanpage
     onlyoffice-desktopeditors
 
     # Spell Checks and Dictionaries
     aspell
     aspellDicts.en
+    hunspell
+    hunspellDicts.en-us
 
     # Proton Apps
     protonmail-desktop
