@@ -33,7 +33,6 @@
     enable = true;
     update.onActivation = true;
     packages = [
-      "io.github.brunofin.Cohesion"
     ];
   };
 }
