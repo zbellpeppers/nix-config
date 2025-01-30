@@ -36,4 +36,21 @@
     packages = [
     ];
   };
+
+  # Font Configuration
+  fonts = {
+    enableDefaultPackages = true;
+    fontDir.enable = true;
+    packages = with pkgs; [
+      fira-code
+    ];
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        serif = ["Liberation Serif, Regular"];
+        sansSerif = ["Liberation Sans, Regular"];
+        monospace = ["Liberation Mono, Regular"];
+      };
+    };
+  };
 }
