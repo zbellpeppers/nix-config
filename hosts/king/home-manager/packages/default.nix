@@ -21,6 +21,7 @@ in {
     fastfetch
     ddcutil
     unrar
+    podman-desktop
 
     # Browser Related
     persepolis
