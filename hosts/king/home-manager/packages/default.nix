@@ -75,7 +75,7 @@ in {
 
     # Torrenting
     calibre
-    rqbit
+    transmission_4-qt
 
     # Fonts
     roboto
