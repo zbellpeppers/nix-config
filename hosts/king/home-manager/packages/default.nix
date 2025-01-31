@@ -75,7 +75,7 @@ in {
 
     # Torrenting
     calibre
-    transmission_4-qt
+    qbittorrent-enhanced
 
     # Fonts
     roboto

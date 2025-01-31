@@ -73,7 +73,7 @@
 
     # Torrenting
     calibre
-    rqbit
+    qbittorrent-enhanced
 
     # Fonts
     roboto
