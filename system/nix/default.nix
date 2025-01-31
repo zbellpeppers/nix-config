@@ -25,7 +25,7 @@
 
     settings = {
       auto-optimise-store = true;
-      # use binary cache, its not gentoo
+      # Uses binary Cache - Saves download time
       builders-use-substitutes = true;
       # allow sudo users to mark the following values as trusted
       allowed-users = ["@wheel"];
@@ -38,9 +38,11 @@
       # continue building derivations if one fails
       keep-going = true;
       log-lines = 20;
+      # Enables Flakes and other experimental commands
       extra-experimental-features = ["flakes" "nix-command" "recursive-nix" "ca-derivations"];
-
-      # use binary cache, its not gentoo
+      # Isolates packages from eachother. Necessary for Bottles
+      sandbox = true;
+      # Uses binary Cache - Saves download time
       substituters = [
         "https://cache.nixos.org"
       ];
