@@ -57,9 +57,8 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-extension-layer
+        amdvlk
+        rocmPackages.clr
       ];
     };
     # Monitor Brightness Control
@@ -67,7 +66,6 @@
     bluetooth = {
       enable = true;
       powerOnBoot = true;
-      package = pkgs.bluez;
     };
   };
 }

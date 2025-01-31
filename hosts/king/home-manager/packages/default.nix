@@ -25,7 +25,6 @@ in {
     # Browser Related
     persepolis
     firedragon
-    # kdePackages.kamoso
     cheese
 
     # Windows Emulation
