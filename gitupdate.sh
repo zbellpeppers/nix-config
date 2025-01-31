@@ -1,10 +1,6 @@
 
 #!/bin/bash
 
-# Set up logging
-log_file="/var/log/nixos-rebuild-$(date +%Y%m%d-%H%M%S).log"
-exec > >(tee -a "$log_file") 2>&1
-
 # Exit Immediately if any command fails
 set -e
 
