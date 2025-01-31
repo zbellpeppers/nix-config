@@ -15,7 +15,7 @@
           to = 1764;
         }
       ];
-      allowedTCPPorts = [11434 3000 9000];
+      allowedTCPPorts = [11434];
       allowedTCPPortRanges = [
         # Port Forward - KDEConnect
         {
