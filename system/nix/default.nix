@@ -43,10 +43,12 @@
       # Uses binary Cache - Saves download time
       substituters = [
         "https://cache.nixos.org"
+        "https://rocm.cachix.org"
       ];
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "rocm.cachix.org-1:6Iv6py1xxKkNR0U/OTW7EQN0fJr1AZHpEUvBpyXGecw="
       ];
     };
   };
