@@ -20,7 +20,7 @@ in {
     p7zip
     fastfetch
     ddcutil
-    nix-prefetch-github
+    unrar
 
     # Browser Related
     persepolis
