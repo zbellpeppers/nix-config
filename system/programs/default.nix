@@ -4,6 +4,7 @@
   inputs,
   ...
 }: {
+  services.input-remapper.enable = true;
   programs = {
     steam = {
       enable = true;
