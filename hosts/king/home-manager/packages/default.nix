@@ -3,7 +3,9 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  appflowy = pkgs.callPackage ../../../../modules/appflowy {};
+in {
   imports = [
     ./bash
     ./git
@@ -41,6 +43,7 @@
     # Office Apps
     kdePackages.skanpage
     onlyoffice-desktopeditors
+    appflowy
 
     # Spell Checks and Dictionaries
     aspell

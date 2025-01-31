@@ -15,7 +15,7 @@
     rec {
       x86_64-linux = {
         urlSuffix = "linux-x86_64.tar.gz";
-        hash = "sha256-mg5bME6Of+Jk4O1HyKTAZskuNhSpqEbxvFXtXG41Z3M=";
+        hash = "sha256-c6uMtoc/36Ni7BuLTLyVEp5ENI1uhPSfUJ4YaDlNEoU=";
       };
       x86_64-darwin = {
         urlSuffix = "macos-universal.zip";
@@ -106,6 +106,7 @@ in
       sourceProvenance = with sourceTypes; [binaryNativeCode];
       license = licenses.agpl3Only;
       changelog = "https://github.com/AppFlowy-IO/appflowy/releases/tag/${finalAttrs.version}";
+      maintainers = with maintainers; [darkonion0];
       platforms = ["x86_64-linux"] ++ platforms.darwin;
       mainProgram = "appflowy";
     };
