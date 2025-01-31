@@ -28,6 +28,7 @@ in {
 
     # Windows Emulation
     bottles
+    input-remapper
 
     # Entertainment
     stremio
