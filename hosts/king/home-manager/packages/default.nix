@@ -26,6 +26,7 @@ in {
     persepolis
     firedragon
     # kdePackages.kamoso
+    cheese
 
     # Windows Emulation
     bottles
