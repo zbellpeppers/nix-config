@@ -40,8 +40,6 @@
       log-lines = 20;
       # Enables Flakes and other experimental commands
       extra-experimental-features = ["flakes" "nix-command" "recursive-nix" "ca-derivations"];
-      # Isolates packages from eachother. Necessary for Bottles
-      sandbox = true;
       # Uses binary Cache - Saves download time
       substituters = [
         "https://cache.nixos.org"
