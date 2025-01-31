@@ -18,6 +18,7 @@
       "nix"
       "lp"
       "scanner"
+      "docker"
     ];
   };
 
@@ -42,5 +43,9 @@
     enable = true;
     acceleration = "rocm";
     rocmOverrideGfx = "10.3.0";
+  };
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
   };
 }
