@@ -53,12 +53,12 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    amdgpu.opencl.enable = true;
     graphics = {
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
         amdvlk
-        rocmPackages.clr
       ];
     };
     # Monitor Brightness Control
