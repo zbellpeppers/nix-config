@@ -15,6 +15,7 @@
   # AI Container - Better UI than using Terminal
   virtualisation.podman = {
     enable = true;
+    networkSocket.openFirewall = true;
     dockerCompat = true; # For Docker CLI compatibility
     dockerSocket.enable = true; # Required for Podman Desktop
   };
