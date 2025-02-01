@@ -73,9 +73,10 @@ in {
 
     # Gaming
     heroic
-    wineWowPackages.unstableFull
+    wineWowPackages.waylandFull
     winetricks
     protontricks
+    mono
     mangohud
     vkbasalt
     vkbasalt-cli
