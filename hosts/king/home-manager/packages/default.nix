@@ -25,7 +25,6 @@ in {
 
     # Browser Related
     persepolis
-    firedragon
     cheese
     (vivaldi.overrideAttrs
       (oldAttrs: {
