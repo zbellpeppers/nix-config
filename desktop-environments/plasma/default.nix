@@ -14,9 +14,11 @@
   };
 in {
   qt.platformTheme = "kde";
-  environment.plasma6.excludePackages = [
-    pkgs.kdePackages.oxygen
-    pkgs.kdePackages.elisa
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    oxygen
+    elisa
+    discover
+    konsole
   ];
   services = {
     displayManager = {
