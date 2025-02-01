@@ -57,5 +57,4 @@
     allowUnfree = true;
     allowBroken = true;
   };
-  services.fwupd.enable = true;
 }

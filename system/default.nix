@@ -6,6 +6,7 @@
     ./nix
     ./printer
     ./programs
+    ./services
   ];
 
   time = {
