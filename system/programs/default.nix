@@ -14,5 +14,6 @@
     zsh = {
       enable = true;
     };
+    gamescope.enable = true;
   };
 }
