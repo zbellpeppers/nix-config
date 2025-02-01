@@ -78,6 +78,7 @@ in {
     protontricks
     mono
     mangohud
+    r2modman
     vkbasalt
     vkbasalt-cli
 
