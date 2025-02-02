@@ -5,6 +5,7 @@
   ...
 }: let
   appflowy = pkgs.callPackage ../../../../modules/appflowy {};
+  thorium = pkgs.callPackage ../../../../modules/thorium {};
 in {
   imports = [
     ./bash
@@ -34,6 +35,7 @@ in {
         nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
       }))
     brave
+    thorium
 
     # Windows Emulation
     bottles
