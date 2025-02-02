@@ -44,9 +44,8 @@
         },
 
         -- Window layout
-        initial_cols = 10,
-        initial_rows = 2,
-        dpi = 192,
+        initial_cols = 115,
+        initial_rows = 30,
 
         -- Tab bar
         tab_bar_at_bottom = false,
