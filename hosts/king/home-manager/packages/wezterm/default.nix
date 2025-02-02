@@ -44,12 +44,12 @@
         },
 
         -- Window layout
-        initial_cols = 60,
-        initial_rows = 14,
+        initial_cols = 10,
+        initial_rows = 2,
         dpi = 192,
 
         -- Tab bar
-        tab_bar_at_bottom = false,
+        tab_bar_at_bottom = false,w
         use_fancy_tab_bar = true,
 
         -- Additional settings
