@@ -23,6 +23,7 @@
 
         -- Scrollback
         scrollback_lines = 10000,
+        enable_scroll_bar = true,
 
         -- Mouse settings
         mouse_bindings = {
@@ -45,6 +46,7 @@
         -- Window layout
         initial_cols = 120,
         initial_rows = 28,
+        dpi = 192.0,
 
         -- Tab bar
         tab_bar_at_bottom = false,
