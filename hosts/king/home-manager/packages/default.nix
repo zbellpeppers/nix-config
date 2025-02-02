@@ -36,6 +36,7 @@ in {
       }))
     brave
     thorium
+    ungoogled-chromium
 
     # Windows Emulation
     bottles
