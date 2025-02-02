@@ -22,6 +22,7 @@ in {
     ddcutil
     unrar
     podman-desktop
+    appimage-run
 
     # Browser Related
     persepolis
