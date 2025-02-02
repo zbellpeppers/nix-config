@@ -8,7 +8,7 @@
 
       return {
         -- Font settings
-        font = wezterm.font("Meslo LGS NF"),
+        font = wezterm.font "Fira Code",
         font_size = 11.0,
 
         -- Color scheme
