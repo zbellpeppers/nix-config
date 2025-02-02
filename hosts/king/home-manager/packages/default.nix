@@ -32,6 +32,7 @@ in {
         dontPatchELF = true;
         nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
       }))
+    brave
 
     # Windows Emulation
     bottles
