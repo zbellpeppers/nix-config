@@ -23,6 +23,7 @@
   services.open-webui = {
     enable = true;
     openFirewall = true;
+    stateDir = /var/lib/open-webui;
     environment = {
       ANONYMIZED_TELEMETRY = "False";
       DO_NOT_TRACK = "True";
