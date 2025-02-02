@@ -44,7 +44,7 @@
         },
 
         -- Window layout
-        initial_cols = 115,
+        initial_cols = 116,
         initial_rows = 30,
 
         -- Tab bar

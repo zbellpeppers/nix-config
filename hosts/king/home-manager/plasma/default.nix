@@ -25,9 +25,9 @@
       exec = "speedcrunch";
       icon = "org.gnome.Calculator";
     };
-    "kitty" = {
+    "org.wezfurlong.wezterm" = {
       name = "Terminal";
-      exec = "kitty";
+      exec = "wezterm";
       icon = "terminal";
     };
   };

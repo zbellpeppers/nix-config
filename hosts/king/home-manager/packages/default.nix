@@ -11,7 +11,7 @@ in {
     ./git
     ./tealdeer
     ./vscode
-    ./kitty-terminal
+    # ./kitty-terminal
     ./wezterm
   ];
   home.packages = with pkgs; [
