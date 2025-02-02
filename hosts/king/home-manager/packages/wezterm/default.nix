@@ -9,10 +9,10 @@
       return {
         -- Font settings
         font = wezterm.font("Meslo LGS NF"),
-        font_size = 12.0,
+        font_size = 11.0,
 
         -- Color scheme
-        color_scheme = "One Dark (Gogh)",
+        color_scheme = "Monokai Pro Ristretto (Gogh)",
 
         -- Cursor settings
         default_cursor_style = "SteadyBar",
@@ -43,8 +43,8 @@
         },
 
         -- Window layout
-        initial_cols = 128,
-        initial_rows = 30,
+        initial_cols = 120,
+        initial_rows = 28,
 
         -- Tab bar
         tab_bar_at_bottom = false,
@@ -52,8 +52,6 @@
 
         -- Additional settings
         hide_mouse_cursor_when_typing = true,
-        default_prog = { "zsh", "--login", "-c", "fastfetch; zsh" },
-
         -- Key bindings (you may want to customize these)
         keys = {
           -- Add your custom key bindings here
