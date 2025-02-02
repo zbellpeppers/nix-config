@@ -41,10 +41,10 @@ in
 
     desktopItems = [
       (makeDesktopItem {
-        name = "thorium";
+        name = "Thorium";
         exec = "thorium";
-        icon = "thorium";
-        desktopName = "Thorium Browser";
+        icon = "thorium-browser";
+        desktopName = "Thorium";
         comment = "Chromium-based browser with performance optimizations";
         categories = ["Network" "WebBrowser"];
         startupWMClass = "thorium-browser";
