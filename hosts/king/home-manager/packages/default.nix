@@ -27,12 +27,6 @@ in {
     # Browser Related
     persepolis
     cheese
-    (vivaldi.overrideAttrs
-      (oldAttrs: {
-        dontWrapQtApps = false;
-        dontPatchELF = true;
-        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
-      }))
 
     # Windows Emulation
     bottles
@@ -67,6 +61,8 @@ in {
     alejandra
     gcc
     kdePackages.kate
+    python313FreeThreading
+    python313Packages.pip
 
     # General Apps
     speedcrunch
