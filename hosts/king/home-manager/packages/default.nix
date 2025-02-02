@@ -11,7 +11,6 @@ in {
     ./git
     ./tealdeer
     ./vscode
-    # ./kitty-terminal
     ./wezterm
   ];
   home.packages = with pkgs; [
@@ -34,7 +33,6 @@ in {
         dontPatchELF = true;
         nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
       }))
-    brave
 
     # Windows Emulation
     bottles
