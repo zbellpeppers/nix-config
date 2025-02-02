@@ -12,6 +12,8 @@ valid_commands=("switch" "boot" "test" "build" "dry-activate" "build-vm" "build-
 
 # Specify Rebuild Command
 read -p "Enter nixos-rebuild command: " rebuild_type
+# Sets default rebuild to switch
+rebuild_type=${rebuild_type:-switch}
 
 # Get the current user
 current_user=$(whoami)
