@@ -12,7 +12,7 @@ in {
     ./tealdeer
     ./vscode
     ./kitty-terminal
-    ./librewolf
+    # ./librewolf
   ];
   home.packages = with pkgs; [
     # CLI Tools
