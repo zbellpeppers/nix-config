@@ -12,7 +12,7 @@
         font_size = 11.0,
 
         -- Color scheme
-        color_scheme = "Monokai Pro Ristretto (Gogh)",
+        color_scheme = "Catppuccin Mocha",
 
         -- Cursor settings
         default_cursor_style = "SteadyBar",

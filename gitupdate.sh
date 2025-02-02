@@ -3,6 +3,15 @@
 
 # Exit Immediately if any command fails
 set -e
+# Cache sudo credentials & Keep them active
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Define nixos-rebuild commands
+valid_commands=("switch" "boot" "test" "build" "dry-activate" "build-vm" "build-vm-with-bootloader" "dry-build" "edit")
+
+# Specify Rebuild Command
+read -p "Enter nixos-rebuild command: " rebuild_type
 
 # Get the current user
 current_user=$(whoami)
@@ -21,41 +30,48 @@ sudo rm -rf "$nixos_dir/"*
 
 # Copy files from ~/nix-config to /etc/nixos
 sudo cp -r "$config_dir/"* "$nixos_dir/" || { echo "Copy failed"; exit 1; }
+echo "Nix-config Copied to /etc/nixos"
 
 # Attempt to rebuild the system
-if sudo nixos-rebuild switch; then
-    echo "NIXOS REBUILD COMPLETED"
-    
-    if [ -f "/etc/nixos/flake.lock" ]; then
-        echo "Updating git's flake.lock"
-        sudo cp "/etc/nixos/flake.lock" "/home/$current_user/nix-config/flake.lock"
-        sudo chown $current_user:users "/home/$current_user/nix-config/flake.lock"
+if [[ " ${valid_commands[@]} " =~ " ${rebuild_type} " ]]; then
+    if sudo nixos-rebuild "$rebuild_type"; then
+        echo "NIXOS REBUILD COMPLETED"
     else
-        echo "No flake.lock found in /etc/nixos. Skipping flake.lock update."
+        echo "NIXOS REBUILD FAILED"
     fi
+else
+    echo "Invalid rebuild type. Valid options are: ${valid_commands[*]}"
+fi
 
-    # Change ownership of the copied files to root
-    sudo chown -R root: "$nixos_dir/" || { echo "Ownership change failed"; exit 1; }
-    echo "Changed ownership of files in $nixos_dir to root."
 
-    # Change to nix-config directory
-    cd "$config_dir"
+if [ -f "/etc/nixos/flake.lock" ]; then
+    echo "Updating git's flake.lock"
+    sudo cp "/etc/nixos/flake.lock" "/home/$current_user/nix-config/flake.lock"
+    sudo chown $current_user:users "/home/$current_user/nix-config/flake.lock"
+else
+    echo "No flake.lock found in /etc/nixos. Skipping flake.lock update."
+fi
 
-    # Check if in a Git repository
-    if [ ! -d ".git" ]; then
-        echo "Not a Git repository. Exiting."
-        exit 1
-    fi
+# Change ownership of the copied files to root
+sudo chown -R root: "$nixos_dir/" || { echo "Ownership change failed"; exit 1; }
+echo "Changed ownership of files in $nixos_dir to root."
 
-    # Git commit and push
-    if ! git diff-index --quiet HEAD --; then
-        read -p "Enter commit message: " commit_message
-        git add .
-        git commit -m "$commit_message"
-        git push origin master
-    else
-        echo "No changes to commit."
-    fi
+# Change to Git directory
+cd "$config_dir"
+if [ ! -d ".git" ]; then
+    echo "Not a Git repository. Exiting."
+    exit 1
+fi
+
+# Git commit and push
+if ! git diff-index --quiet HEAD --; then
+    read -p "Enter commit message: " commit_message
+    git add .
+    git commit -m "$commit_message"
+    git push origin master
+else
+    echo "No changes to commit."
+fi
 else
     echo "NIXOS REBUILD FAILED. Previous configuration restored."
     sudo rm -rf "$nixos_dir"
