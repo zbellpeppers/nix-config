@@ -49,7 +49,7 @@
         dpi = 192,
 
         -- Tab bar
-        tab_bar_at_bottom = false,w
+        tab_bar_at_bottom = false,
         use_fancy_tab_bar = true,
 
         -- Additional settings
