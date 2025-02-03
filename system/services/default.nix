@@ -16,6 +16,7 @@
   # services.llama-cpp = {
   #   enable = true;
   #   openFirewall = true;
+  #   model = "/home/zachary/Downloads/DeepSeek-R1-Distill-Qwen-32B-IQ4_XS_1.gguf";
   #   extraFlags = [
   #     "-t"
   #     "16"
@@ -23,9 +24,7 @@
   #     "32"
   #     "-mli"
   #     "-c"
-  #     "0"
-  #     "--numa"
-  #     "numactl"
+  #     "4096"
   #   ];
   # };
   # AI Container - Better UI than using Terminal
