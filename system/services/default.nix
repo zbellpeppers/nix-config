@@ -32,6 +32,8 @@ in {
       "--mlock"
       "-c"
       "4096"
+      "-m"
+      "/home/zachary/Downloads/DeepSeek-R1-Distill-Llama-8B-Q8_0_1.gguf"
     ];
   };
   # AI Container - Better UI than using Terminal
