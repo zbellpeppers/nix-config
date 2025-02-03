@@ -23,6 +23,7 @@ in {
     unrar
     podman-desktop
     appimage-run
+    clinfo
 
     # Browser Related
     persepolis
