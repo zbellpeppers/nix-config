@@ -27,6 +27,7 @@ in {
     # Browser Related
     persepolis
     cheese
+    firedragon
 
     # Windows Emulation
     bottles
@@ -61,8 +62,6 @@ in {
     alejandra
     gcc
     kdePackages.kate
-    python313FreeThreading
-    python313Packages.pip
 
     # General Apps
     speedcrunch
