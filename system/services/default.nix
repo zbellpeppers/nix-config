@@ -48,4 +48,18 @@
       WEBUI_AUTH = "False";
     };
   };
+  # Btrfs Services
+  services.btrfs = {
+    autoScrub = {
+      enable = true;
+      interval = "weekly";
+      fileSystems = [
+        "/"
+        "/home"
+        "/nix"
+        "/var"
+        "/tmp"
+      ];
+    };
+  };
 }
