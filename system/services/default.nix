@@ -2,7 +2,13 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  llama-override =
+    (pkgs.llama-cpp.overrideAttrs (finalAttrs: previousAttrs: {
+      cmakeFlags = previousAttrs.cmakeFlags ++ ["-DGGML_HIP=ON"];
+    }))
+    .override {rocmSupport = true;};
+in {
   # Enables fwupd - CLI-based Firmware Updater
   services.fwupd.enable = true;
 
@@ -16,11 +22,7 @@
   services.llama-cpp = {
     enable = true;
     openFirewall = true;
-    package =
-      (pkgs.llama-cpp.overrideAttrs (finalAttrs: previousAttrs: {
-        cmakeFlags = previousAttrs.cmakeFlags ++ ["-DGGML_HIP=ON"];
-      }))
-      .override {rocmSupport = true;};
+    package = llama-override;
     model = "/home/zachary/Downloads/DeepSeek-R1-Distill-Llama-8B-Q8_0_1.gguf";
     extraFlags = [
       "-t"
