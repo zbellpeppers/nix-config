@@ -28,7 +28,7 @@ in {
 
     # Browser Related
     persepolis
-    wl-clicker
+    xclicker
 
     # Windows Emulation
     bottles
