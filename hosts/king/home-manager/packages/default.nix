@@ -24,11 +24,10 @@ in {
     podman-desktop
     appimage-run
     clinfo
+    efibootmgr
 
     # Browser Related
     persepolis
-    cheese
-    firedragon
 
     # Windows Emulation
     bottles
@@ -47,7 +46,6 @@ in {
     # Office Apps
     kdePackages.skanpage
     onlyoffice-desktopeditors
-    appflowy
 
     # Spell Checks and Dictionaries
     aspell
@@ -84,8 +82,6 @@ in {
     qbittorrent-enhanced
 
     # Fonts
-    roboto
-    roboto-mono
     fira-code
   ];
 }
