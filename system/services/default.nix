@@ -13,20 +13,25 @@
   #   rocmOverrideGfx = "10.3.0";
   # };
   # Ai Service
-  # services.llama-cpp = {
-  #   enable = true;
-  #   openFirewall = true;
-  #   model = "/home/zachary/Downloads/DeepSeek-R1-Distill-Qwen-32B-IQ4_XS_1.gguf";
-  #   extraFlags = [
-  #     "-t"
-  #     "16"
-  #     "-ngl"
-  #     "32"
-  #     "-mli"
-  #     "-c"
-  #     "4096"
-  #   ];
-  # };
+  services.llama-cpp = {
+    enable = true;
+    openFirewall = true;
+    package =
+      (pkgs.llama-cpp.overrideAttrs (finalAttrs: previousAttrs: {
+        cmakeFlags = previousAttrs.cmakeFlags ++ ["-DGGML_HIP=ON"];
+      }))
+      .override {rocmSupport = true;};
+    model = "/home/zachary/Downloads/DeepSeek-R1-Distill-Llama-8B-Q8_0_1.gguf";
+    extraFlags = [
+      "-t"
+      "16"
+      "--gpu-layers"
+      "35"
+      "--mlock"
+      "-c"
+      "4096"
+    ];
+  };
   # AI Container - Better UI than using Terminal
   virtualisation.podman = {
     enable = true;

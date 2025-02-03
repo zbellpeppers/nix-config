@@ -25,7 +25,6 @@ in {
     appimage-run
     clinfo
     efibootmgr
-    llama-cpp
 
     # Browser Related
     persepolis
