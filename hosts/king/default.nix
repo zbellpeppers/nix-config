@@ -34,6 +34,30 @@
     options = ["subvol=@"];
   };
 
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    fsType = "btrfs";
+    options = ["subvol=@home"];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    fsType = "btrfs";
+    options = ["subvol=@nix"];
+  };
+
+  fileSystems."/var" = {
+    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    fsType = "btrfs";
+    options = ["subvol=@var"];
+  };
+
+  fileSystems."/tmp" = {
+    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    fsType = "btrfs";
+    options = ["subvol=@tmp"];
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/E750-503E";
     fsType = "vfat";
