@@ -5,6 +5,11 @@
   ...
 }: let
   appflowy = pkgs.callPackage ../../../../modules/appflowy {};
+  llama-override =
+    (pkgs.llama-cpp.overrideAttrs (finalAttrs: previousAttrs: {
+      cmakeFlags = previousAttrs.cmakeFlags ++ ["-DGGML_HIP=ON"];
+    }))
+    .override {rocmSupport = true;};
 in {
   imports = [
     ./bash
@@ -25,6 +30,7 @@ in {
     appimage-run
     clinfo
     efibootmgr
+    llama-override
 
     # Browser Related
     persepolis
