@@ -18,15 +18,14 @@
         efiSupport = true;
         device = "nodev";
         theme = "${pkgs.minimal-grub-theme}";
-        extraEntriesBeforeNixOS = ''
+        extraEntriesBeforeNixOS = true;
+        extraEntries = ''
           menuentry "Windows 11" {
             insmod search_fs_uuid
             insmod chain
-            search --fs-uuid --set=root CD08-B687
+            search --fs-uuid --set=root C253-6E85
             chainloader /EFI/Microsoft/Boot/bootmgfw.efi
           }
-        '';
-        extraEntries = ''
           menuentry "Reboot to BIOS" {
             fwsetup
           }
