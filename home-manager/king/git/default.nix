@@ -46,7 +46,7 @@
         default = "simple";
       };
       init = {
-        defaultBranch = "master";
+        defaultBranch = "main";
       };
       url = {
         "git@gitlab.com:" = {
