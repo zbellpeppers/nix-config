@@ -26,13 +26,6 @@
     inputs.zen-browser.packages.${pkgs.system}.default
   ];
 
-  # SSH Configuration
-  # programs.ssh = {
-  #   startAgent = true;
-  #   extraConfig = ''
-  #     AddKeysToAgent yes
-  #   '';
-  # };
   # GPG configuration
   programs.gnupg.agent = {
     enable = true;
