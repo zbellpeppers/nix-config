@@ -27,7 +27,7 @@
       upgit = "/home/zachary/nix-config/gitupdate.sh";
       update = "/home/zachary/nix-config/update.sh";
       garbage = "sudo nix-collect-garbage -d";
-      upflake = "cd /home/$(whoami)/nix-config && nix flake update";
+      upflake = "cd /home/$(whoami)/nix-config && nix flake update && cd ~";
     };
 
     initExtra = ''
