@@ -26,6 +26,7 @@
     shellAliases = {
       upgit = "/home/zachary/nix-config/gitupdate.sh";
       update = "/home/zachary/nix-config/update.sh";
+      garbage = "sudo nix-collect-garbage -d";
     };
 
     initExtra = ''
