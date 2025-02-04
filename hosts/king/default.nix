@@ -12,6 +12,7 @@
     ../../system
     ../../desktop-environments/plasma
     ../../user/king
+    ./boot
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;

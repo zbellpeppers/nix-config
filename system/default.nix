@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ./audio
-    ./boot
     ./network
     ./nix
     ./printer

@@ -12,36 +12,61 @@
     ../../system
     ../../desktop-environments/plasma
     ../../user/queen
+    ./boot
     inputs.home-manager.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.sarah = import ../../home-manager/queen;
-      home-manager.backupFileExtension = "backup";
+      home-manager.users.zachary = import ../../home-manager/queen;
+      home-manager.backupFileExtension = "0004";
     }
     inputs.chaotic.nixosModules.default
     inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "thunderbolt" "usbhid" "uas" "sd_mod"];
-  boot.initrd.kernelModules = ["amdgpu"];
+  boot.initrd.kernelModules = [""];
   boot.kernelModules = ["kvm-amd" "amdgpu"];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/adcfd1ca-2ed0-4d9b-b239-04503964d9b3";
+    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
     fsType = "btrfs";
     options = ["subvol=@"];
   };
 
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    fsType = "btrfs";
+    options = ["subvol=@home"];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    fsType = "btrfs";
+    options = ["subvol=@nix"];
+  };
+
+  fileSystems."/var" = {
+    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    fsType = "btrfs";
+    options = ["subvol=@var"];
+  };
+
+  fileSystems."/tmp" = {
+    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    fsType = "btrfs";
+    options = ["subvol=@tmp"];
+  };
+
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/78D3-1750";
+    device = "/dev/disk/by-uuid/E750-503E";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/ffd3351c-758d-4eb7-9216-9f84b9c14591";}
+    {device = "/dev/disk/by-uuid/1f28c4eb-c1bb-4bae-9b9d-a7fbd08ef0eb";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -53,13 +78,13 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    amdgpu.opencl.enable = true;
     graphics = {
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-extension-layer
+        amdvlk
+        rocmPackages.clr
       ];
     };
     # Monitor Brightness Control
@@ -67,7 +92,6 @@
     bluetooth = {
       enable = true;
       powerOnBoot = true;
-      package = pkgs.bluez;
     };
   };
 }
