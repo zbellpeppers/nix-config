@@ -27,11 +27,17 @@
   ];
 
   # SSH Configuration
-  programs.ssh = {
-    startAgent = true;
-    extraConfig = ''
-      AddKeysToAgent yes
-    '';
+  # programs.ssh = {
+  #   startAgent = true;
+  #   extraConfig = ''
+  #     AddKeysToAgent yes
+  #   '';
+  # };
+  # GPG configuration
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-qt;
   };
 
   # Flatpak Configuration
