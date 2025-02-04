@@ -18,7 +18,6 @@ in {
     oxygen
     elisa
     discover
-    konsole
   ];
   services = {
     displayManager = {
