@@ -11,7 +11,6 @@ in {
     ./git
     ./tealdeer
     ./vscode
-    ./wezterm
   ];
   home.packages = with pkgs; [
     # CLI Tools
