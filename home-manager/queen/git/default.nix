@@ -13,11 +13,11 @@
 
     package = pkgs.git;
 
-    # SSH key configuration
-    # signing = {
-    #   key = "EB3EAC6FDAFC2A75";
-    #   signByDefault = true;
-    # };
+    # Signature Configuration
+    signing = {
+      key = "7D042DF9C46E6F93B1217BD117D1F697E18F85AE";
+      signByDefault = true;
+    };
 
     # Useful aliases
     aliases = {

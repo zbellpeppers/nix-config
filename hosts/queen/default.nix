@@ -17,7 +17,7 @@
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.zachary = import ../../home-manager/queen;
+      home-manager.users.sarah = import ../../home-manager/queen;
       home-manager.backupFileExtension = "0004";
     }
     inputs.chaotic.nixosModules.default
@@ -30,43 +30,43 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
     fsType = "btrfs";
     options = ["subvol=@"];
   };
 
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
     fsType = "btrfs";
     options = ["subvol=@home"];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
     fsType = "btrfs";
     options = ["subvol=@nix"];
   };
 
   fileSystems."/var" = {
-    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
     fsType = "btrfs";
     options = ["subvol=@var"];
   };
 
   fileSystems."/tmp" = {
-    device = "/dev/disk/by-uuid/74bfbbe6-69de-40e3-8d85-229d6f90b698";
+    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
     fsType = "btrfs";
     options = ["subvol=@tmp"];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/E750-503E";
+    device = "/dev/disk/by-uuid/04B9-BE3A";
     fsType = "vfat";
     options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/1f28c4eb-c1bb-4bae-9b9d-a7fbd08ef0eb";}
+    {device = "/dev/disk/by-uuid/223f8960-176a-4ea2-a510-1982800c1085";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
