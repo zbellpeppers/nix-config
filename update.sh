@@ -8,7 +8,7 @@ REPO_PATH="/etc/nixos"
 cd "$REPO_PATH" || exit 1
 
 # Pull the latest changes
-git pull origin main
+git pull origin
 
 # Rebuild NixOS
 sudo nixos-rebuild switch
