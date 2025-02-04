@@ -16,7 +16,7 @@
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
-      home-manager.users.zachary = import ./home-manager;
+      home-manager.users.zachary = import ../../home-manager/king;
       home-manager.backupFileExtension = "0004";
     }
     inputs.chaotic.nixosModules.default
