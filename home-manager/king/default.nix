@@ -15,10 +15,10 @@ in {
   imports = [
     ../common
     ./git
+    ./desktop-entries
   ];
 
   home.packages = with pkgs; [
-    brave
     vivaldi
   ];
 
