@@ -4,7 +4,11 @@
   pkgs,
   ...
 }: {
-  imports = [../common];
+  imports = [
+    ../common
+    ./git
+    ./plasma-manager
+  ];
 
   home.packages = with pkgs; [
     chromium
