@@ -15,7 +15,7 @@
 
     # SSH key configuration
     signing = {
-      key = "EB3EAC6FDAFC2A75";
+      key = "7DFAE613BBACACB80DBFFB31D8E0D05600EE3146";
       signByDefault = true;
     };
 
