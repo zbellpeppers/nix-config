@@ -19,6 +19,7 @@
       home-manager.useUserPackages = true;
       home-manager.users.zachary = import ../../home-manager/king;
       home-manager.backupFileExtension = "0004";
+      home-manager.sharedModules = [inputs.plasma-manager.homeManagerModules.plasma-manager];
     }
     inputs.chaotic.nixosModules.default
     inputs.nix-flatpak.nixosModules.nix-flatpak
