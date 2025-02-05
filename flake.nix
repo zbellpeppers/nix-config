@@ -9,15 +9,6 @@
     };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-    };
   };
 
   outputs = {
@@ -26,7 +17,6 @@
     home-manager,
     chaotic,
     nix-flatpak,
-    plasma-manager,
     ...
   } @ inputs: let
     pkgs = import nixpkgs {

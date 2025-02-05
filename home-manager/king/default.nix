@@ -15,7 +15,6 @@ in {
   imports = [
     ../common
     ./git
-    ./plasma-manager
   ];
 
   home.packages = with pkgs; [
