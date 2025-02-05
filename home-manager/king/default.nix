@@ -3,15 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  vivaldi =
-    pkgs.vivaldi.overrideAttrs
-    (oldAttrs: {
-      dontWrapQtApps = false;
-      dontPatchELF = true;
-      nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
-    });
-in {
+}: {
   imports = [
     ../common
     ./git
@@ -19,8 +11,6 @@ in {
   ];
 
   home.packages = with pkgs; [
-    vivaldi
-    firedragon
   ];
 
   home.username = "zachary";

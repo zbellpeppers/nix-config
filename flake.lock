@@ -198,7 +198,8 @@
         "chaotic": "chaotic",
         "home-manager": "home-manager_2",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "zen-browser": "zen-browser"
       }
     },
     "rust-analyzer-src": {
@@ -215,6 +216,26 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1738728325,
+        "narHash": "sha256-ogMOMVHDXykqP1qCjh7K3TyHzIy5lmohvofYAbn+IT8=",
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "rev": "38264719b0a20323f3d16a94db5d4cb2860681a5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }
