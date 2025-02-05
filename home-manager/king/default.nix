@@ -20,6 +20,7 @@ in {
 
   home.packages = with pkgs; [
     vivaldi
+    firedragon
   ];
 
   home.username = "zachary";
