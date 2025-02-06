@@ -23,6 +23,7 @@ in {
     appimage-run
     clinfo
     efibootmgr
+    konsave
 
     # Browser Related
     persepolis
