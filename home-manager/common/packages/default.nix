@@ -21,6 +21,7 @@ in {
     unrar
     appimage-run
     efibootmgr
+    mkcert
 
     # Browser Related
     persepolis
