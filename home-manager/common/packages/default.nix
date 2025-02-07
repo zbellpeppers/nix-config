@@ -19,11 +19,8 @@ in {
     fastfetch
     ddcutil
     unrar
-    podman-desktop
     appimage-run
-    clinfo
     efibootmgr
-    konsave
 
     # Browser Related
     persepolis
@@ -73,9 +70,6 @@ in {
     protontricks
     mono
     mangohud
-    r2modman
-    vkbasalt
-    vkbasalt-cli
 
     # Torrenting
     calibre
