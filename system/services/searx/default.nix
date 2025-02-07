@@ -58,7 +58,7 @@
 
       # Search engine settings
       search = {
-        safe_search = 2;
+        safe_search = 0;
         autocomplete_min = 2;
         autocomplete = "brave";
         ban_time_on_fail = 5;
@@ -69,7 +69,7 @@
       server = {
         # base_url = "https://search.example.com";
         port = 8888;
-        bind_address = "127.0.0.1";
+        bind_address = "0.0.0.0";
         secret_key = "B&y!UAFWKY:m3f8E}!w93EaZj=k+5V{4GBSn%h/xetm%LB@fv$4aT5v+m46puG3Y3.hCkxJ=V($R+BeY";
         limiter = true;
         public_instance = true;
