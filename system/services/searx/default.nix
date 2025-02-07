@@ -181,8 +181,8 @@
     virtualHosts = {
       "search.example.com" = {
         forceSSL = true;
-        sslCertificate = "...";
-        sslCertificateKey = "...";
+        sslCertificate = "/home/zachary/.config/certs/searx.crt";
+        sslCertificateKey = "/home/zachary/.config/certs/searx.key";
         locations = {
           "/" = {
             extraConfig = ''
