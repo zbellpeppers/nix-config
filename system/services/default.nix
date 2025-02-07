@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    # ./searx
+    ./searx
   ];
   # Enables fwupd - CLI-based Firmware Updater
   services.fwupd.enable = true;
