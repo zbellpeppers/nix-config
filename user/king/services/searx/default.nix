@@ -179,7 +179,7 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     virtualHosts = {
-      "search.example.com" = {
+      "192.168.1.106" = {
         forceSSL = true;
         sslCertificate = "/home/zachary/.config/certs/searx.crt";
         sslCertificateKey = "/home/zachary/.config/certs/searx.key";
