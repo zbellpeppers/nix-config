@@ -69,6 +69,7 @@ in {
     protontricks
     mono
     mangohud
+    bottles
 
     # Torrenting
     calibre

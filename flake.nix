@@ -27,7 +27,6 @@
     pkgs = import nixpkgs {
       config.allowUnfree = true;
       config.allowBroken = true;
-      config.rocmsupport = true;
     };
 
     # Import the hosts configuration
