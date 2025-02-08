@@ -74,7 +74,7 @@ in {
 
     # Torrenting
     calibre
-    rqbit
+    qbittorrent-enhanced
 
     # Fonts
     fira-code
