@@ -22,6 +22,7 @@ in {
     appimage-run
     efibootmgr
     mkcert
+    libressl
 
     # Browser Related
     persepolis

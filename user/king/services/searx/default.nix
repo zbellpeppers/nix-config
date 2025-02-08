@@ -174,15 +174,15 @@
   # Nginx configuration
   services.nginx = {
     enable = true;
+    package = pkgs.nginx.override {openssl = pkgs.libressl;};
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     virtualHosts = {
-      "192.168.1.106" = {
+      "${config.networking.hostName}" = {
         forceSSL = true;
-        sslCertificate = "/home/zachary/.config/certs/searx.crt";
-        sslCertificateKey = "/home/zachary/.config/certs/searx.key";
+        enableACME = true;
         locations = {
           "/" = {
             extraConfig = ''
