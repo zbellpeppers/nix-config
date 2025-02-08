@@ -22,7 +22,7 @@ in {
     appimage-run
     efibootmgr
     mkcert
-    libressl
+    certbot
 
     # Browser Related
     persepolis

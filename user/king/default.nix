@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    #./services
+    ./services
   ];
   users.users.zachary = {
     isNormalUser = true;
