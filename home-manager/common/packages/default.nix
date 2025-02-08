@@ -28,9 +28,6 @@ in {
     persepolis
     xclicker
 
-    # Windows Emulation
-    bottles
-
     # Entertainment
     stremio
     vlc

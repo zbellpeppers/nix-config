@@ -51,6 +51,7 @@
     enable = true;
     update.onActivation = true;
     packages = [
+      "com.usebottles.bottles"
     ];
   };
 }

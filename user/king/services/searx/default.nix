@@ -179,11 +179,22 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
     virtualHosts = {
-      "${config.networking.hostName}" = {
+      "0.0.0.0" = {
         forceSSL = true;
         sslCertificate = "/etc/nginx/ssl/searx.crt";
         sslCertificateKey = "/etc/nginx/ssl/searx.key";
         enableACME = false;
+        listen = [
+          {
+            addr = "0.0.0.0";
+            port = 80;
+          }
+          {
+            addr = "0.0.0.0";
+            port = 443;
+            ssl = true;
+          }
+        ];
         locations = {
           "/" = {
             extraConfig = ''
