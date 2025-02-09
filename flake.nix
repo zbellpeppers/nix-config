@@ -27,6 +27,9 @@
         allowUnfree = true;
         allowBroken = true;
       };
+      overlays = [
+        (import ./overlays/python-packages.nix)
+      ];
     };
   in {
     nixosConfigurations = import ./hosts {
