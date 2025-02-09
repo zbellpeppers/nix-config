@@ -22,6 +22,7 @@ in {
     appimage-run
     efibootmgr
     nix-prefetch-git
+    nix-prefetch-github
 
     # Browser Related
     persepolis

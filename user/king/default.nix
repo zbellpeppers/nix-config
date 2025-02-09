@@ -37,6 +37,7 @@
 
   environment.systemPackages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
+    # open-webui
   ];
 
   # GPG configuration

@@ -36,7 +36,7 @@ echo "Nix-config Copied to /etc/nixos"
 
 # Attempt to rebuild the system
 if [[ " ${valid_commands[@]} " =~ " ${rebuild_type} " ]]; then
-    if sudo nixos-rebuild "$rebuild_type"; then
+    if sudo nixos-rebuild "$rebuild_type" --show-trace; then
         echo "NIXOS REBUILD COMPLETED"
 
         # Change ownership of the copied files to root

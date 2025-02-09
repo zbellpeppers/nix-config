@@ -28,7 +28,17 @@
         allowBroken = true;
       };
       overlays = [
-        (import ./overlays/python-packages.nix)
+        (final: prev: {
+          pythonPackagesExtensions =
+            prev.pythonPackagesExtensions
+            ++ [
+              (python-final: python-prev: {
+                primp = python-final.callPackage ./modules/primp {
+                  inherit (final.darwin.apple_sdk.frameworks) SystemConfiguration;
+                };
+              })
+            ];
+        })
       ];
     };
   in {
