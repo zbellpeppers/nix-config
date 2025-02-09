@@ -25,49 +25,49 @@
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "thunderbolt" "usbhid" "uas" "sd_mod"];
-  boot.initrd.kernelModules = [""];
-  boot.kernelModules = ["kvm-amd" "amdgpu"];
+  boot.initrd.kernelModules = ["amdgpu"];
+  boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/fd84cbcd-2af0-4344-8c20-b6009814e609";
-    fsType = "btrfs";
-    options = ["subvol=@"];
-  };
+  fileSystems."/" =
+    { device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
+    };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/fd84cbcd-2af0-4344-8c20-b6009814e609";
-    fsType = "btrfs";
-    options = ["subvol=@home"];
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/BOOT";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/fd84cbcd-2af0-4344-8c20-b6009814e609";
-    fsType = "btrfs";
-    options = ["subvol=@nix"];
-  };
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = [ "subvol=@home" ];
+    };
 
-  fileSystems."/var" = {
-    device = "/dev/disk/by-uuid/fd84cbcd-2af0-4344-8c20-b6009814e609";
-    fsType = "btrfs";
-    options = ["subvol=@var"];
-  };
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" ];
+    };
 
-  fileSystems."/tmp" = {
-    device = "/dev/disk/by-uuid/fd84cbcd-2af0-4344-8c20-b6009814e609";
-    fsType = "btrfs";
-    options = ["subvol=@tmp"];
-  };
+  fileSystems."/var" =
+    { device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = [ "subvol=@var" ];
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/DEDC-2567";
-    fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
-  };
+  fileSystems."/var/log" =
+    { device = "/dev/disk/by-label/root";
+      fsType = "btrfs";
+      options = [ "subvol=@log" ];
+    };
 
-  swapDevices = [
-    {device = "/dev/disk/by-uuid/9c3863d8-3f5a-4fc7-b3fa-8bbefe94d655";}
-  ];
+  swapDevices =
+    [ { device = "/dev/disk/by-label/swap"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

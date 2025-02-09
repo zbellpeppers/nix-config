@@ -50,7 +50,7 @@
         "/home"
         "/nix"
         "/var"
-        "/tmp"
+        "/var/log"
       ];
     };
   };
