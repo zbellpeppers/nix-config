@@ -3,7 +3,7 @@
     ./audio
     ./network
     ./nix
-    #./printer
+    ./printer
     ./programs
     #./services
   ];
