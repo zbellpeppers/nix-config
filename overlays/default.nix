@@ -17,7 +17,7 @@
             owner = "deedy5";
             repo = "primp";
             tag = "v${version}";
-            hash = "sha256-R/9l4+d031c2u87p89t4I/g7N9Wq7l6/4e892d4u+bE="; # Update the hash!
+            hash = "sha256-I8+ZoVQkzhdLA1/6ZA2ExG7YUryXVYqM3URjgjXoINU="; # Update the hash!
           };
 
           pyproject = true;

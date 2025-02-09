@@ -12,7 +12,7 @@
     ../../system
     ../../desktop-environments/plasma
     ../../user/king
-    #../../overlays
+    ../../overlays
     ./boot
     inputs.home-manager.nixosModules.home-manager
     {
