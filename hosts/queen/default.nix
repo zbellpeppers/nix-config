@@ -12,6 +12,7 @@
     ../../system
     ../../desktop-environments/plasma
     ../../user/queen
+    #../../overlays
     ./boot
     inputs.home-manager.nixosModules.home-manager
     {

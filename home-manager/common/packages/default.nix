@@ -21,8 +21,7 @@ in {
     unrar
     appimage-run
     efibootmgr
-    mkcert
-    certbot
+    nix-prefetch-git
 
     # Browser Related
     persepolis

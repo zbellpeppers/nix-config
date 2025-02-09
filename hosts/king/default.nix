@@ -12,6 +12,7 @@
     ../../system
     ../../desktop-environments/plasma
     ../../user/king
+    #../../overlays
     ./boot
     inputs.home-manager.nixosModules.home-manager
     {
@@ -29,45 +30,45 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/root";
-      fsType = "btrfs";
-      options = [ "subvol=@" ];
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = ["subvol=@"];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/BOOT";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/BOOT";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-label/root";
-      fsType = "btrfs";
-      options = [ "subvol=@home" ];
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = ["subvol=@home"];
+  };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-label/root";
-      fsType = "btrfs";
-      options = [ "subvol=@nix" ];
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = ["subvol=@nix"];
+  };
 
-  fileSystems."/var" =
-    { device = "/dev/disk/by-label/root";
-      fsType = "btrfs";
-      options = [ "subvol=@var" ];
-    };
+  fileSystems."/var" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = ["subvol=@var"];
+  };
 
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-label/root";
-      fsType = "btrfs";
-      options = [ "subvol=@log" ];
-    };
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = ["subvol=@log"];
+  };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-label/swap"; }
-    ];
+  swapDevices = [
+    {device = "/dev/disk/by-label/swap";}
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
