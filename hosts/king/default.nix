@@ -14,15 +14,6 @@
     ../../user/king
     ../../overlays
     ./boot
-    inputs.home-manager.nixosModules.home-manager
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users.zachary = import ../../home-manager/king;
-      home-manager.backupFileExtension = "0004";
-    }
-    inputs.chaotic.nixosModules.default
-    inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "thunderbolt" "usbhid" "uas" "sd_mod"];
