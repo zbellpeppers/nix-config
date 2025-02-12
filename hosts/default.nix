@@ -5,6 +5,7 @@
   nix-flatpak,
   zen-browser,
   nixpkgsConfig,
+  chaotic,
   ...
 }: let
   inherit (self) inputs;
@@ -26,6 +27,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "0005";
           home-manager.users.${user} = import (../home-manager + "/${name}");
           home-manager.extraSpecialArgs = {
             inherit inputs;
@@ -33,6 +35,7 @@
           };
         }
         nix-flatpak.nixosModules.nix-flatpak
+        chaotic.nixosModules.default
       ];
 
       specialArgs = {

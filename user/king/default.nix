@@ -7,10 +7,11 @@
   imports = [
     ./services
   ];
+  programs.fish.enable = true;
   users.users.zachary = {
     isNormalUser = true;
     description = "Zachary Bell Peppers";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -37,7 +38,6 @@
 
   environment.systemPackages = with pkgs; [
     inputs.zen-browser.packages.${pkgs.system}.default
-    # open-webui
   ];
 
   # GPG configuration

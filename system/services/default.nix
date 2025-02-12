@@ -17,7 +17,7 @@
     acceleration = "rocm";
     rocmOverrideGfx = "10.3.0";
   };
-  # Open-WebUI - Web-based Interface
+  # Open-WebUI - Web-based Interface - CURRENTLY BROKEN
   services.open-webui = {
     enable = true;
     host = "0.0.0.0";

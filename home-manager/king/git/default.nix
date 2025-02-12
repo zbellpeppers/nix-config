@@ -15,7 +15,7 @@
 
     # SSH key configuration
     signing = {
-      key = "7DFAE613BBACACB80DBFFB31D8E0D05600EE3146";
+      key = "FB2FE1FF9B798BCF0B658B9D7A06710E5DF66E07";
       signByDefault = true;
     };
 
@@ -50,7 +50,7 @@
       };
       url = {
         "git@gitlab.com:" = {
-          insteadOf = "https://gitlab.com/";
+          insteadOf = "https://github.com/";
         };
       };
     };

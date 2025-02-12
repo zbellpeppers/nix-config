@@ -10,20 +10,10 @@ in {
     ./bash
     ./tealdeer
     ./vscode
+    ./fish
+    ./rio-term
   ];
   home.packages = with pkgs; [
-    # CLI Tools
-    wget
-    pciutils
-    p7zip
-    fastfetch
-    ddcutil
-    unrar
-    appimage-run
-    efibootmgr
-    nix-prefetch-git
-    nix-prefetch-github
-
     # Browser Related
     persepolis
     xclicker
@@ -74,8 +64,5 @@ in {
     # Torrenting
     calibre
     qbittorrent-enhanced
-
-    # Fonts
-    fira-code
   ];
 }
