@@ -160,7 +160,7 @@
       end
 
       # Change fish suggestions color
-      set fish_color_autosuggestion '#fa8072'
+      set fish_color_autosuggestion '#a6e8ff'
 
       if [ "$fish_key_bindings" = fish_vi_key_bindings ]
         bind -Minsert ! __history_previous_command
