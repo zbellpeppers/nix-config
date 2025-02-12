@@ -50,7 +50,7 @@
       };
       url = {
         "git@gitlab.com:" = {
-          insteadOf = "https://github.com/";
+          insteadOf = "https://gitlab.com/";
         };
       };
     };

@@ -4,9 +4,6 @@
   inputs,
   ...
 }: {
-  imports = [
-    ./services
-  ];
   programs.fish.enable = true;
   users.users.zachary = {
     isNormalUser = true;
@@ -54,6 +51,8 @@
     packages = [
     ];
   };
+
+  # Uses local time
   time = {
     hardwareClockInLocalTime = true;
     timeZone = "America/New_York";

@@ -14,60 +14,51 @@
     ../../user/queen
     #../../overlays
     ./boot
-    inputs.home-manager.nixosModules.home-manager
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.users.sarah = import ../../home-manager/queen;
-      home-manager.backupFileExtension = "0004";
-    }
-    inputs.chaotic.nixosModules.default
-    inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
 
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "thunderbolt" "usbhid" "uas" "sd_mod"];
-  boot.initrd.kernelModules = [""];
-  boot.kernelModules = ["kvm-amd" "amdgpu"];
+  boot.initrd.kernelModules = ["amdgpu"];
+  boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
+    device = "/dev/disk/by-label/root";
     fsType = "btrfs";
     options = ["subvol=@"];
   };
 
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/BOOT";
+    fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
+
   fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
+    device = "/dev/disk/by-label/root";
     fsType = "btrfs";
     options = ["subvol=@home"];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
+    device = "/dev/disk/by-label/root";
     fsType = "btrfs";
     options = ["subvol=@nix"];
   };
 
   fileSystems."/var" = {
-    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
+    device = "/dev/disk/by-label/root";
     fsType = "btrfs";
     options = ["subvol=@var"];
   };
 
-  fileSystems."/tmp" = {
-    device = "/dev/disk/by-uuid/fe8507a9-ec74-4097-8ca7-f5b007efe59e";
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=@tmp"];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/04B9-BE3A";
-    fsType = "vfat";
-    options = ["fmask=0077" "dmask=0077"];
+    options = ["subvol=@log"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-uuid/223f8960-176a-4ea2-a510-1982800c1085";}
+    {device = "/dev/disk/by-label/swap";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
