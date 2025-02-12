@@ -159,6 +159,9 @@
         end
       end
 
+      # Change fish suggestions color
+      set fish_color_search_match --background='#fa8072'
+
       if [ "$fish_key_bindings" = fish_vi_key_bindings ]
         bind -Minsert ! __history_previous_command
         bind -Minsert '$' __history_previous_command_arguments
