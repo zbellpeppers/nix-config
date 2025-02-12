@@ -3,7 +3,6 @@
   self,
   home-manager,
   nix-flatpak,
-  zen-browser,
   nixpkgsConfig,
   chaotic,
   ...

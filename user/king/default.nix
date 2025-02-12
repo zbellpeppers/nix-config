@@ -34,7 +34,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    inputs.zen-browser.packages.${pkgs.system}.default
   ];
 
   # GPG configuration

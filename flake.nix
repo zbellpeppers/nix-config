@@ -8,10 +8,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
@@ -20,7 +16,6 @@
     nixpkgs,
     home-manager,
     nix-flatpak,
-    zen-browser,
     chaotic,
     ...
   } @ inputs: let
@@ -34,7 +29,7 @@
     };
   in {
     nixosConfigurations = import ./hosts {
-      inherit (inputs) nixpkgs self home-manager nix-flatpak zen-browser chaotic;
+      inherit (inputs) nixpkgs self home-manager nix-flatpak chaotic;
       inherit nixpkgsConfig;
     };
   };
