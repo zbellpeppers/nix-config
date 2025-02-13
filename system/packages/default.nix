@@ -17,5 +17,8 @@
     tealdeer
     grc
     zsh
+
+    # Hardware Control
+    openrgb-with-all-plugins
   ];
 }
