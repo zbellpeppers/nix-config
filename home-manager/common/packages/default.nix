@@ -14,6 +14,9 @@ in {
     ./rio-term
   ];
   home.packages = with pkgs; [
+    # Remote Access
+    rustdesk-flutter
+
     # Browser Related
     persepolis
     xclicker
