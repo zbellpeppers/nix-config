@@ -17,6 +17,7 @@
     signing = {
       key = "7D042DF9C46E6F93B1217BD117D1F697E18F85AE";
       signByDefault = true;
+      format = "openpgp";
     };
 
     # Useful aliases
