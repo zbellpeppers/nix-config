@@ -20,6 +20,7 @@ in {
     # Browser Related
     persepolis
     xclicker
+    brave
 
     # Entertainment
     stremio
