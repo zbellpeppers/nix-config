@@ -54,10 +54,11 @@ sudo mkdir -p $log_dir
 # Generate log filename
 set log_file "$log_dir/(date '+%Y-%m-%d') - Nix-rebuild -- (date '+%I:%M:%p').log"
 
-# Function to log messages
 function log_message
-    echo (date '+%Y-%m-%d %H:%M:%S') - $argv | sudo tee -a $log_file
-    echo (date '+%Y-%m-%d %H:%M:%S') - $argv
+    set full_timestamp (date '+%Y-%m-%d %H:%M:%S')
+    set date_only (date '+%Y-%m-%d')
+    echo "$full_timestamp - $argv" | sudo tee -a $log_file >/dev/null
+    echo "$date_only - $argv"
 end
 
 # Start logging
