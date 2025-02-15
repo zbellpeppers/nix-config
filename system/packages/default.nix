@@ -18,6 +18,9 @@
     grc
     zsh
 
+    # Gaming
+    mangohud
+
     # Hardware Control
     openrgb-with-all-plugins
   ];

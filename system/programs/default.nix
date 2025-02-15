@@ -4,18 +4,6 @@
   inputs,
   ...
 }: {
-  # TEMP TESTING STEAM GAMESCOPE FIX
-  services.ananicy = {
-    enable = true;
-    package = pkgs.ananicy-cpp;
-    rulesProvider = pkgs.ananicy-cpp;
-    extraRules = [
-      {
-        "name" = "gamescope";
-        "nice" = -20;
-      }
-    ];
-  };
   programs = {
     steam = {
       enable = true;
@@ -26,12 +14,9 @@
         enable = true;
       };
     };
-    zsh = {
-      enable = true;
-    };
     gamescope = {
       enable = true;
-      capSysNice = false;
+      capSysNice = true;
     };
   };
 }
