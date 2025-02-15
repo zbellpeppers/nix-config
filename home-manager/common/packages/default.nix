@@ -64,7 +64,11 @@ in {
     mono
     mangohud
     bottles
-
+    (lutris.override {
+      extraLibraries = pkgs: [
+        # List library dependencies here
+      ];
+    })
     # Torrenting
     calibre
     qbittorrent-enhanced

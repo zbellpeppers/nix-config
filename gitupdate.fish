@@ -79,7 +79,11 @@ end
 
 # Attempt to rebuild the system
 if contains $rebuild_type $valid_commands
-    if sudo nixos-rebuild $rebuild_type $additional_options 2>&1 | sudo tee -a $log_file
+    set rebuild_output (sudo nixos-rebuild $rebuild_type $additional_options 2>&1)
+    set rebuild_status $status
+    echo $rebuild_output | sudo tee -a $log_file
+
+    if test $rebuild_status -eq 0
         log_message "NIXOS REBUILD COMPLETED"
         if test -f "/etc/nixos/flake.lock"
             log_message "Updating git's flake.lock"
