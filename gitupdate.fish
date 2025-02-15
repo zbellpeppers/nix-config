@@ -57,6 +57,7 @@ set log_file "$log_dir/(date '+%Y-%m-%d') - Nix-rebuild -- (date '+%I:%M:%p').lo
 # Function to log messages
 function log_message
     echo (date '+%Y-%m-%d %H:%M:%S') - $argv | sudo tee -a $log_file
+    echo (date '+%Y-%m-%d %H:%M:%S') - $argv
 end
 
 # Start logging
@@ -79,9 +80,11 @@ end
 
 # Attempt to rebuild the system
 if contains $rebuild_type $valid_commands
-    set rebuild_output (sudo nixos-rebuild $rebuild_type $additional_options 2>&1)
-    set rebuild_status $status
-    echo $rebuild_output | sudo tee -a $log_file
+    log_message "Starting NixOS rebuild with command: $rebuild_type $additional_options"
+    sudo nixos-rebuild $rebuild_type $additional_options 2>&1 | while read -l line
+        log_message $line
+    end
+    set rebuild_status $pipestatus[1]
 
     if test $rebuild_status -eq 0
         log_message "NIXOS REBUILD COMPLETED"
