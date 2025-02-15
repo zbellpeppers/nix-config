@@ -15,7 +15,9 @@
     zsh = {
       enable = true;
     };
-    gamescope.enable = true;
-    capSysNice = true;
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
   };
 }

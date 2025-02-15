@@ -70,7 +70,13 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    amdgpu.opencl.enable = true;
+    amdgpu = {
+      opencl.enable = true;
+      amdvlk = {
+        enable = true;
+        support32Bit.enable = true;
+      };
+    };
     graphics = {
       enable = true;
       enable32Bit = true;
