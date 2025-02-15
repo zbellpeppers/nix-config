@@ -70,7 +70,13 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    amdgpu.opencl.enable = true;
+    amdgpu = {
+      opencl.enable = true;
+      amdvlk = {
+        enable = true;
+        support32Bit.enable = true;
+      };
+    };
     graphics = {
       enable = true;
       enable32Bit = true;
@@ -80,10 +86,12 @@
       ];
     };
     # Monitor Brightness Control
-    i2c.enable = true;
+    brillo.enable = true;
+    # Enable bluetooth - Activate on boot
     bluetooth = {
       enable = true;
       powerOnBoot = true;
     };
+    xone.enable = true; # support for the xbox controller USB dongle
   };
 }

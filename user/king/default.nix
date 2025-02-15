@@ -12,8 +12,6 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-      "samba"
-      "i2c"
       "audio"
       "video"
       "nix"

@@ -86,7 +86,7 @@
       ];
     };
     # Monitor Brightness Control
-    i2c.enable = true;
+    brillo.enable = true;
     # Enable bluetooth - Activate on boot
     bluetooth = {
       enable = true;
