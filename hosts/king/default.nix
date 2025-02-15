@@ -81,9 +81,11 @@
     };
     # Monitor Brightness Control
     i2c.enable = true;
+    # Enable bluetooth - Activate on boot
     bluetooth = {
       enable = true;
       powerOnBoot = true;
     };
+    xone.enable = true; # support for the xbox controller USB dongle
   };
 }
