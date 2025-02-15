@@ -4,6 +4,18 @@
   inputs,
   ...
 }: {
+  # TEMP TESTING STEAM GAMESCOPE FIX
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+    rulesProvider = pkgs.ananicy-cpp;
+    extraRules = [
+      {
+        "name" = "gamescope";
+        "nice" = -20;
+      }
+    ];
+  };
   programs = {
     steam = {
       enable = true;
@@ -12,13 +24,6 @@
       localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
       gamescopeSession = {
         enable = true;
-        args = [
-          "-w 1920 -h 1080"
-          "--borderless"
-          "--adaptive-sync"
-          "--fullscreen"
-          "--mangoapp"
-        ];
       };
     };
     zsh = {
@@ -26,7 +31,7 @@
     };
     gamescope = {
       enable = true;
-      capSysNice = true;
+      capSysNice = false;
     };
   };
 }
