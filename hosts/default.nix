@@ -26,7 +26,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "0005";
+          home-manager.backupFileExtension = "0006";
           home-manager.users.${user} = import (../home-manager + "/${name}");
           home-manager.extraSpecialArgs = {
             inherit inputs;

@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
@@ -12,6 +13,7 @@
 
   home.packages = with pkgs; [
     joplin-desktop
+    inputs.zen-browser.packages.${pkgs.system}.default
   ];
 
   home.username = "zachary";

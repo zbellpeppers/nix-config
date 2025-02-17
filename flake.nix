@@ -9,6 +9,10 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -17,6 +21,7 @@
     home-manager,
     nix-flatpak,
     chaotic,
+    zen-browser,
     ...
   } @ inputs: let
     nixpkgsConfig = {
@@ -29,7 +34,7 @@
     };
   in {
     nixosConfigurations = import ./hosts {
-      inherit (inputs) nixpkgs self home-manager nix-flatpak chaotic;
+      inherit (inputs) nixpkgs self home-manager nix-flatpak chaotic zen-browser;
       inherit nixpkgsConfig;
     };
   };
