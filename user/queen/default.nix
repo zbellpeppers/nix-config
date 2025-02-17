@@ -18,6 +18,7 @@
       "lp"
       "scanner"
       "podman"
+      "i2c"
     ];
   };
 
