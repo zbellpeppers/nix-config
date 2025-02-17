@@ -11,7 +11,6 @@ in {
     ./tealdeer
     ./vscode
     ./fish
-    ./rio-term
   ];
   home.packages = with pkgs; [
     # Remote Access

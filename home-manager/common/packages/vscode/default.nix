@@ -8,7 +8,7 @@
     package = pkgs.vscodium;
     mutableExtensionsDir = true;
     userSettings = {
-      "workbench.colorTheme" = "One Dark Pro Darker";
+      "workbench.colorTheme" = "One Dark Modern Pro";
       "workbench.iconTheme" = "material-icon-theme";
       editor = {
         "fontFamily" = "FiraCode Nerd Font Mono";
