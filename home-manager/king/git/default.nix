@@ -15,9 +15,9 @@
 
     # SSH key configuration
     signing = {
-      key = "FB2FE1FF9B798BCF0B658B9D7A06710E5DF66E07";
+      key = "/home/zachary/.ssh/id_ed25519.pub";
       signByDefault = true;
-      format = "openpgp";
+      format = "ssh";
     };
 
     # Useful aliases

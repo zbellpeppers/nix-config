@@ -11,13 +11,7 @@
   ];
 
   home.packages = with pkgs; [
-    (pkgs.vivaldi.overrideAttrs
-      (oldAttrs: {
-        dontWrapQtApps = false;
-        dontPatchELF = true;
-        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
-      }))
-    vivaldi-ffmpeg-codecs
+    joplin-desktop
   ];
 
   home.username = "zachary";
