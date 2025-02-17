@@ -12,7 +12,6 @@
   ];
 
   home.packages = with pkgs; [
-    joplin-desktop
     inputs.zen-browser.packages.${pkgs.system}.default
   ];
 
