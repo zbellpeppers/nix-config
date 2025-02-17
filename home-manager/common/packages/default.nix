@@ -53,7 +53,6 @@ in {
 
     # General Apps
     speedcrunch
-    obsidian
 
     # Gaming
     heroic
