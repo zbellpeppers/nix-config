@@ -4,7 +4,7 @@
   inputs,
   ...
 }: let
-  appflowy = pkgs.callPackage ../../../../modules/appflowy {};
+  # appflowy = pkgs.callPackage ../../../../modules/appflowy {};
 in {
   imports = [
     ./bash

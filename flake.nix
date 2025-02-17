@@ -13,6 +13,10 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -22,6 +26,7 @@
     nix-flatpak,
     chaotic,
     zen-browser,
+    nix-vscode-extensions,
     ...
   } @ inputs: let
     nixpkgsConfig = {
@@ -30,11 +35,12 @@
         allowBroken = true;
       };
       overlays = [
+        nix-vscode-extensions.overlays.default
       ];
     };
   in {
     nixosConfigurations = import ./hosts {
-      inherit (inputs) nixpkgs self home-manager nix-flatpak chaotic zen-browser;
+      inherit (inputs) nixpkgs self home-manager nix-flatpak chaotic zen-browser nix-vscode-extensions;
       inherit nixpkgsConfig;
     };
   };
