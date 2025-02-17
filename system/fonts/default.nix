@@ -14,9 +14,9 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = ["Liberation Serif"];
-        sansSerif = ["Liberation Sans"];
-        monospace = ["Liberation Mono"];
+        serif = ["Roboto Serif"];
+        sansSerif = ["Roboto"];
+        monospace = ["Roboto Mono"];
       };
     };
   };
