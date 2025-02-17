@@ -24,7 +24,7 @@
   fileSystems."/" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=@"];
+    options = ["subvol=@" "compress=zstd"];
   };
 
   fileSystems."/boot" = {
@@ -36,29 +36,41 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=@home"];
+    options = ["subvol=@home" "compress=zstd"];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=@nix"];
+    options = ["subvol=@nix" "compress=zstd"];
   };
 
   fileSystems."/var" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=@var"];
+    options = ["subvol=@var" "compress=zstd"];
   };
 
   fileSystems."/var/log" = {
     device = "/dev/disk/by-label/root";
     fsType = "btrfs";
-    options = ["subvol=@log"];
+    options = ["subvol=@log" "compress=zstd"];
+  };
+
+  fileSystems."/tmp" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = ["subvol=@tmp" "compress=zstd" "noatime"];
+  };
+
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-label/root";
+    fsType = "btrfs";
+    options = ["subvol=@swap" "compress=zstd"];
   };
 
   swapDevices = [
-    {device = "/dev/disk/by-label/swap";}
+    {device = "/swap/swapfile";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -80,10 +92,6 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        amdvlk
-        rocmPackages.clr
-      ];
     };
     # Monitor Brightness Control
     brillo.enable = true;
