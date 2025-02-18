@@ -4,6 +4,9 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./syncthing
+  ];
   users.users.zachary = {
     isNormalUser = true;
     description = "Zachary Bell Peppers";
