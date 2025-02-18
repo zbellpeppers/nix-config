@@ -63,8 +63,20 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+    ];
+    # Set default terminal editor to micro
+    variables = {
+      EDITOR = "micro";
+      VISUAL = "micro";
+    };
+  };
+
+  # Set micro to default sudoeditor
+  security.sudo.extraConfig = ''
+    Defaults editor=${pkgs.micro}/bin/micro
+  '';
 
   # Uses local time
   time = {
