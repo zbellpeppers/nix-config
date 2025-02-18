@@ -17,6 +17,10 @@
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -27,6 +31,7 @@
     chaotic,
     zen-browser,
     nix-vscode-extensions,
+    agenix,
     ...
   } @ inputs: let
     nixpkgsConfig = {
@@ -40,7 +45,7 @@
     };
   in {
     nixosConfigurations = import ./hosts {
-      inherit (inputs) nixpkgs self home-manager nix-flatpak chaotic zen-browser nix-vscode-extensions;
+      inherit (inputs) nixpkgs self home-manager nix-flatpak chaotic zen-browser nix-vscode-extensions agenix;
       inherit nixpkgsConfig;
     };
   };

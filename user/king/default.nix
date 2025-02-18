@@ -29,12 +29,6 @@
   programs = {
     # Enable fish shell
     fish.enable = true;
-    # Enable gpg & ssh agents
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-      pinentryPackage = pkgs.pinentry-qt;
-    };
   };
 
   services = {
