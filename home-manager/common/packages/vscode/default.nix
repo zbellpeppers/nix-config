@@ -29,6 +29,7 @@
       mechatroner.rainbow-csv
       timonwong.shellcheck
       gruntfuggly.todo-tree
+      redhat.vscode-yaml
     ];
     mutableExtensionsDir = true;
     userSettings = {
