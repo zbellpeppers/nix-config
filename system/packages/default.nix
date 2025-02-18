@@ -18,6 +18,7 @@
     grc
     zsh
     wl-clipboard-rs
+    age
 
     # Gaming
     mangohud
