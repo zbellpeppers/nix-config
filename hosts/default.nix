@@ -5,7 +5,6 @@
   nix-flatpak,
   nixpkgsConfig,
   chaotic,
-  sops-nix,
   ...
 }: let
   inherit (self) inputs;
@@ -36,7 +35,6 @@
         }
         nix-flatpak.nixosModules.nix-flatpak
         chaotic.nixosModules.default
-        sops-nix.nixosModules.sops
       ];
 
       specialArgs = {

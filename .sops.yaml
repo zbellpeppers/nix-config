@@ -1,7 +1,0 @@
-keys:
-  - &king age109lszett93vyzkjwvskyfv7t4x4qwv43q5nl8cfsv3vgdp3hzf6sfzxnef
-creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
-    key_groups:
-      - age:
-          - *king

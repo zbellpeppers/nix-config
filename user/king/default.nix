@@ -7,12 +7,6 @@
   imports = [
     ./syncthing
   ];
-  # Testing sops config
-  sops = {
-    defaultSopsFile = ../../secrets/secrets.ini;
-    defaultSopsFormat = "ini";
-    age.keyFile = "/home/zachary/.config/sops/age/keys.txt";
-  };
 
   users.users.zachary = {
     isNormalUser = true;
