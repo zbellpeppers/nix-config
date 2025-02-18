@@ -4,7 +4,6 @@
   inputs,
   ...
 }: {
-  programs.fish.enable = true;
   users.users.sarah = {
     isNormalUser = true;
     description = "Sarah Nicole Smallwood";
@@ -22,33 +21,39 @@
     ];
   };
 
-  services.xserver = {
-    xkb = {
-      layout = "us,us";
-      variant = ",workman";
-      options = "grp:win_space_toggle,caps:capslock";
+  programs = {
+    # Enable fish shell
+    fish.enable = true;
+    # Enable gpg & ssh agents
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+      pinentryPackage = pkgs.pinentry-qt;
     };
-    autoRepeatDelay = 275;
-    autoRepeatInterval = 32;
+  };
+
+  services = {
+    # Set default keyboard layout
+    xserver = {
+      xkb = {
+        layout = "us,us";
+        variant = ",workman";
+        options = "grp:win_space_toggle,caps:capslock";
+      };
+      autoRepeatDelay = 275;
+      autoRepeatInterval = 32;
+    };
+    # Enable flatpak managment
+    flatpak = {
+      enable = true;
+      update.onActivation = true;
+      packages = [
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
   ];
-
-  # GPG configuration
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-qt;
-  };
-
-  # Flatpak Configuration
-  services.flatpak = {
-    enable = true;
-    update.onActivation = true;
-    packages = [
-    ];
-  };
 
   # Uses local time
   time = {
