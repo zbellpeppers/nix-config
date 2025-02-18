@@ -17,6 +17,7 @@
     tealdeer
     grc
     zsh
+    wl-clipboard-rs
 
     # Gaming
     mangohud

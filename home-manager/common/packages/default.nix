@@ -11,6 +11,7 @@ in {
     ./tealdeer
     ./vscode
     ./fish
+    ./micro
   ];
   home.packages = with pkgs; [
     # Remote Access
