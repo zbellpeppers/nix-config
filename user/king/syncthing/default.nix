@@ -1,7 +1,7 @@
 {...}: {
   services.syncthing = {
     enable = true;
-    group = "bpfsync";
+    group = "syncthing";
     user = "zachary";
     dataDir = "/home/zachary/Syncthing";
     configDir = "/home/zachary/Syncthing/.config/syncthing";

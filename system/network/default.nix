@@ -8,7 +8,8 @@
     nftables.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [80 443];
+      allowedTCPPorts = [80 443 8384 22000];
+      allowedUDPPorts = [22000 21027];
       allowedUDPPortRanges = [
         # Port Forward - KDEConnect
         {

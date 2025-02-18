@@ -21,6 +21,7 @@
       "scanner"
       "podman"
       "i2c"
+      "syncthing"
     ];
   };
 
