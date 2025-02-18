@@ -1,4 +1,9 @@
-{...}: {
+{
+  config,
+  inputs,
+  ...
+}: {
+  age.secrets.syncthing-zach.file = ../../../secrets/syncthing-zach.age;
   services.syncthing = {
     enable = true;
     group = "syncthing";
@@ -8,6 +13,10 @@
     # overrideDevices = true; # overrides any devices added or deleted through the WebUI
     # overrideFolders = true; # overrides any folders added or deleted through the WebUI
     settings = {
+      gui = {
+        user = "tkmockingbird";
+        password = config.age.secrets.syncthing-zach.path;
+      };
       devices = {
         "zach-nixos" = {id = "DEVICE-ID-GOES-HERE";};
         "zach-windows11" = {id = "DEVICE-ID-GOES-HERE";};
