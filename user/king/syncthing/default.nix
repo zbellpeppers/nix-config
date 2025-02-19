@@ -20,8 +20,8 @@
       devices = {
         "zach-nixos" = {id = "RMRMQEI-E5OGP2P-LKALUWX-BNOIK7N-5OWRCRO-7JX27LA-3GAKB6N-6EXUGAK";};
         "zach-windows11" = {id = "JPPW443-FVDAVQN-JVBRXR6-VOA3HHH-ACMWFDD-CPXMWFV-WQOUXMR-XVDVTQ4";};
-        "device3" = {id = "DEVICE-ID-GOES-HERE";};
-        "device4" = {id = "DEVICE-ID-GOES-HERE";};
+        "sarah-nixos" = {id = "DEVICE-ID-GOES-HERE";};
+        "sarah-windows11" = {id = "DEVICE-ID-GOES-HERE";};
       };
       folders = {
         "All" = {
