@@ -10,21 +10,21 @@
     user = "zachary";
     dataDir = "/home/zachary/Syncthing";
     configDir = "/home/zachary/Syncthing/.config/syncthing";
-    # overrideDevices = true; # overrides any devices added or deleted through the WebUI
-    # overrideFolders = true; # overrides any folders added or deleted through the WebUI
+    overrideDevices = true; # overrides any devices added or deleted through the WebUI
+    overrideFolders = true; # overrides any folders added or deleted through the WebUI
     settings = {
       gui = {
-        user = "kingsk";
-        password = config.age.secrets.syncthing-zach.path;
+        user = "tkmockingbird";
+        passwordFile = config.age.secrets.syncthing-zach.path;
       };
       devices = {
-        "zach-nixos" = {id = "DEVICE-ID-GOES-HERE";};
-        "zach-windows11" = {id = "DEVICE-ID-GOES-HERE";};
+        "zach-nixos" = {id = "RMRMQEI-E5OGP2P-LKALUWX-BNOIK7N-5OWRCRO-7JX27LA-3GAKB6N-6EXUGAK";};
+        "zach-windows11" = {id = "JPPW443-FVDAVQN-JVBRXR6-VOA3HHH-ACMWFDD-CPXMWFV-WQOUXMR-XVDVTQ4";};
         "device3" = {id = "DEVICE-ID-GOES-HERE";};
         "device4" = {id = "DEVICE-ID-GOES-HERE";};
       };
       folders = {
-        "All - Testing" = {
+        "All" = {
           # Name of folder in Syncthing, also the folder ID
           path = "/home/zachary/Desktop/All"; # Which folder to add to Syncthing
           devices = ["zach-nixos" "zach-windows11"]; # Which devices to share the folder with
