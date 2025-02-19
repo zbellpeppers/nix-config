@@ -301,16 +301,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1739950426,
-        "narHash": "sha256-KSgRzbhjH+XCl5qQIDf4eI5i9Ef5PMY3KkQCM/KY6vg=",
-        "owner": "Mic92",
+        "lastModified": 1739866667,
+        "narHash": "sha256-EO1ygNKZlsAC9avfcwHkKGMsmipUk1Uc0TbrEZpkn64=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "39dd19122fdabf519c256796df0ed998515990a6",
+        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
         "type": "github"
       },
       "original": {
-        "owner": "Mic92",
-        "ref": "fix-grub",
+        "owner": "nixos",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }

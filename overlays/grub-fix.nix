@@ -3,8 +3,12 @@ final: prev: {
     postPatch =
       (oldAttrs.postPatch or "")
       + ''
-        sed -i '6s/use File::Path qw(make_path);/use File::Path qw(make_path rmtree);/' \
-          nixos/modules/system/boot/loader/grub/install-grub.pl
+        install_grub_pl=$(find . -name install-grub.pl)
+        if [ -n "$install_grub_pl" ]; then
+          sed -i '6s/use File::Path qw(make_path);/use File::Path qw(make_path rmtree);/' "$install_grub_pl"
+        else
+          echo "Warning: install-grub.pl not found"
+        fi
       '';
   });
 }
