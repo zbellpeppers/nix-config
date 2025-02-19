@@ -14,7 +14,7 @@
     # overrideFolders = true; # overrides any folders added or deleted through the WebUI
     settings = {
       gui = {
-        user = "tkmockingbird";
+        user = "kingsk";
         password = config.age.secrets.syncthing-zach.path;
       };
       devices = {
