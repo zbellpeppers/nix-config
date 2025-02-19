@@ -3,6 +3,10 @@
     # Enable lix
     package = pkgs.lix;
 
+    # Make builds run with low priority so my system stays responsive
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedClass = "idle";
+
     # Automated Garbage Collection
     gc.automatic = false;
 

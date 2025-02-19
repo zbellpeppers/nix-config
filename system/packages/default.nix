@@ -29,5 +29,15 @@
 
     # Hardware Control
     openrgb-with-all-plugins
+
+    # Virtual Machines
+    virt-manager
+    qemu
+    libvirt
+    virt-viewer
+    spice-gtk
+    virtiofsd
   ];
+
+  virtualisation.libvirtd.enable = true;
 }

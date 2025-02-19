@@ -41,6 +41,7 @@
       };
       overlays = [
         nix-vscode-extensions.overlays.default
+        (import ./overlays/grub-fix.nix)
       ];
     };
   in {

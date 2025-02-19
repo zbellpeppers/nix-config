@@ -23,6 +23,7 @@
       "podman"
       "i2c"
       "syncthing"
+      "libvirtd"
     ];
   };
 
