@@ -2,7 +2,7 @@
   description = "Zach's Modular NixOS + Home Manager Configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "path:/home/zachary/projects/nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +41,6 @@
       };
       overlays = [
         nix-vscode-extensions.overlays.default
-        (import ./overlays/grub-fix.nix)
       ];
     };
   in {

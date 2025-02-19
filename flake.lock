@@ -301,18 +301,14 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1739866667,
-        "narHash": "sha256-EO1ygNKZlsAC9avfcwHkKGMsmipUk1Uc0TbrEZpkn64=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "73cf49b8ad837ade2de76f87eb53fc85ed5d4680",
-        "type": "github"
+        "lastModified": 1739974500,
+        "narHash": "sha256-1esUTBjXW6nq+VgcaaC5IYOwiU32aRw17QWrOWFsdQM=",
+        "path": "/home/zachary/projects/nixpkgs",
+        "type": "path"
       },
       "original": {
-        "owner": "nixos",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "path": "/home/zachary/projects/nixpkgs",
+        "type": "path"
       }
     },
     "root": {
