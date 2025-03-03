@@ -20,7 +20,6 @@
       accept-flake-config = true;
       keep-derivations = true;
       keep-outputs = true;
-      warn-dirty = false;
       max-jobs = "auto";
       # continue building derivations if one fails
       keep-going = true;

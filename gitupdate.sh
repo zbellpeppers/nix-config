@@ -29,7 +29,7 @@ sudo cp -r /etc/nixos "$backup_dir"
 
 # Sync files from ~/nix-config to /etc/nixos
 echo "Syncing files from ~/nix-config to /etc/nixos"
-sudo rsync -av --delete ~/nix-config/ /etc/nixos/
+sudo rsync -av --delete --exclude='.git' ~/nix-config/ /etc/nixos/
 
 # Perform the rebuild
 echo "Starting NixOS rebuild with command: $rebuild_type"

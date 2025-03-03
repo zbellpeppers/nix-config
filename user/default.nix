@@ -21,10 +21,9 @@
       "nix"
       "lp"
       "scanner"
-      "podman"
+      "docker"
       "i2c"
       "syncthing"
-      "libvirtd"
     ];
   };
 
@@ -43,13 +42,6 @@
       };
       autoRepeatDelay = 275;
       autoRepeatInterval = 32;
-    };
-    # Enable flatpak managment
-    flatpak = {
-      enable = true;
-      update.onActivation = true;
-      packages = [
-      ];
     };
   };
 

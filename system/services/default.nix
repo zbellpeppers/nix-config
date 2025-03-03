@@ -45,6 +45,7 @@
         SEARXNG_QUERY_URL = "http://0.0.0.0:8888/search?q=<query>";
       };
     };
+
     # Btrfs Services
     btrfs = {
       autoScrub = {
@@ -57,6 +58,14 @@
           "/var"
         ];
       };
+    };
+
+    # Enable flatpak managment
+    flatpak = {
+      enable = true;
+      update.onActivation = true;
+      packages = [
+      ];
     };
 
     # Openssh configuration
