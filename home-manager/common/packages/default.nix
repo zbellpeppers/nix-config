@@ -30,7 +30,7 @@ in {
     fsearch
 
     #Communication
-    equibop
+    vesktop
     kdePackages.kdeconnect-kde
 
     # Office Apps
