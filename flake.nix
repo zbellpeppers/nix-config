@@ -36,14 +36,14 @@
       inherit system;
       modules = [
         ./user
-        ./desktop-environments/plasma
+        ./plasma
         ./system
         {nixpkgs.config = nixpkgsConfig;}
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.zachary = import ./home-manager/king;
+          home-manager.users.zachary = import ./home-manager;
           home-manager.extraSpecialArgs = {
             inherit inputs;
             flake = self;

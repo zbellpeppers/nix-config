@@ -27,10 +27,9 @@ backup_dir=$(mktemp -d)
 echo "Creating backup of /etc/nixos in $backup_dir"
 sudo cp -r /etc/nixos "$backup_dir"
 
-# Copy files from ~/nix-config to /etc/nixos
-echo "Copying files from ~/nix-config to /etc/nixos"
-sudo rm -rf /etc/nixos/*
-sudo cp -r ~/nix-config/* /etc/nixos/
+# Sync files from ~/nix-config to /etc/nixos
+echo "Syncing files from ~/nix-config to /etc/nixos"
+sudo rsync -av --delete ~/nix-config/ /etc/nixos/
 
 # Perform the rebuild
 echo "Starting NixOS rebuild with command: $rebuild_type"

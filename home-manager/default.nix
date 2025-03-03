@@ -6,7 +6,7 @@
   ...
 }: {
   imports = [
-    ../common
+    ./packages
     ./git
     ./desktop-entries
   ];

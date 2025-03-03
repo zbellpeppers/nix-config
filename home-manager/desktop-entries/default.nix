@@ -10,16 +10,6 @@
       exec = "vesktop";
       icon = "discord";
     };
-    "codium" = {
-      name = "Code - OSS";
-      exec = "codium";
-      icon = "code-oss";
-    };
-    "codium-url-handler" = {
-      name = "Code - OSS";
-      exec = "codium";
-      icon = "code-oss";
-    };
     "org.speedcrunch.SpeedCrunch" = {
       name = "Calculator";
       exec = "speedcrunch";
