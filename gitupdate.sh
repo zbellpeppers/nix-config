@@ -36,6 +36,11 @@ sudo cp -r ~/nix-config/* /etc/nixos/
 echo "Starting NixOS rebuild with command: $rebuild_type"
 if sudo nixos-rebuild "$rebuild_type"; then
     echo "NixOS rebuild completed successfully."
+    
+    # Change ownership of /etc/nixos files to root
+    sudo chown -R root:root /etc/nixos
+    echo "Changed ownership of /etc/nixos files to root."
+
     # Clean up the backup
     sudo rm -rf "$backup_dir"
 
