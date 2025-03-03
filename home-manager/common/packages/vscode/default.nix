@@ -30,7 +30,7 @@
     #   redhat.vscode-yaml
     # ];
     mutableExtensionsDir = true;
-    userSettings = {
+    profiles.default.userSettings = {
       "workbench.colorTheme" = "One Dark Modern Pro";
       "workbench.iconTheme" = "material-icon-theme";
       "redhat.telemetry.enabled" = false;
