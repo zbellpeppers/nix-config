@@ -22,7 +22,6 @@
     grc
     zsh
     wl-clipboard-rs
-    inputs.agenix.packages.x86_64-linux.default
 
     # Gaming
     mangohud
