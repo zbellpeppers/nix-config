@@ -4,7 +4,7 @@
     src = pkgs.fetchFromGitLab {
       owner = "pwyde";
       repo = "monochrome-kde";
-      rev = "master"; # Or a specific commit hash
+      rev = "master";
       hash = "sha256-mnEQQ2PHzARv65PSwGDyS2bcYlRUydD5HUmVD251Tts=";
     };
     installPhase = ''

@@ -37,7 +37,7 @@
     xserver = {
       xkb = {
         layout = "us,us";
-        variant = ",workman";
+        variant = "workman,";
         options = "grp:win_space_toggle,caps:capslock";
       };
       autoRepeatDelay = 275;

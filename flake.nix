@@ -1,5 +1,5 @@
 {
-  description = "Zach's Simplified NixOS + Home Manager Configuration";
+  description = "NixOS + Home Manager Configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -13,10 +13,6 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
@@ -26,7 +22,6 @@
     nix-flatpak,
     chaotic,
     zen-browser,
-    nix-vscode-extensions,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -34,7 +29,6 @@
       allowUnfree = true;
       allowBroken = true;
       overlays = [
-        nix-vscode-extensions.overlays.default
       ];
     };
   in {
