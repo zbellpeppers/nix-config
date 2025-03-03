@@ -10,9 +10,6 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../../system
-    ../../desktop-environments/plasma
-    ../../user/queen
-    #../../overlays
     ./boot
   ];
 
@@ -22,55 +19,42 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/root";
+    device = "/dev/disk/by-uuid/1db6bafc-9aad-4784-b09f-5bef88df864b";
     fsType = "btrfs";
-    options = ["subvol=@" "compress=zstd"];
+    options = ["subvol=@"];
   };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/BOOT";
-    fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
-  };
-
   fileSystems."/home" = {
-    device = "/dev/disk/by-label/root";
+    device = "/dev/disk/by-uuid/1db6bafc-9aad-4784-b09f-5bef88df864b";
     fsType = "btrfs";
     options = ["subvol=@home" "compress=zstd"];
   };
 
   fileSystems."/nix" = {
-    device = "/dev/disk/by-label/root";
+    device = "/dev/disk/by-uuid/1db6bafc-9aad-4784-b09f-5bef88df864b";
     fsType = "btrfs";
     options = ["subvol=@nix" "compress=zstd"];
   };
 
   fileSystems."/var" = {
-    device = "/dev/disk/by-label/root";
+    device = "/dev/disk/by-uuid/1db6bafc-9aad-4784-b09f-5bef88df864b";
     fsType = "btrfs";
     options = ["subvol=@var" "compress=zstd"];
   };
 
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
-    options = ["subvol=@log" "compress=zstd"];
-  };
-
   fileSystems."/tmp" = {
-    device = "/dev/disk/by-label/root";
+    device = "/dev/disk/by-uuid/1db6bafc-9aad-4784-b09f-5bef88df864b";
     fsType = "btrfs";
     options = ["subvol=@tmp" "compress=zstd" "noatime"];
   };
 
-  fileSystems."/swap" = {
-    device = "/dev/disk/by-label/root";
-    fsType = "btrfs";
-    options = ["subvol=@swap" "compress=zstd"];
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/2967-3D66";
+    fsType = "vfat";
+    options = ["fmask=0077" "dmask=0077"];
   };
 
   swapDevices = [
-    {device = "/swap/swapfile";}
+    {device = "/dev/disk/by-uuid/6d4c9c1c-e3b7-40f3-9e5a-38ecf1faab0c";}
   ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

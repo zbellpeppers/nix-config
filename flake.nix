@@ -30,21 +30,21 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-        allowBroken = true;
-      };
+    nixpkgsConfig = {
+      allowUnfree = true;
+      allowBroken = true;
       overlays = [
-        inputs.nix-vscode-extensions.overlays.default
+        nix-vscode-extensions.overlays.default
       ];
     };
   in {
     nixosConfigurations.king = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        ./hosts/king
+        ./user
+        ./desktop-environments/plasma
+        ./system
+        {nixpkgs.config = nixpkgsConfig;}
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

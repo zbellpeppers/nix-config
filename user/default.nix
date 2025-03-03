@@ -4,9 +4,13 @@
   inputs,
   ...
 }: {
-  users.users.sarah = {
+  imports = [
+    ./hardware
+  ];
+
+  users.users.zachary = {
     isNormalUser = true;
-    description = "Sarah Nicole Smallwood";
+    description = "Zachary Bell Peppers";
     shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
@@ -18,6 +22,8 @@
       "scanner"
       "podman"
       "i2c"
+      "syncthing"
+      "libvirtd"
     ];
   };
 
