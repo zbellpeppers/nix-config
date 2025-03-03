@@ -1,5 +1,5 @@
 {
-  description = "Zach's Modular NixOS + Home Manager Configuration";
+  description = "Zach's Simplified NixOS + Home Manager Configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -29,19 +29,39 @@
     nix-vscode-extensions,
     ...
   } @ inputs: let
-    nixpkgsConfig = {
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
       config = {
         allowUnfree = true;
         allowBroken = true;
       };
       overlays = [
-        nix-vscode-extensions.overlays.default
+        inputs.nix-vscode-extensions.overlays.default
       ];
     };
   in {
-    nixosConfigurations = import ./hosts {
-      inherit (inputs) nixpkgs self home-manager nix-flatpak chaotic zen-browser nix-vscode-extensions;
-      inherit nixpkgsConfig;
+    nixosConfigurations.king = nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ./hosts/king
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.zachary = import ./home-manager/king;
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            flake = self;
+          };
+        }
+        nix-flatpak.nixosModules.nix-flatpak
+        chaotic.nixosModules.default
+      ];
+      specialArgs = {
+        inherit inputs;
+        flake = self;
+      };
     };
   };
 }
