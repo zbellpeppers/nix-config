@@ -5,9 +5,9 @@
       exec = "stremio";
       icon = "stremio";
     };
-    "equibop" = {
+    "vesktop" = {
       name = "Discord";
-      exec = "equibop";
+      exec = "vesktop";
       icon = "discord";
     };
     "codium" = {
