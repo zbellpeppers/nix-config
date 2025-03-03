@@ -55,8 +55,6 @@
           "/home"
           "/nix"
           "/var"
-          "/var/log"
-          "/swap"
         ];
       };
     };

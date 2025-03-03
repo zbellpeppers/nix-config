@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ./syncthing
   ];
 
   users.users.zachary = {

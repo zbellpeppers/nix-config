@@ -8,7 +8,7 @@
   imports = [
     ../common
     ./git
-    ./desktop-entries
+    #./desktop-entries
   ];
 
   home.packages = with pkgs; [
