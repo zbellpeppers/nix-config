@@ -34,6 +34,6 @@
     passwordFile = "/home/zachary/Desktop/All/Documents/Accounting/ActualBudget/cloudflare-token.txt";
     domains = ["actualbudget.bell-peppers.com"];
     interval = "5min";
-    use = "web";
+    usev4 = "webv4";
   };
 }
