@@ -36,9 +36,6 @@
     domains = ["actualbudget.bell-peppers.com"];
     interval = "5min";
     usev6 = "webv6";
-    extraConfig = "
-      webv6=https://www.cloudflare.com/cdn-cgi/trace
-      webv6-skip=ip
-    ";
+    usev4 = "webv4";
   };
 }
