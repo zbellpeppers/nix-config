@@ -31,9 +31,14 @@
     enable = true;
     protocol = "cloudflare";
     username = "token";
+    zone = "bell-peppers.com";
     passwordFile = "/home/zachary/Desktop/All/Documents/Accounting/ActualBudget/cloudflare-token.txt";
     domains = ["actualbudget.bell-peppers.com"];
     interval = "5min";
-    usev4 = "webv4";
+    usev6 = "webv6";
+    extraConfig = "
+      webv6=https://www.cloudflare.com/cdn-cgi/trace
+      webv6-skip=ip
+    ";
   };
 }
