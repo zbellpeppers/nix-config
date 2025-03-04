@@ -33,7 +33,7 @@
     username = "token";
     passwordFile = "/home/zachary/Desktop/All/Documents/Accounting/ActualBudget/cloudflare-token.txt";
     domains = ["actualbudget.bell-peppers.com"];
-    usev4 = "web";
+    usev4 = "webv4";
     extraConfig = ''
       web=https://api.ipify.org
       web-skip='IP Address'
