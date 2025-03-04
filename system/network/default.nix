@@ -8,7 +8,7 @@
     nftables.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [80 443 8384 22000];
+      allowedTCPPorts = [80 443 5006 8384 22000];
       allowedUDPPorts = [22000 21027];
       allowedUDPPortRanges = [
         # Port Forward - KDEConnect
@@ -25,5 +25,19 @@
         }
       ];
     };
+  };
+  services.ddclient = {
+    enable = true;
+    protocol = "cloudflare";
+    username = "token";
+    passwordFile = "/home/zachary/Desktop/All/Documents/Accounting/ActualBudget/cloudflare-token.txt";
+    domains = ["actualbudget.bell-peppers.com"];
+    use = "web";
+    extraConfig = ''
+      web=https://api.ipify.org
+      web-skip='IP Address'
+      ssl=yes
+      zone=bell-peppers.com
+    '';
   };
 }
