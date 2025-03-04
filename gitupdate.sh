@@ -34,7 +34,7 @@ sudo rsync -av --delete --exclude='.git' ~/nix-config/ /etc/nixos/
 # Perform the rebuild
 echo "Starting NixOS rebuild with command: $rebuild_type"
 cd /etc/nixos
-if sudo nixos-rebuild "$rebuild_type" --flake .#king; then
+if sudo nixos-rebuild "$rebuild_type" --flake .#zach-nixos; then
     echo "NixOS rebuild completed successfully."
     
     # Change ownership of /etc/nixos files to root

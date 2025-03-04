@@ -32,7 +32,7 @@
       ];
     };
   in {
-    nixosConfigurations.king = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.zach-nixos = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ./user

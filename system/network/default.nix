@@ -1,6 +1,7 @@
 {config, ...}: {
   # Networking / Ethernet / Wifi Configuration
   networking = {
+    hostName = "zach-nixos";
     # Enable Network Manager
     networkmanager.enable = true;
 
@@ -32,7 +33,7 @@
     username = "token";
     passwordFile = "/home/zachary/Desktop/All/Documents/Accounting/ActualBudget/cloudflare-token.txt";
     domains = ["actualbudget.bell-peppers.com"];
-    use = "web";
+    usev4 = "web";
     extraConfig = ''
       web=https://api.ipify.org
       web-skip='IP Address'
