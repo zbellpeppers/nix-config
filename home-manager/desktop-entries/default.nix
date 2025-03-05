@@ -1,10 +1,5 @@
 {...}: {
   xdg.desktopEntries = {
-    "smartcode-stremio" = {
-      name = "Stremio";
-      exec = "stremio";
-      icon = "stremio";
-    };
     "vesktop" = {
       name = "Discord";
       exec = "vesktop";
@@ -14,6 +9,11 @@
       name = "Calculator";
       exec = "speedcrunch";
       icon = "org.gnome.Calculator";
+    };
+    "VSCodium" = {
+      name = "Code";
+      exec = "codium";
+      icon = "code-oss";
     };
   };
 }
