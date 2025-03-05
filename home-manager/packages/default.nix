@@ -23,7 +23,6 @@ in {
     brave
 
     # Entertainment
-    stremio
     vlc
 
     # File Search

@@ -65,6 +65,7 @@
       enable = true;
       update.onActivation = true;
       packages = [
+        "com.stremio.Stremio"
       ];
     };
 

@@ -43,6 +43,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "0001";
           home-manager.users.zachary = import ./home-manager;
           home-manager.extraSpecialArgs = {
             inherit inputs;

@@ -7,6 +7,7 @@
   ];
   programs.vscode = {
     enable = true;
+    package = pkgs.vscodium;
     # extensions = with pkgs.vscode-marketplace; [
     #   kamadorueda.alejandra
     #   bierner.emojisense
