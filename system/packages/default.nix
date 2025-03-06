@@ -23,6 +23,9 @@
     zsh
     wl-clipboard-rs
 
+    # GUI Tools
+    kdePackages.partitionmanager
+
     # Gaming
     mangohud
 
