@@ -20,7 +20,8 @@ in {
     # Browser Related
     persepolis
     xclicker
-    brave
+    vivaldi
+    vivaldi-ffmpeg-codecs
 
     # Entertainment
     vlc
