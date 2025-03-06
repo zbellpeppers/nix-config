@@ -20,7 +20,12 @@ in {
     # Browser Related
     persepolis
     xclicker
-    vivaldi
+    (vivaldi.overrideAttrs
+      (oldAttrs: {
+        dontWrapQtApps = false;
+        dontPatchELF = true;
+        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
+      }))
     vivaldi-ffmpeg-codecs
 
     # Entertainment
