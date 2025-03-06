@@ -34,7 +34,6 @@ in {
 
     # Office Apps
     kdePackages.skanpage
-    onlyoffice-desktopeditors
 
     # Spell Checks and Dictionaries
     aspell

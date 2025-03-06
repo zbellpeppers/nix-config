@@ -33,6 +33,7 @@
       update.onActivation = true;
       packages = [
         "com.stremio.Stremio"
+        "org.onlyoffice.desktopeditors"
       ];
     };
 

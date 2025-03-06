@@ -12,13 +12,13 @@
     oci-containers = {
       backend = "docker";
       # Uncommenting below will allow named container to be run as a systemd service
-      # containers = {
-      #   container-name = {
-      #     image = "container-image";
-      #     autoStart = true;
-      #     ports = ["127.0.0.1:1234:1234"];
-      #   };
-      # };
+      containers = {
+        actual-budget = {
+          image = "actualbudget/actual-server";
+          autoStart = true;
+          ports = ["0.0.0.0:5006:5006"];
+        };
+      };
     };
   };
 }
