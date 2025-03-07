@@ -23,6 +23,12 @@
         device = "nodev";
         theme = "${pkgs.minimal-grub-theme}";
         extraEntries = ''
+          menuentry "Windows 11" {
+            insmod search_fs_uuid
+            insmod chain
+            search --fs-uuid --set=root 0FF3-0D14
+            chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+          }
           menuentry "Reboot to BIOS" {
             fwsetup
           }
