@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./hardware
-    ./hardware/boot
+    ./boot
   ];
 
   users.users.zachary = {
