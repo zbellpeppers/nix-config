@@ -19,7 +19,6 @@
       grub = {
         enable = true;
         efiSupport = true;
-        useOSProber = true;
         device = "nodev";
         theme = "${pkgs.minimal-grub-theme}";
         extraEntries = ''
