@@ -33,6 +33,7 @@ in {
 
     # File Search
     fsearch
+    ventoy-full
 
     #Communication
     vesktop
