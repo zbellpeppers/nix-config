@@ -13,20 +13,6 @@
     # Openrgb
     hardware.openrgb.enable = true;
 
-    # Btrfs Services
-    btrfs = {
-      autoScrub = {
-        enable = true;
-        interval = "weekly";
-        fileSystems = [
-          "/"
-          "/home"
-          "/nix"
-          "/var"
-        ];
-      };
-    };
-
     # Enable flatpak managment
     flatpak = {
       enable = true;

@@ -41,7 +41,7 @@
           owner = "paldepind";
           repo = "projectdo";
           rev = "main";
-          sha256 = "sha256-SS7x1xxz6FjPvMaZyW9+CcHVhO79yObwRbD8kNNGMMs=";
+          sha256 = "sha256-ZBAzHo7/Sy8uyjWganSFs/uOJkmuDP8WxU3WVGttPTo=";
         };
       }
       {
