@@ -1,7 +1,6 @@
 {config, ...}: {
   # Networking / Ethernet / Wifi Configuration
   networking = {
-    hostName = "zach-nixos";
     # Enable Network Manager
     networkmanager.enable = true;
 
