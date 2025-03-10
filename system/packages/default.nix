@@ -22,8 +22,6 @@
     grc
     wl-clipboard-rs
     ventoy-full
-    zsh
-    zsh-powerlevel10k
 
     # GUI Tools
     kdePackages.partitionmanager
