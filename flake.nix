@@ -12,6 +12,7 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs = {
@@ -20,6 +21,7 @@
     home-manager,
     nix-flatpak,
     zen-browser,
+    chaotic,
     ...
   } @ inputs: {
     nixosConfigurations = import ./hosts {

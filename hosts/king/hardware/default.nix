@@ -20,7 +20,7 @@
     device = "/dev/disk/by-label/nix-root";
     fsType = "btrfs";
     options = [
-      "subvol=@"
+      "subvol=root"
       "compress=lzo"
       "noatime"
       "space_cache=v2"
@@ -32,7 +32,7 @@
     device = "/dev/disk/by-label/nix-root";
     fsType = "btrfs";
     options = [
-      "subvol=@home"
+      "subvol=home"
       "compress=lzo"
       "noatime"
       "space_cache=v2"
@@ -44,7 +44,7 @@
     device = "/dev/disk/by-label/nix-root";
     fsType = "btrfs";
     options = [
-      "subvol=@nix"
+      "subvol=nix"
       "compress=lzo"
       "noatime"
       "space_cache=v2"
@@ -56,7 +56,7 @@
     device = "/dev/disk/by-label/nix-root";
     fsType = "btrfs";
     options = [
-      "subvol=@var"
+      "subvol=var"
       "compress=lzo"
       "noatime"
       "space_cache=v2"
@@ -68,7 +68,7 @@
     device = "/dev/disk/by-label/nix-root";
     fsType = "btrfs";
     options = [
-      "subvol=@log"
+      "subvol=log"
       "compress=lzo"
       "noatime"
       "space_cache=v2"
@@ -80,7 +80,7 @@
     device = "/dev/disk/by-label/nix-root";
     fsType = "btrfs";
     options = [
-      "subvol=@tmp"
+      "subvol=tmp"
       "compress=lzo"
       "noatime"
       "space_cache=v2"

@@ -47,6 +47,9 @@
               // extraHomeManagerConfig;
           }
 
+          # Chaotic nix repo
+          inputs.chaotic.homeManagerModules.default
+
           # Additional modules
           inputs.nix-flatpak.nixosModules.nix-flatpak
         ]
@@ -62,7 +65,7 @@ in {
   king = mkHost {
     name = "king";
     username = "zachary";
-    modules = [../plasma];
+    modules = [../desktop-envs/plasma];
   };
 
   # You can add more hosts like this:
