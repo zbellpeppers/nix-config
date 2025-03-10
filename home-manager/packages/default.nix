@@ -8,7 +8,6 @@
 in {
   imports = [
     ./bash
-    ./fish
     ./micro
     ./tealdeer
     ./vscode
