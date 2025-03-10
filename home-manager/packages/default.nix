@@ -10,9 +10,9 @@ in {
     ./bash
     ./fish
     ./micro
-    ./nushell
     ./tealdeer
     ./vscode
+    ./zsh
   ];
   home.packages = with pkgs; [
     # Remote Access
