@@ -93,6 +93,21 @@
     fsType = "vfat";
   };
 
+  # Enable btrfs autoscrubbing
+  services.btrfs.autoScrub = {
+    enable = true;
+    fileSystems = [
+      "/"
+      "/home"
+      "/nix"
+      "/var"
+      "/var/log"
+      "/tmp"
+    ];
+    interval = "weekly";
+  };
+
+  # Enable zram swap
   swapDevices = [];
   zramSwap = {
     enable = true;
@@ -106,6 +121,7 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp12s0u5.useDHCP = lib.mkDefault true;
 
+  # Hardware config
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     amdgpu = {
@@ -119,8 +135,10 @@
       enable = true;
       enable32Bit = true;
     };
+
     # Monitor Brightness Control
     i2c.enable = true;
+
     # Enable bluetooth - Activate on boot
     bluetooth = {
       enable = true;
