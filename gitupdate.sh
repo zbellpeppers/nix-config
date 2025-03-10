@@ -43,14 +43,23 @@ if sudo nixos-rebuild "$rebuild_type"; then
 
     # Clean up the backup
     sudo rm -rf "$backup_dir"
+    
+    # Skip git operations for test builds
+    if [ "$rebuild_type" = "test" ]; then
+        echo "Test build completed. Skipping git operations."
+        exit 0
+    fi
 
     # Change to the nix-config directory
     cd /home/zachary/nix-config
 
+    # Generate build ID (using date and time)
+    build_id=$(date +"%Y%m%d-%H%M%S")
+    commit_message="nixos - build #$build_id"
+
     # Perform Git operations
     git add .
-    echo "Enter commit message:"
-    read commit_message
+    echo "Using commit message: $commit_message"
     git commit -m "$commit_message"
     git push
 

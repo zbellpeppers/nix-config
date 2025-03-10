@@ -20,12 +20,12 @@
     hwinfo
     tealdeer
     grc
-    zsh
     wl-clipboard-rs
+    ventoy-full
 
     # GUI Tools
     kdePackages.partitionmanager
-
+    ventoy-full
     # Gaming
     mangohud
 

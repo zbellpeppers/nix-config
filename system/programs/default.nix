@@ -18,10 +18,19 @@
         enable = true;
       };
     };
+
+    # Starship presets
+    starship.presets = [
+      "nerd-font-symbols"
+    ];
+
+    # Enable gamescope
     gamescope = {
       enable = true;
       capSysNice = false;
     };
+
+    # Enable gamemode
     gamemode.enable = true;
   };
 }

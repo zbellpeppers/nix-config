@@ -8,10 +8,11 @@
 in {
   imports = [
     ./bash
-    ./tealdeer
-    ./vscode
     ./fish
     ./micro
+    ./nushell
+    ./tealdeer
+    ./vscode
   ];
   home.packages = with pkgs; [
     # Remote Access
@@ -30,10 +31,6 @@ in {
 
     # Entertainment
     vlc
-
-    # File Search
-    fsearch
-    ventoy-full
 
     #Communication
     vesktop
