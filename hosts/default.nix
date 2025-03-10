@@ -8,6 +8,7 @@
   # Function to create a NixOS system configuration
   mkHost = {
     name,
+    username,
     system ? "x86_64-linux",
     modules ? [],
     extraHomeManagerConfig ? {},
