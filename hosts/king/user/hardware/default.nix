@@ -11,41 +11,89 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  # Required for ZFS
-  networking.hostId = "fb2d1e16";
-
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "thunderbolt" "usbhid" "uas" "sd_mod"];
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  fileSystems."/" =
-    { device = "zpool/root";
-      fsType = "zfs";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=@"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
 
-  fileSystems."/nix" =
-    { device = "zpool/nix";
-      fsType = "zfs";
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=@home"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
 
-  fileSystems."/var" =
-    { device = "zpool/var";
-      fsType = "zfs";
-    };
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=@nix"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
 
-  fileSystems."/home" =
-    { device = "zpool/home";
-      fsType = "zfs";
-    };
+  fileSystems."/var" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=@var"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/EEBC-B8A9";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=@log"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
 
-  swapDevices = [ ];
+  fileSystems."/tmp" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=@tmp"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-label/nix-boot";
+    fsType = "vfat";
+  };
+
+  swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

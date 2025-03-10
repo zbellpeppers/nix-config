@@ -10,6 +10,6 @@
   # Host-specific configuration goes here
   networking.hostName = "king";
 
-  # You can add more host-specific settings
-  system.stateVersion = "25.05";
+  # Do not change without consulting documenntation - This is the nixos version at install
+  system.stateVersion = "24.11";
 }
