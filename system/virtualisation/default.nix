@@ -13,11 +13,13 @@
     };
     oci-containers = {
       backend = "podman";
-      # container-name = {
-      #   image = "container-image";
-      #   autoStart = true;
-      #   ports = ["127.0.0.1:1234:1234"];
-      # };
+      containers = {
+        actual-budget = {
+          image = "ghcr.io/actualbudget/actual:latest";
+          autoStart = true;
+          ports = ["127.0.0.1:5006:5006"];
+        };
+      };
     };
   };
 
