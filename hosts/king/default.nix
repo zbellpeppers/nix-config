@@ -24,9 +24,8 @@
       "nix"
       "lp"
       "scanner"
-      "docker"
+      "podman"
       "i2c"
-      "syncthing"
     ];
   };
 
