@@ -26,6 +26,8 @@
     # GUI Tools
     kdePackages.partitionmanager
     ventoy-full
+    fsearch
+
     # Gaming
     mangohud
 
