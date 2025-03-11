@@ -8,8 +8,10 @@
     nftables.enable = true;
     firewall = {
       enable = true;
-      # 80 443 - http and https 5006 - Actual Budget - Temporarily removing tcp 8384 & 22000, udp 22000 & 21027. Not sure what they are
-      allowedTCPPorts = [80 443 5006];
+      # 80 443 - http and https
+      # 5006 - Actual Budget
+      # 9283 - Grocy docker image
+      allowedTCPPorts = [80 443 5006 9283];
       allowedUDPPorts = [];
       allowedUDPPortRanges = [
         # Port Forward - KDEConnect
