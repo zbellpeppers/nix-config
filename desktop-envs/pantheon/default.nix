@@ -32,6 +32,7 @@
     pantheon.elementary-iconbrowser
     pantheon.elementary-print-shim
     pantheon.elementary-screenshot
+    pantheon.elementary-photos
     pantheon.contractor
   ];
 
