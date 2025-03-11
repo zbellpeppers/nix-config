@@ -65,7 +65,7 @@
       please = "sudo";
       jctl = "journalctl -p 3 -xb";
       rip = "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl";
-      upgit = "/home/zachary/nix-config/gitupdate.sh";
+      upgit = "/home/$(whoami)/nix-config/gitupdate.sh";
       garbage = "sudo nix-collect-garbage -d";
       upflake = "cd /home/zachary/nix-config && nix flake update";
       update = "/home/sarah/nix-config/queen-update.sh";

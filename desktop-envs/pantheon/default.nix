@@ -9,7 +9,7 @@
   environment.pantheon.excludePackages = with pkgs; [
     # Communication
     pantheon.elementary-mail
-    # pantheon.elementary-feedback
+    pantheon.elementary-feedback
 
     # # Media
     # pantheon.elementary-music
@@ -17,12 +17,12 @@
     # pantheon.elementary-videos
 
     # # Utilities
-    # pantheon.elementary-calculator
-    # pantheon.elementary-calendar
-    # pantheon.elementary-code
+    pantheon.elementary-calculator
+    pantheon.elementary-calendar
+    pantheon.elementary-code
     # pantheon.elementary-screenshot
-    # pantheon.elementary-tasks
-    # pantheon.elementary-terminal # Only if you prefer another terminal
+    pantheon.elementary-tasks
+    pantheon.elementary-terminal
 
     # # System
     # pantheon.elementary-print # If you don't need printing
