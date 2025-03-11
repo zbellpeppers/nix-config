@@ -2,7 +2,7 @@
   imports = [
     ../common
     ./git
-    ./desktop-entries
+    # ./desktop-entries
   ];
 
   # Home packages specific to sarah

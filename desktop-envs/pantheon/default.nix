@@ -28,6 +28,10 @@
     # pantheon.elementary-print # If you don't need printing
   ];
 
+  environment.systemPackages = with pkgs; [
+    pantheon.elementary-iconbrowser
+  ];
+
   # The following options are enabled by default by the above:
   # services.xserver.displayManager.lightdm.greeters.pantheon.enable = true;
   # services.xserver.displayManager.lightdm.enable = true;
