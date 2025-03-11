@@ -11,16 +11,16 @@
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
-    oci-containers = {
-      backend = "podman";
-      containers = {
-        actual-budget = {
-          image = "ghcr.io/actualbudget/actual:latest";
-          autoStart = true;
-          ports = ["127.0.0.1:5006:5006"];
-        };
-      };
-    };
+    # oci-containers = {
+    #   backend = "podman";
+    #   containers = {
+    #     actual-budget = {
+    #       image = "ghcr.io/actualbudget/actual:latest";
+    #       autoStart = true;
+    #       ports = ["127.0.0.1:5006:5006"];
+    #     };
+    #   };
+    # };
   };
 
   # Useful other development tools
