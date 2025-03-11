@@ -4,6 +4,7 @@
     antidote = {
       enable = true;
       plugins = [
+        "djui/alias-tips"
       ];
     };
 

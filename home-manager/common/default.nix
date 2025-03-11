@@ -53,6 +53,7 @@ in {
     alejandra
     gcc
     kdePackages.kate
+    python313
 
     # General Apps
     speedcrunch
