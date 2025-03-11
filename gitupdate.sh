@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 set -e
@@ -22,6 +21,26 @@ if [[ ! " ${valid_commands[*]} " =~ " ${rebuild_type} " ]]; then
     exit 1
 fi
 
+# Skip git operations for test builds
+if [ "$rebuild_type" = "test" ]; then
+    echo "Test build detected. Will skip git operations."
+    commit_message=""
+else
+    # Ask user for a commit message at the beginning
+    echo "Enter a commit message (or press Enter for default message):"
+    read user_message
+    
+    # Use default message if user didn't provide one
+    if [ -z "$user_message" ]; then
+        build_id=$(date +"%Y%m%d-%H%M%S")
+        commit_message="nixos - build #$build_id"
+    else
+        commit_message="$user_message"
+    fi
+    
+    echo "Will use commit message: \"$commit_message\" if build succeeds"
+fi
+
 # Create a temporary backup directory
 backup_dir=$(mktemp -d)
 echo "Creating backup of /etc/nixos in $backup_dir"
@@ -37,6 +56,7 @@ cd /etc/nixos
 
 # Check if it's a flake-based configuration
 if [ -f flake.nix ]; then
+    echo "Detected flake-based configuration"
     # Run the rebuild with flake
     if sudo nixos-rebuild "$rebuild_type" --flake .#; then
         rebuild_success=true
@@ -80,18 +100,6 @@ if [ "$rebuild_success" = true ]; then
 
     # Change to the nix-config directory
     cd ~/nix-config
-
-    # Ask user for a commit message
-    echo "Enter a commit message (or press Enter for default message):"
-    read user_message
-    
-    # Use default message if user didn't provide one
-    if [ -z "$user_message" ]; then
-        build_id=$(date +"%Y%m%d-%H%M%S")
-        commit_message="nixos - build #$build_id"
-    else
-        commit_message="$user_message"
-    fi
 
     # Perform Git operations
     git add .
