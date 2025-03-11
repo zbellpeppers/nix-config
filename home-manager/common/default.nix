@@ -8,6 +8,7 @@
 in {
   imports = [
     ./bash
+    ./fish
     ./ghostty
     ./micro
     ./tealdeer
