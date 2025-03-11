@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 set -e
@@ -80,9 +81,17 @@ if [ "$rebuild_success" = true ]; then
     # Change to the nix-config directory
     cd ~/nix-config
 
-    # Generate build ID (using date and time)
-    build_id=$(date +"%Y%m%d-%H%M%S")
-    commit_message="nixos - build #$build_id"
+    # Ask user for a commit message
+    echo "Enter a commit message (or press Enter for default message):"
+    read user_message
+    
+    # Use default message if user didn't provide one
+    if [ -z "$user_message" ]; then
+        build_id=$(date +"%Y%m%d-%H%M%S")
+        commit_message="nixos - build #$build_id"
+    else
+        commit_message="$user_message"
+    fi
 
     # Perform Git operations
     git add .
