@@ -27,6 +27,7 @@
     kdePackages.partitionmanager
     ventoy-full
     fsearch
+    ddcui
 
     # Gaming
     mangohud
