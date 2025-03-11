@@ -14,6 +14,7 @@
       cursor-style-blink = true;
       cursor-click-to-move = true;
       mouse-hide-while-typing = true;
+      command = "/run/current-system/sw/bin/fish";
       window-decoration = "auto";
       window-theme = "auto";
       window-height = 29;
