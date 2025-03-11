@@ -4,23 +4,22 @@
   virtualisation = {
     podman = {
       enable = true;
-
       # Create a `docker` alias for podman, to use it as a drop-in replacement
       dockerCompat = true;
-
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
-    # oci-containers = {
-    #   backend = "podman";
-    #   containers = {
-    #     actual-budget = {
-    #       image = "ghcr.io/actualbudget/actual:latest";
-    #       autoStart = true;
-    #       ports = ["127.0.0.1:5006:5006"];
-    #     };
-    #   };
-    # };
+    oci-containers = {
+      backend = "podman";
+      containers = {
+        actual-budget = {
+          image = "ghcr.io/actualbudget/actual:latest";
+          autoStart = true;
+          ports = ["0.0.0.0:5006:5006"];
+          volumes = ["/home/zachary/Desktop/All/Documents/Accounting/actual-budget:/data"];
+        };
+      };
+    };
   };
 
   # Useful other development tools
