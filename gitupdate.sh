@@ -1,7 +1,8 @@
-
 #!/usr/bin/env bash
 
 set -e
+
+CURRENT_USER=$(logname || whoami)
 
 # Define valid rebuild commands
 valid_commands=("switch" "boot" "test" "build" "dry-activate" "build-vm" "build-vm-with-bootloader" "dry-build" "edit")
@@ -57,7 +58,8 @@ cd /etc/nixos
 if [ -f flake.nix ]; then
     echo "Detected flake-based configuration"
     # Run the rebuild with flake
-    if sudo nixos-rebuild "$rebuild_type" --flake .#king; then
+    # Note: You might want to make the hostname dynamic too
+    if sudo nixos-rebuild "$rebuild_type" --flake .#; then
         rebuild_success=true
     else
         rebuild_success=false
@@ -81,7 +83,7 @@ if [ "$rebuild_success" = true ]; then
         [ -f ~/nix-config/flake.lock ] && sudo rm ~/nix-config/flake.lock
         # Copy the new flake.lock and set proper ownership
         sudo cp /etc/nixos/flake.lock ~/nix-config/
-        sudo chown zachary ~/nix-config/flake.lock
+        sudo chown "$CURRENT_USER" ~/nix-config/flake.lock
     fi
     
     # Change ownership of /etc/nixos files to root
