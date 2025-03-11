@@ -58,7 +58,7 @@ if [ "$rebuild_success" = true ]; then
     if [ -f /etc/nixos/flake.lock ]; then
         echo "Updating flake.lock in git repository"
         # Remove the old flake.lock if it exists
-        [ -f ~/nix-config/flake.lock ] && rm ~/nix-config/flake.lock
+        [ -f ~/nix-config/flake.lock ] && sudo rm ~/nix-config/flake.lock
         # Copy the new flake.lock and set proper ownership
         sudo cp /etc/nixos/flake.lock ~/nix-config/
         sudo chown zachary ~/nix-config/flake.lock
