@@ -37,8 +37,6 @@ else
     else
         commit_message="$user_message"
     fi
-    
-    echo "Will use commit message: \"$commit_message\" if build succeeds"
 fi
 
 # Create a temporary backup directory
