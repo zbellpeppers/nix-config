@@ -19,6 +19,7 @@
     packages = [
       "com.stremio.Stremio"
       "org.onlyoffice.desktopeditors"
+      "io.github.brunofin.Cohesion"
     ];
   };
 }
