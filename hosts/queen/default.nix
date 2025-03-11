@@ -16,7 +16,7 @@
   users.users.sarah = {
     isNormalUser = true;
     description = "Sarah Nicole Smallwood";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -29,7 +29,7 @@
     ];
   };
 
-  programs.zsh.enable = true;
+  programs.fish.enable = true;
 
   services = {
     # Set default keyboard layout

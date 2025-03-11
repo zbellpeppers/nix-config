@@ -22,7 +22,6 @@
     grc
     wl-clipboard-rs
     ventoy-full
-    fish
 
     # GUI Tools
     kdePackages.partitionmanager

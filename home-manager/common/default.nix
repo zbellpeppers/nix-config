@@ -13,7 +13,6 @@ in {
     ./micro
     ./tealdeer
     ./vscode
-    ./zsh
   ];
   home.packages = with pkgs; [
     # Remote Access
