@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 set -e
@@ -34,8 +33,36 @@ sudo rsync -a --delete --exclude='.git' ~/nix-config/ /etc/nixos/
 # Perform the rebuild
 echo "Starting NixOS rebuild with command: $rebuild_type"
 cd /etc/nixos
-if sudo nixos-rebuild "$rebuild_type"; then
+
+# Check if it's a flake-based configuration
+if [ -f flake.nix ]; then
+    # Run the rebuild with flake
+    if sudo nixos-rebuild "$rebuild_type" --flake .#; then
+        rebuild_success=true
+    else
+        rebuild_success=false
+    fi
+else
+    # Run the traditional rebuild
+    if sudo nixos-rebuild "$rebuild_type"; then
+        rebuild_success=true
+    else
+        rebuild_success=false
+    fi
+fi
+
+if [ "$rebuild_success" = true ]; then
     echo "NixOS rebuild completed successfully."
+    
+    # Update flake.lock in the git repo if it exists in /etc/nixos
+    if [ -f /etc/nixos/flake.lock ]; then
+        echo "Updating flake.lock in git repository"
+        # Remove the old flake.lock if it exists
+        [ -f ~/nix-config/flake.lock ] && rm ~/nix-config/flake.lock
+        # Copy the new flake.lock and set proper ownership
+        sudo cp /etc/nixos/flake.lock ~/nix-config/
+        sudo chown zachary ~/nix-config/flake.lock
+    fi
     
     # Change ownership of /etc/nixos files to root
     sudo chown -R root:root /etc/nixos
@@ -51,7 +78,7 @@ if sudo nixos-rebuild "$rebuild_type"; then
     fi
 
     # Change to the nix-config directory
-    cd /home/zachary/nix-config
+    cd ~/nix-config
 
     # Generate build ID (using date and time)
     build_id=$(date +"%Y%m%d-%H%M%S")
