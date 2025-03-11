@@ -17,12 +17,12 @@
         efiSupport = true;
         device = "nodev";
         theme = "${pkgs.minimal-grub-theme}";
-        #TODO Adjust this for Sarah's windows
+        extraEntriesBeforeNixOS = true;
         extraEntries = ''
           menuentry "Windows 11" {
             insmod search_fs_uuid
             insmod chain
-            search --fs-uuid --set=root 0FF3-0D14
+            search --fs-uuid --set=root C253-6E85
             chainloader /EFI/Microsoft/Boot/bootmgfw.efi
           }
           menuentry "Reboot to BIOS" {
