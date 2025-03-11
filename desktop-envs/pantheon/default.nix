@@ -5,6 +5,12 @@
   services.xserver.enable = true;
   services.xserver.desktopManager.pantheon.enable = true;
 
+  # Disable specific pantheon default apps:
+  environment.pantheon.excludePackages = with pkgs; [
+    pantheon.elementary-mail
+    # Add other apps you want to exclude
+  ];
+
   # The following options are enabled by default by the above:
   # services.xserver.displayManager.lightdm.greeters.pantheon.enable = true;
   # services.xserver.displayManager.lightdm.enable = true;
