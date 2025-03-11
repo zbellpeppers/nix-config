@@ -40,7 +40,6 @@
         "fontFamily" = "FiraCode Nerd Font Mono";
         "fontWeight" = "600";
         "wordWrap" = "on";
-        "formatOnPaste" = true;
         "formatOnSave" = true;
         "fontLigatures" = true;
         "fontSize" = 15;

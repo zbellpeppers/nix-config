@@ -14,6 +14,7 @@
       containers = {
         actual-budget = {
           image = "ghcr.io/actualbudget/actual:latest";
+          pull = "newer";
           autoStart = true;
           ports = ["0.0.0.0:5006:5006"];
           volumes = ["/home/zachary/Desktop/All/Documents/Accounting/actual-budget:/data"];
