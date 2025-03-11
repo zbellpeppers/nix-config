@@ -6,38 +6,37 @@
   services.xserver.desktopManager.pantheon.enable = true;
 
   # Disable specific pantheon default apps:
-  environment.pantheon.excludePackages = with pkgs; [
-    # Communication
-    pantheon.elementary-mail
-    pantheon.elementary-feedback
+  # environment.pantheon.excludePackages = with pkgs; [
+  #   # Communication
+  #   pantheon.elementary-mail
+  #   pantheon.elementary-feedback
 
-    # # Media
-    # pantheon.elementary-music
-    # pantheon.elementary-photos
-    # pantheon.elementary-videos
+  #   # # Media
+  #   # pantheon.elementary-music
+  #   # pantheon.elementary-photos
+  #   # pantheon.elementary-videos
 
-    # # Utilities
-    pantheon.elementary-calculator
-    pantheon.elementary-calendar
-    pantheon.elementary-code
-    # pantheon.elementary-screenshot
-    pantheon.elementary-tasks
-    pantheon.elementary-terminal
+  #   # # Utilities
+  #   pantheon.elementary-calculator
+  #   pantheon.elementary-calendar
+  #   pantheon.elementary-code
+  #   # pantheon.elementary-screenshot
+  #   pantheon.elementary-tasks
+  #   pantheon.elementary-terminal
 
-    # # System
-    # pantheon.elementary-print # If you don't need printing
-  ];
+  #   # # System
+  #   # pantheon.elementary-print # If you don't need printing
+  # ];
 
   environment.systemPackages = with pkgs; [
     pantheon.elementary-iconbrowser
+    pantheon.elementary-print-shim
+    pantheon.elementary-screenshot
+    pantheon.contractor
   ];
 
-  # The following options are enabled by default by the above:
-  # services.xserver.displayManager.lightdm.greeters.pantheon.enable = true;
-  # services.xserver.displayManager.lightdm.enable = true;
-
   # You can remove the Pantheon default apps by uncommenting:
-  # services.pantheon.apps.enable = false;
+  services.pantheon.apps.enable = false;
 
   # Pantheon has plugins but they're installed differently than with Gnome. Example:
   # opt-services.xserver.desktopManager.pantheon.extraWingpanelIndicators
