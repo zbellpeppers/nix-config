@@ -1,12 +1,6 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    ./packages
+    ../common
     ./git
     ./desktop-entries
   ];

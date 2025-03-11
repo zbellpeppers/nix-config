@@ -27,15 +27,4 @@
       ];
     };
   };
-  services.ddclient = {
-    enable = true;
-    protocol = "cloudflare";
-    username = "token";
-    zone = "bell-peppers.com";
-    passwordFile = "/home/zachary/Desktop/All/Documents/Accounting/ActualBudget/cloudflare-token.txt";
-    domains = ["actualbudget.bell-peppers.com"];
-    interval = "5min";
-    usev6 = "webv6";
-    usev4 = "webv4";
-  };
 }

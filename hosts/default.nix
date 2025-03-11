@@ -38,7 +38,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "0001";
-            home-manager.users.${username} = import ../home-manager;
+            home-manager.users.${username} = import ../home-manager/${name};
             home-manager.extraSpecialArgs =
               {
                 inherit inputs;
@@ -61,13 +61,20 @@
       };
     };
 in {
-  # Define your hosts here
+  # Define hosts below
+  # King host
   king = mkHost {
     name = "king";
     username = "zachary";
     modules = [../desktop-envs/plasma];
   };
 
+  # Queen host
+  queen = mkHost {
+    name = "queen";
+    username = "sarah";
+    modules = [../desktop-envs/pantheon];
+  };
   # You can add more hosts like this:
   # other-host = mkHost {
   #   name = "other-host";
