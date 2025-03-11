@@ -6,7 +6,9 @@
 }: {
   imports = [
     ./boot
+    ./flatpak
     ./hardware
+    ./virtualisation
   ];
   # Host-specific configuration goes here
   networking.hostName = "king";

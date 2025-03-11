@@ -8,6 +8,5 @@
     ./printer
     ./programs
     ./services
-    ./virtualisation
   ];
 }

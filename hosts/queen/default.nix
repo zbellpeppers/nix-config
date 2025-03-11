@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./boot
+    ./flatpak
     ./hardware
   ];
   # Host-specific configuration goes here
@@ -24,7 +25,6 @@
       "nix"
       "lp"
       "scanner"
-      "podman"
       "i2c"
     ];
   };

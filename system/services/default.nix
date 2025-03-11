@@ -13,16 +13,6 @@
     # Openrgb
     hardware.openrgb.enable = true;
 
-    # Enable flatpak managment
-    flatpak = {
-      enable = true;
-      update.onActivation = true;
-      packages = [
-        "com.stremio.Stremio"
-        "org.onlyoffice.desktopeditors"
-      ];
-    };
-
     # Openssh configuration
     openssh = {
       enable = true;

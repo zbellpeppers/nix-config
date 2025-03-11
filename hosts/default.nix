@@ -50,7 +50,7 @@
           # Chaotic nix repo
           inputs.chaotic.homeManagerModules.default
 
-          # Additional modules
+          # Flatpak
           inputs.nix-flatpak.nixosModules.nix-flatpak
         ]
         ++ modules;
