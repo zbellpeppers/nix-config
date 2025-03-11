@@ -1,0 +1,128 @@
+{pkgs, ...}: {
+  programs.fish = {
+    enable = true;
+    plugins = [
+      {
+        name = "z";
+        src = pkgs.fishPlugins.z.src;
+      }
+      {
+        name = "tide";
+        src = pkgs.fishPlugins.tide.src;
+      }
+      {
+        name = "done";
+        src = pkgs.fishPlugins.done.src;
+      }
+      {
+        name = "sponge";
+        src = pkgs.fishPlugins.sponge.src;
+      }
+      {
+        name = "autopair";
+        src = pkgs.fishPlugins.autopair.src;
+      }
+      {
+        name = "getopts";
+        src = pkgs.fetchFromGitHub {
+          owner = "jorgebucaran";
+          repo = "getopts.fish";
+          rev = "main";
+          sha256 = "1z5jvqip1hx59cggj9fyzaqqpz5rrsdjb3kv6ha042pbd034a57n";
+        };
+      }
+      {
+        name = "puffer";
+        src = pkgs.fishPlugins.puffer;
+      }
+      {
+        name = "virtualfish";
+        src = pkgs.fetchFromGitHub {
+          owner = "justinmayer";
+          repo = "virtualfish";
+          rev = "main";
+          sha256 = "0izqc80rixkqjvzszabq01mw2phxryf34i69m2ih921l43f9v2bs";
+        };
+      }
+      {
+        name = "abbreviationtips";
+        src = pkgs.fetchFromGitHub {
+          owner = "Gazorby";
+          repo = "fish-abbreviation-tips";
+          rev = "master";
+          sha256 = "05b5qp7yly7mwsqykjlb79gl24bs6mbqzaj5b3xfn3v2b7apqnqp";
+        };
+      }
+      {
+        name = "pisces";
+        src = pkgs.fishPlugins.pisces.src;
+      }
+      {
+        name = "grc-colorizer";
+        src = pkgs.fishPlugins.grc.src;
+      }
+      {
+        name = "fifc";
+        src = pkgs.fishPlugins.fifc.src;
+      }
+      {
+        name = "fzf";
+        src = pkgs.fishPlugins.fzf.src;
+      }
+      {
+        name = "forgit";
+        src = pkgs.fishPlugins.forgit.src;
+      }
+      {
+        name = "colored-man-pages";
+        src = pkgs.fishPlugins.colored-man-pages.src;
+      }
+    ];
+    shellInit = ''
+      # Set settings for https://github.com/franciscolourenco/done
+      set -g __done_min_cmd_duration 10000
+      set -g __done_notification_urgency_level low
+
+      # Format man pages
+      set -x MANROFFOPT -c
+      set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
+      # Add ~/.local/bin to PATH
+      if test -d ~/.local/bin
+        if not contains -- ~/.local/bin $PATH
+          set -p PATH ~/.local/bin
+        end
+      end
+    '';
+    functions = {
+      fish_greeting = "fastfetch";
+    };
+    shellAliases = {
+      # Replace ls with eza
+      ls = "eza -al --color=always --group-directories-first --icons";
+      la = "eza -a --color=always --group-directories-first --icons";
+      ll = "eza -l --color=always --group-directories-first --icons";
+      lt = "eza -aT --color=always --group-directories-first --icons";
+      "l." = "eza -a | grep -e '^\\.'";
+      # Common use
+      tarnow = "tar -acf";
+      untar = "tar -zxvf";
+      wget = "wget -c";
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      "....." = "cd ../../../..";
+      "......" = "cd ../../../../..";
+      dir = "dir --color=auto";
+      vdir = "vdir --color=auto";
+      grep = "grep --color=auto";
+      fgrep = "fgrep --color=auto";
+      egrep = "egrep --color=auto";
+      hw = "hwinfo --short";
+      jctl = "journalctl -p 3 -xb";
+      upgit = "/home/$(whoami)/nix-config/gitupdate.sh";
+      garbage = "sudo nix-collect-garbage -d";
+      upflake = "cd /home/$(whoami)/nix-config && nix flake update";
+    };
+  };
+}

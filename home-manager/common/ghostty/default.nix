@@ -1,7 +1,8 @@
 {...}: {
   programs.ghostty = {
     enable = true;
-    enableZshIntegration = true;
+    # enableZshIntegration = true;
+    enableFishIntegration = true;
     # See https://ghostty.org/docs/config/reference for config settings
     # Settings will me in the same order as the appear on the site above
     settings = {

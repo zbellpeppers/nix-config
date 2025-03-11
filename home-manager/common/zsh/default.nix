@@ -5,6 +5,8 @@
       enable = true;
       plugins = [
         "djui/alias-tips"
+        "Aloxaf/fzf-tab"
+        "rupa/z"
       ];
     };
 
