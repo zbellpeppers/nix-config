@@ -11,7 +11,7 @@
     # Bootloader Configuration
     loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 8;
+      timeout = 12;
       grub = {
         enable = true;
         efiSupport = true;

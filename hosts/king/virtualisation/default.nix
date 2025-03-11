@@ -19,18 +19,6 @@
           ports = ["0.0.0.0:5006:5006"];
           volumes = ["/home/zachary/Desktop/All/Documents/Accounting/actual-budget:/data"];
         };
-        grocy = {
-          image = "lscr.io/linuxserver/grocy:latest";
-          pull = "newer";
-          autoStart = true;
-          ports = ["9283:80"];
-          volumes = ["/var/lib/grocy:/config"];
-          environment = {
-            PUID = "1000";
-            PGID = "1000";
-            TZ = "Etc/UTC";
-          };
-        };
       };
     };
   };
