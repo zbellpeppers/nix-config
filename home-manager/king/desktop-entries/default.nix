@@ -10,10 +10,5 @@
       exec = "speedcrunch";
       icon = "org.gnome.Calculator";
     };
-    "VSCodium" = {
-      name = "Code";
-      exec = "codium";
-      icon = "code-oss";
-    };
   };
 }

@@ -57,6 +57,7 @@
   # Set micro to default sudoeditor
   security.sudo.extraConfig = ''
     Defaults editor=${pkgs.micro}/bin/micro
+    Defaults pwfeedback
   '';
 
   # Uses local time
