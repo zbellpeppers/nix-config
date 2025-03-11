@@ -7,8 +7,25 @@
 
   # Disable specific pantheon default apps:
   environment.pantheon.excludePackages = with pkgs; [
+    # Communication
     pantheon.elementary-mail
-    # Add other apps you want to exclude
+    # pantheon.elementary-feedback
+
+    # # Media
+    # pantheon.elementary-music
+    # pantheon.elementary-photos
+    # pantheon.elementary-videos
+
+    # # Utilities
+    # pantheon.elementary-calculator
+    # pantheon.elementary-calendar
+    # pantheon.elementary-code
+    # pantheon.elementary-screenshot
+    # pantheon.elementary-tasks
+    # pantheon.elementary-terminal # Only if you prefer another terminal
+
+    # # System
+    # pantheon.elementary-print # If you don't need printing
   ];
 
   # The following options are enabled by default by the above:
