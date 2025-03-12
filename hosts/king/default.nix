@@ -17,7 +17,7 @@
   users.users.zachary = {
     isNormalUser = true;
     description = "Zachary Bell Peppers";
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -31,8 +31,7 @@
     ];
   };
 
-  programs.fish.enable = true;
-  environment.pathsToLink = ["/share/fish"];
+  programs.zsh.enable = true;
 
   services = {
     # Set default keyboard layout
