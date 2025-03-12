@@ -9,7 +9,7 @@
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    sops-nix.url = "github:Mic92/sops-nix";
+    agenix.url = "github:ryantm/agenix";
   };
 
   outputs = {
@@ -18,7 +18,7 @@
     home-manager,
     nix-flatpak,
     chaotic,
-    sops-nix,
+    agenix,
     ...
   } @ inputs: {
     nixosConfigurations = import ./hosts {

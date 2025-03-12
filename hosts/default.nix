@@ -54,7 +54,10 @@
           inputs.nix-flatpak.nixosModules.nix-flatpak
 
           # Sops-nix
-          inputs.sops-nix.nixosModules.sops
+          inputs.agenix.nixosModules.default
+          {
+            environment.systemPackages = [inputs.agenix.packages.${system}.default];
+          }
         ]
         ++ modules;
 
