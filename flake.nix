@@ -10,6 +10,10 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     agenix.url = "github:ryantm/agenix";
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -19,6 +23,7 @@
     nix-flatpak,
     chaotic,
     agenix,
+    zen-browser,
     ...
   } @ inputs: {
     nixosConfigurations = import ./hosts {

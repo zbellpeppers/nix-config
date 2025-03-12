@@ -19,7 +19,6 @@
     packages = [
       "com.stremio.Stremio"
       "org.onlyoffice.desktopeditors"
-      "app.zen_browser.zen"
     ];
   };
 }
