@@ -7,12 +7,12 @@
         term = "xterm-256color";
 
         # Font settings
-        font = "FiraCode Nerd Font Mono:size=12";
+        font = "FiraCode Nerd Font Mono:size=13";
         font-size-adjustment = "0.5";
         dpi-aware = "yes";
 
         # Window settings
-        initial-window-size-chars = "138x33";
+        initial-window-size-chars = "120x29";
       };
 
       mouse = {
