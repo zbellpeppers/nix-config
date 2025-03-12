@@ -105,7 +105,10 @@
     '';
     functions = {
       fish_greeting = "fastfetch";
-      upgit = "/home/$(whoami)/nix-config/gitupdate.sh";
+      upgit = "
+      set var (whoami)
+      /home/$var/nix-config/gitupdate.sh
+      ";
     };
     shellAliases = {
       # Replace ls with eza
