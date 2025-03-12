@@ -22,6 +22,7 @@
     grc
     wl-clipboard-rs
     ventoy-full
+    age
 
     # GUI Tools
     kdePackages.partitionmanager
