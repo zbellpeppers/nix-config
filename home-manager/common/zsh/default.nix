@@ -12,7 +12,7 @@
 
     autosuggestion = {
       enable = true;
-      strategy = ["history"];
+      strategy = ["completion" "history"];
     };
 
     enableCompletion = true;
