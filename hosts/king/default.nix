@@ -32,6 +32,7 @@
   };
 
   programs.fish.enable = true;
+  environment.pathsToLink = ["/share/fish"];
 
   services = {
     # Set default keyboard layout
