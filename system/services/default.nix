@@ -7,9 +7,6 @@
   ];
 
   services = {
-    # Enables fwupd - CLI-based Firmware Updater
-    fwupd.enable = true;
-
     # Openrgb
     hardware.openrgb.enable = true;
 

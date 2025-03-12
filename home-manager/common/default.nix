@@ -8,7 +8,7 @@
 in {
   imports = [
     ./bash
-    ./foot
+    ./config
     ./micro
     ./tealdeer
     ./vscode

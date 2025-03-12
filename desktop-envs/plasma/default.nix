@@ -18,6 +18,7 @@ in {
     oxygen
     elisa
     discover
+    konsole
   ];
   services = {
     displayManager = {
@@ -36,6 +37,5 @@ in {
   environment.systemPackages = with pkgs; [
     monochrome-sddm-theme
     kdePackages.filelight
-    kdePackages.yakuake
   ];
 }

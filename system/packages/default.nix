@@ -23,6 +23,8 @@
     wl-clipboard-rs
     ventoy-full
     age
+    kdePackages.konsole
+    kdePackages.yakuake
 
     # GUI Tools
     kdePackages.partitionmanager
