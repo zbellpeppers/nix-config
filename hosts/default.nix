@@ -37,7 +37,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "0001";
+            home-manager.backupFileExtension = "backup";
             home-manager.users.${username} = import ../home-manager/${name};
             home-manager.extraSpecialArgs =
               {
@@ -52,6 +52,9 @@
 
           # Flatpak
           inputs.nix-flatpak.nixosModules.nix-flatpak
+
+          # Sops-nix
+          inputs.sops-nix.nixosModules.sops
         ]
         ++ modules;
 
