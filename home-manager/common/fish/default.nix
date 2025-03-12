@@ -105,6 +105,7 @@
     '';
     functions = {
       fish_greeting = "fastfetch";
+      upgit = "/home/$(whoami)/nix-config/gitupdate.sh";
     };
     shellAliases = {
       # Replace ls with eza
@@ -129,7 +130,6 @@
       egrep = "egrep --color=auto";
       hw = "hwinfo --short";
       jctl = "journalctl -p 3 -xb";
-      upgit = "/home/$(whoami)/nix-config/gitupdate.sh";
       garbage = "sudo nix-collect-garbage -d";
       upflake = "cd /home/$(whoami)/nix-config && nix flake update";
     };
