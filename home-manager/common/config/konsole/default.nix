@@ -21,7 +21,7 @@
     CursorShape=1
 
     [General]
-    Command=/etc/profiles/per-user/zachary/bin/zsh
+    Command=/run/current-system/sw/bin/zsh
     Name=Zsh
     Parent=FALLBACK/
     TerminalColumns=120
