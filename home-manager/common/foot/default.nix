@@ -12,7 +12,7 @@
         dpi-aware = "yes";
 
         # Window settings
-        initial-window-size-chars = "120x29";
+        initial-window-size-chars = "138x33";
       };
 
       mouse = {

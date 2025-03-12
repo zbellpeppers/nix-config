@@ -19,11 +19,6 @@
       };
     };
 
-    # Starship presets
-    starship.presets = [
-      "nerd-font-symbols"
-    ];
-
     # Enable gamescope
     gamescope = {
       enable = true;
@@ -32,5 +27,11 @@
 
     # Enable gamemode
     gamemode.enable = true;
+
+    # GPG
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
   };
 }
