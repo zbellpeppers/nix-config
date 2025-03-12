@@ -7,7 +7,7 @@
     settings = {
       font-family = "FiraCode Nerd Font Mono";
       font-size = 11;
-      theme = "Dracula+";
+      theme = "OneHalfDark";
       adjust-cursor-thickness = 1;
       adjust-cursor-height = -3;
       cursor-style = "bar";

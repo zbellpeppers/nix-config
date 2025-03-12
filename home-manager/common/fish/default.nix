@@ -129,9 +129,9 @@
       egrep = "egrep --color=auto";
       hw = "hwinfo --short";
       jctl = "journalctl -p 3 -xb";
-      upgit = "/home//nix-config/gitupdate.sh";
+      upgit = "/home/$(whoami)/nix-config/gitupdate.sh";
       garbage = "sudo nix-collect-garbage -d";
-      upflake = "cd /home/zachary/nix-config && nix flake update";
+      upflake = "cd /home/$(whoami)/nix-config && nix flake update";
     };
     interactiveShellInit = ''
       # Functions needed for !! and !$
@@ -156,7 +156,7 @@
       end
 
       # Change fish suggestions color
-      set fish_color_autosuggestion '#a6e8ff'
+      set fish_color_autosuggestion '#38761d'
 
       if [ "$fish_key_bindings" = fish_vi_key_bindings ]
         bind -Minsert ! __history_previous_command
