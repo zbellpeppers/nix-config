@@ -8,11 +8,11 @@
 in {
   imports = [
     ./bash
-    ./fish
     ./ghostty
     ./micro
     ./tealdeer
     ./vscode
+    ./zsh
   ];
   home.packages = with pkgs; [
     # Remote Access
