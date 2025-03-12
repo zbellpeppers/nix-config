@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   # Enable common container config files in /etc/containers
   virtualisation.containers.enable = true;
   virtualisation = {
@@ -18,6 +22,10 @@
           autoStart = true;
           ports = ["0.0.0.0:5006:5006"];
           volumes = ["/home/zachary/Desktop/All/Documents/Accounting/actual-budget:/data"];
+          environment = {
+            BUDGET_PASSWORD_FILE = config.age.secrets.actualbudget-password.path;
+            API_KEY_FILE = config.age.secrets.actualbudget-apikey.path;
+          };
         };
       };
     };

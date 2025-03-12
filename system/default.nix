@@ -7,6 +7,7 @@
     ./packages
     ./printer
     ./programs
+    ./secretpaths
     ./services
   ];
 }

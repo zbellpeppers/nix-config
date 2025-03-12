@@ -8,5 +8,6 @@ let
   queen = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKzxQgondgEYcLpcPdJLrTdNgZ2gznOHCAxMdaceTUT1";
   systems = [king queen];
 in {
-  "acutalbudget-zach.age".publicKeys = [zachary];
+  "actualbudget-password.age".publicKeys = [zachary sarah];
+  "actualbudget-apikey.age".publicKeys = [zachary sarah];
 }
