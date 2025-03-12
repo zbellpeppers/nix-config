@@ -105,10 +105,6 @@
     '';
     functions = {
       fish_greeting = "fastfetch";
-      upgit = "
-      set var (whoami)
-      /home/$var/nix-config/gitupdate.sh
-      ";
     };
     shellAliases = {
       # Replace ls with eza
@@ -135,6 +131,7 @@
       jctl = "journalctl -p 3 -xb";
       garbage = "sudo nix-collect-garbage -d";
       upflake = "cd /home/$(whoami)/nix-config && nix flake update";
+      upgit = "/home/$var/nix-config/gitupdate.sh";
     };
     interactiveShellInit = ''
       # Functions needed for !! and !$
