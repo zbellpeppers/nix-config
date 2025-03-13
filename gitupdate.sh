@@ -55,24 +55,12 @@ sudo rsync -a --delete --exclude='.git' ~/nix-config/ /etc/nixos/
 echo "Starting NixOS rebuild with command: $rebuild_type"
 cd /etc/nixos
 
-# Check if it's a flake-based configuration
-if [ -f flake.nix ]; then
-    echo "Detected flake-based configuration"
-    # Run the rebuild with flake
-    # Note: You might want to make the hostname dynamic too
-    if sudo nixos-rebuild "$rebuild_type" --flake .#; then
-        rebuild_success=true
-    else
-        rebuild_success=false
-    fi
-else
-    # Run the traditional rebuild
+# Run the rebuild
     if sudo nixos-rebuild "$rebuild_type"; then
         rebuild_success=true
     else
         rebuild_success=false
     fi
-fi
 
 if [ "$rebuild_success" = true ]; then
     echo "NixOS rebuild completed successfully."
