@@ -16,7 +16,7 @@ in {
   ];
   home.packages = with pkgs; [
     # Remote Access
-    rustdesk-flutter
+    # rustdesk-flutter
 
     # Browser Related
     persepolis
