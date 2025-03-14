@@ -33,7 +33,8 @@
       # The URL clients will use to connect to your Headscale server
       # For local testing, you can use your local IP or hostname
       server_url = "https://headscale.bell-peppers.com:443";
-      # Add TLS configuration using Let's Encrypt
+
+      # Enable Let's Encrypt
       tls_letsencrypt_hostname = "headscale.bell-peppers.com";
       tls_letsencrypt_challenge_type = "HTTP-01";
       tls_letsencrypt_listen = ":80";

@@ -10,13 +10,6 @@
       # Optional: Set the group that can access the certificate
       # group = "nginx";
     };
-    # New certificate for headscale.bell-peppers.com
-    certs."headscale.bell-peppers.com" = {
-      domain = "headscale.bell-peppers.com";
-      dnsProvider = "cloudflare";
-      environmentFile = config.age.secrets.actualbudget-nginx-apitoken.path;
-      # group = "headscale";
-    };
   };
   # services.nginx = {
   #   enable = true;
