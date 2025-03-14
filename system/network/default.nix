@@ -10,7 +10,8 @@
       enable = true;
       # 80 443 - http and https
       # 5006 - Actual Budget
-      allowedTCPPorts = [80 443 5006];
+      # 8080 - Headscale server
+      allowedTCPPorts = [80 443 5006 8080];
       allowedUDPPorts = [];
       allowedUDPPortRanges = [
         # Port Forward - KDEConnect

@@ -32,7 +32,7 @@
     settings = {
       # The URL clients will use to connect to your Headscale server
       # For local testing, you can use your local IP or hostname
-      server_url = "http://localhost:8080";
+      server_url = "http://headscale.bell-peppers.com:8080";
 
       # Define the IPv4 CIDR range for your tailnet
       prefixes = {
