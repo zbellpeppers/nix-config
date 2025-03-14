@@ -9,5 +9,8 @@
     actualbudget-ddclient-apitoken = {
       file = ../../secrets/actualbudget-ddclient-apitoken.age;
     };
+    actualbudget-nginx-apitoken = {
+      file = ../../secrets/actualbudget-nginx-apitoken.age;
+    };
   };
 }

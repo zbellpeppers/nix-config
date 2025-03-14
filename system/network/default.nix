@@ -10,8 +10,7 @@
       enable = true;
       # 80 443 - http and https
       # 5006 - Actual Budget
-      # 9283 - Grocy docker image
-      allowedTCPPorts = [80 443 5006 9283];
+      allowedTCPPorts = [80 443 5006];
       allowedUDPPorts = [];
       allowedUDPPortRanges = [
         # Port Forward - KDEConnect

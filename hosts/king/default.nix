@@ -28,6 +28,7 @@
       "scanner"
       "podman"
       "i2c"
+      "nginx"
     ];
   };
 
