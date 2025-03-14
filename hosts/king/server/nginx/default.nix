@@ -1,44 +1,30 @@
 {config, ...}: {
-  security.acme = {
-    defaults.email = "zbellpeppers@pm.me";
-    acceptTerms = true;
-    # Define the certificate for actualbudget.bell-peppers.com
-    certs."actualbudget.bell-peppers.com" = {
-      domain = "actualbudget.bell-peppers.com";
-      dnsProvider = "cloudflare";
-      environmentFile = config.age.secrets.actualbudget-nginx-apitoken.path;
-      # Optional: Set the group that can access the certificate
-      # group = "nginx";
+  # Enable Nginx
+  services.nginx = {
+    enable = true;
+
+    # Recommended security settings
+    recommendedTlsSettings = true;
+    recommendedOptimisation = true;
+    recommendedGzipSettings = true;
+    recommendedProxySettings = true;
+
+    # Configure the virtual host for Actual Budget
+    virtualHosts."actualbudget.bell-peppers.com" = {
+      enableACME = true; # Use the ACME certificate
+      forceSSL = true; # Redirect HTTP to HTTPS
+
+      # Configure proxy to the Actual Budget Podman container
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:5006"; # Assuming Actual Budget runs on port 5006
+        proxyWebsockets = true; # Enable if Actual Budget uses WebSockets
+      };
     };
   };
-  # services.nginx = {
-  #   enable = true;
-  #   # recommendedProxySettings = true;
-  #   # recommendedTlsSettings = true;
-  #   virtualHosts."actualbudget.bell-peppers.com" = {
-  #     listen = [
-  #       {
-  #         addr = "0.0.0.0";
-  #         port = 443;
-  #         ssl = true;
-  #       }
-  #       {
-  #         addr = "0.0.0.0";
-  #         port = 80;
-  #       }
-  #     ];
-  #     forceSSL = true;
-  #     useACMEHost = "actualbudget.bell-peppers.com";
-  #     locations."/" = {
-  #       proxyPass = "http://127.0.0.1:5006";
-  #       proxyWebsockets = true; # If Actual Budget uses WebSockets
-  #       extraConfig = ''
-  #         proxy_set_header Host $host;
-  #         proxy_set_header X-Real-IP $remote_addr;
-  #         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-  #         proxy_set_header X-Forwarded-Proto $scheme;
-  #       '';
-  #     };
-  #   };
-  # };
+
+  # Ensure Nginx can read the certificates
+  security.acme.certs."actualbudget.bell-peppers.com".group = "nginx";
+
+  # Open firewall ports
+  networking.firewall.allowedTCPPorts = [80 443];
 }

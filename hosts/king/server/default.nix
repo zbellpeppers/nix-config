@@ -1,7 +1,7 @@
 {...}: {
   imports = [
+    ./acme-cert
     ./ddclient
-    ./headscale
     ./nginx
     ./podman
   ];

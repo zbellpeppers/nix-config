@@ -8,7 +8,6 @@
     zone = "bell-peppers.com"; # Your root domain
     domains = [
       "actualbudget.bell-peppers.com"
-      "headscale.bell-peppers.com"
     ]; # The subdomain to update
     ssl = true;
     interval = "5min"; # Check every 10 minutes
