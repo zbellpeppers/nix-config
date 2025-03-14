@@ -7,7 +7,7 @@
 
   # Function to create a NixOS system configuration
   mkHost = {
-    name,
+    hostname,
     username,
     system ? "x86_64-linux",
     desktop ? "plasma",
@@ -19,7 +19,7 @@
       modules =
         [
           # Host-specific configuration
-          ./${name}
+          ./${hostname}
           ../desktop-envs/${desktop}
 
           # Common modules
@@ -40,7 +40,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "backup";
-            home-manager.users.${username} = import ../home-manager/${name};
+            home-manager.users.${username} = import ../home-manager/${hostname};
             home-manager.extraSpecialArgs =
               {
                 inherit inputs;
@@ -70,10 +70,9 @@
       };
     };
 in {
-  # Define hosts below
   # King host
   king = mkHost {
-    name = "king";
+    hostname = "king";
     username = "zachary";
     desktop = "plasma";
     modules = [
@@ -82,17 +81,10 @@ in {
 
   # Queen host
   queen = mkHost {
-    name = "queen";
+    hostname = "queen";
     username = "sarah";
     desktop = "pantheon";
     modules = [
     ];
   };
-  # You can add more hosts like this:
-  # other-host = mkHost {
-  #   name = "other-host";
-  #   system = "aarch64-linux";  # optional, defaults to x86_64-linux
-  #   modules = [ ../some-other-module ];
-  #   extraHomeManagerConfig = { /* additional config */ };
-  # };
 }

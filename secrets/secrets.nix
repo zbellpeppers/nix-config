@@ -9,4 +9,5 @@ let
 in {
   "actualbudget-password.age".publicKeys = [zachary sarah];
   "actualbudget-apikey.age".publicKeys = [zachary sarah];
+  "actualbudget-ddclient-apitoken.age".publicKeys = [zachary];
 }
