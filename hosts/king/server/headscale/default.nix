@@ -6,12 +6,12 @@
   services.tailscale = {
     enable = true;
     useRoutingFeatures = "both";
+    openFirewall = true;
   };
 
   networking.firewall = {
     checkReversePath = "loose";
     trustedInterfaces = ["tailscale0"];
-    allowedUDPPorts = [config.services.tailscale.port];
   };
 
   services.networkd-dispatcher = {
@@ -28,21 +28,26 @@
     # Listen on all interfaces
     address = "0.0.0.0";
     # Default port for Headscale
-    port = 8080;
+    port = 443;
     settings = {
       # The URL clients will use to connect to your Headscale server
       # For local testing, you can use your local IP or hostname
-      server_url = "http://headscale.bell-peppers.com:8080";
+      server_url = "https://headscale.bell-peppers.com:443";
+      # Add TLS configuration using Let's Encrypt
+      tls_letsencrypt_hostname = "headscale.bell-peppers.com";
+      tls_letsencrypt_challenge_type = "HTTP-01";
+      tls_letsencrypt_listen = ":80";
 
       # Define the IPv4 CIDR range for your tailnet
       prefixes = {
         v4 = "100.64.0.0/10"; # Default Tailscale range
+        v6 = "fd7a:115c:a1e0::/48"; # Default Tailscale range
       };
 
       # DNS
       dns = {
         magic_dns = true;
-        base_domain = "headscale.bpf";
+        base_domain = "bpf.com";
       };
 
       # Database configuration (using SQLite by default)

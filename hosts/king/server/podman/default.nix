@@ -20,7 +20,7 @@
           image = "ghcr.io/actualbudget/actual:latest";
           pull = "newer";
           autoStart = true;
-          ports = ["127.0.0.1:5006:5006"];
+          ports = ["0.0.0.0:5006:5006"];
           volumes = ["/home/zachary/Desktop/All/Documents/Accounting/actual-budget:/data"];
           environment = {
             BUDGET_PASSWORD_FILE = config.age.secrets.actualbudget-password.path;
