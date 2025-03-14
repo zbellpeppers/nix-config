@@ -74,9 +74,9 @@ in {
     name = "king";
     username = "zachary";
     modules = [
-      ../desktop-envs/plasma
+      # ../desktop-envs/plasma
       inputs.nixos-cosmic.nixosModules.default
-      # ../desktop-envs/cosmic
+      ../desktop-envs/cosmic
     ];
   };
 
