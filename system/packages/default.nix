@@ -23,14 +23,15 @@
     wl-clipboard-rs
     ventoy-full
     age
-    kdePackages.konsole
-    kdePackages.yakuake
+    ethtool
 
     # GUI Tools
     kdePackages.partitionmanager
     ventoy-full
     fsearch
     ddcui
+    kdePackages.konsole
+    kdePackages.yakuake
 
     # Gaming
     mangohud
