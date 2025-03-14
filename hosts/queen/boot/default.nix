@@ -6,7 +6,7 @@
 }: {
   boot = {
     # Specifices the Linux Kernel
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     # Bootloader Configuration
     loader = {

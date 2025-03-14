@@ -47,9 +47,6 @@
               // extraHomeManagerConfig;
           }
 
-          # Chaotic nix repo
-          inputs.chaotic.homeManagerModules.default
-
           # Flatpak
           inputs.nix-flatpak.nixosModules.nix-flatpak
 
@@ -76,7 +73,11 @@ in {
   king = mkHost {
     name = "king";
     username = "zachary";
-    modules = [../desktop-envs/plasma];
+    modules = [
+      ../desktop-envs/plasma
+      inputs.nixos-cosmic.nixosModules.default
+      # ../desktop-envs/cosmic
+    ];
   };
 
   # Queen host

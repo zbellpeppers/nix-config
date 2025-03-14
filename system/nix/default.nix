@@ -36,19 +36,18 @@
       # Enables Flakes and other experimental commands
       extra-experimental-features = ["flakes" "nix-command" "recursive-nix" "ca-derivations"];
 
-      # Sandboxes packages, isolating them from eachother unless they do not require root access.
-      sandbox = "relaxed";
-
       # Automatic usage of --show-trace when a build error occurs
       show-trace = true;
 
       # Uses binary Cache - Saves download time
       substituters = [
         "https://cache.nixos.org"
+        "https://cosmic.cachix.org/"
       ];
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+        "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
       ];
     };
   };
