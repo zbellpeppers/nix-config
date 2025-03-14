@@ -12,6 +12,12 @@
     extraModulePackages = with config.boot.kernelPackages; [r8125];
     kernelModules = ["r8125"];
 
+    # Enable port-forwarding as this is the headscale exit node
+    kernel.sysctl = {
+      "net.ipv4.conf.all.forwarding" = true;
+      "net.ipv6.conf.all.forwarding" = true;
+    };
+
     # Bootloader Configuration
     loader = {
       efi.canTouchEfiVariables = true;

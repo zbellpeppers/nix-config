@@ -16,6 +16,17 @@
     # recommendedProxySettings = true;
     # recommendedTlsSettings = true;
     virtualHosts."actualbudget.bell-peppers.com" = {
+      listen = [
+        {
+          addr = "0.0.0.0";
+          port = 443;
+          ssl = true;
+        }
+        {
+          addr = "0.0.0.0";
+          port = 80;
+        }
+      ];
       forceSSL = true;
       useACMEHost = "actualbudget.bell-peppers.com";
       locations."/" = {
