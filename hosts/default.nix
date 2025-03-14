@@ -10,6 +10,7 @@
     name,
     username,
     system ? "x86_64-linux",
+    desktop ? "plasma",
     modules ? [],
     extraHomeManagerConfig ? {},
   }:
@@ -19,6 +20,7 @@
         [
           # Host-specific configuration
           ./${name}
+          ../desktop-envs/${desktop}
 
           # Common modules
           ../system
@@ -73,10 +75,8 @@ in {
   king = mkHost {
     name = "king";
     username = "zachary";
+    desktop = "plasma";
     modules = [
-      # ../desktop-envs/plasma
-      inputs.nixos-cosmic.nixosModules.default
-      ../desktop-envs/cosmic
     ];
   };
 
@@ -84,7 +84,9 @@ in {
   queen = mkHost {
     name = "queen";
     username = "sarah";
-    modules = [../desktop-envs/pantheon];
+    desktop = "pantheon";
+    modules = [
+    ];
   };
   # You can add more hosts like this:
   # other-host = mkHost {

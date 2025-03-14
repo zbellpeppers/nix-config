@@ -2,10 +2,7 @@
   description = "NixOS + Home Manager Configuration";
 
   inputs = {
-    # Use nixpkgs provided by nixos-cosmic
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    nixpkgs.follows = "nixos-cosmic/nixpkgs";
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -29,7 +26,6 @@
     nix-flatpak,
     agenix,
     zen-browser,
-    nixos-cosmic,
     ...
   } @ inputs: {
     nixosConfigurations = import ./hosts {
