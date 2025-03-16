@@ -77,7 +77,7 @@ in {
   king = mkHost {
     hostname = "king";
     username = "zachary";
-    desktop = "gnome";
+    desktop = "plasma";
     modules = [
     ];
     overlays = [
