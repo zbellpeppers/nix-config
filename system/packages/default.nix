@@ -24,6 +24,7 @@
     ventoy-full
     age
     ethtool
+    dconf2nix
 
     # GUI Tools
     kdePackages.partitionmanager

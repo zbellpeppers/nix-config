@@ -92,14 +92,26 @@
     yelp
     gnome-software
   ];
+
   environment.systemPackages = with pkgs; [
+    # Icons
     papirus-icon-theme
     papirus-folders
+
+    # Cursors
     capitaine-cursors
-    dconf2nix
-    gnome-extension-manager
-    gnomeExtensions.dock-from-dash
-    gnome-tweaks
     material-cursors
+
+    # Gnome Apps
+    gnome-extension-manager
+    gnome-tweaks
+
+    # Gnome Extensions
+    gnomeExtensions.dash-to-panel
+    gnomeExtensions.just-perfection
+    gnomeExtensions.dock-from-dash
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.openweather-refined
+    gnomeExtensions.gtk4-desktop-icons-ng-ding
   ];
 }
