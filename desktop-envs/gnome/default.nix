@@ -100,5 +100,6 @@
     gnome-extension-manager
     gnomeExtensions.dock-from-dash
     gnome-tweaks
+    material-cursors
   ];
 }
