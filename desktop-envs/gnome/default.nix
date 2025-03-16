@@ -61,5 +61,6 @@
     dconf2nix
     gnome-extension-manager
     gnomeExtensions.dock-from-dash
+    gnome-tweaks
   ];
 }
