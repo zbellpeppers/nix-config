@@ -11,8 +11,7 @@
     protontricks
     mono
     bottles
-    lutris-free
-    q4wine
+    lutris
 
     # CLI Tools
     wget
