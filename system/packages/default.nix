@@ -4,6 +4,16 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    # Gaming
+    mangohud
+    wineWowPackages.unstableFull
+    winetricks
+    protontricks
+    mono
+    bottles
+    lutris-free
+    q4wine
+
     # CLI Tools
     wget
     pciutils
@@ -25,6 +35,7 @@
     age
     ethtool
     dconf2nix
+    vulkan-tools
 
     # GUI Tools
     kdePackages.partitionmanager
@@ -33,9 +44,6 @@
     ddcui
     kdePackages.konsole
     kdePackages.yakuake
-
-    # Gaming
-    mangohud
 
     # Hardware Control
     openrgb-with-all-plugins

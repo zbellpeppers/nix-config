@@ -58,19 +58,6 @@ in {
     # General Apps
     speedcrunch
 
-    # Gaming
-    heroic
-    wineWowPackages.waylandFull
-    winetricks
-    protontricks
-    mono
-    bottles
-    (lutris.override {
-      extraLibraries = pkgs: [
-        # List library dependencies here
-      ];
-    })
-
     # Torrenting
     calibre
     qbittorrent-enhanced
