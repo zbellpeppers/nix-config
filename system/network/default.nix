@@ -8,12 +8,9 @@
     nftables.enable = true;
     firewall = {
       enable = true;
-      checkReversePath = "loose";
-      trustedInterfaces = ["tailscale0"];
       # 80 443 - http and https
       # 5006 - Actual Budget
-      # 8080 - Headscale
-      allowedTCPPorts = [80 443 5006 8080];
+      allowedTCPPorts = [80 443 5006];
       allowedUDPPorts = [];
       allowedUDPPortRanges = [
         # Port Forward - KDEConnect

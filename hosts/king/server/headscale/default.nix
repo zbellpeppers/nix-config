@@ -9,6 +9,11 @@ in {
     NETDEV=$(ip -o route get 8.8.8.8 | cut -f 5 -d " ")
     ${pkgs.ethtool}/bin/ethtool -K $NETDEV rx-udp-gro-forwarding on rx-gro-list off
   '';
+  networking.firewall = {
+    allowedUDPPorts = [config.services.tailscale.port];
+    checkReversePath = "loose";
+    trustedInterfaces = ["tailscale0"];
+  };
   services = {
     tailscale = {
       enable = true;
