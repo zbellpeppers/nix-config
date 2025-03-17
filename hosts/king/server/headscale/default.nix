@@ -61,7 +61,6 @@ in {
 
       virtualHosts."headscale.${domain}" = {
         forceSSL = true;
-        http2 = true;
         enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:${toString config.services.headscale.port}";
