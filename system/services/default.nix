@@ -9,7 +9,6 @@
   services = {
     # Openrgb
     hardware.openrgb.enable = true;
-
     # Openssh configuration
     openssh = {
       enable = true;

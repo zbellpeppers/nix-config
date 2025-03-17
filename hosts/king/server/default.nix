@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./ddclient
+    ./headscale
     ./podman
   ];
 }
