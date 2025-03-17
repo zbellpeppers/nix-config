@@ -5,10 +5,10 @@
 }: let
   domain = "bell-peppers.com";
 in {
-  networking.localCommands = ''
-    NETDEV=$(ip -o route get 8.8.8.8 | cut -f 5 -d " ")
-    ${pkgs.ethtool}/bin/ethtool -K $NETDEV rx-udp-gro-forwarding on rx-gro-list off
-  '';
+  # networking.localCommands = ''
+  #   NETDEV=$(ip -o route get 8.8.8.8 | cut -f 5 -d " ")
+  #   ${pkgs.ethtool}/bin/ethtool -K $NETDEV rx-udp-gro-forwarding on rx-gro-list off
+  # '';
   networking.firewall = {
     allowedUDPPorts = [config.services.tailscale.port];
     checkReversePath = "loose";
@@ -61,10 +61,17 @@ in {
 
       virtualHosts."headscale.${domain}" = {
         forceSSL = true;
+        http2 = true;
         enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:${toString config.services.headscale.port}";
           proxyWebsockets = true;
+          extraConfig = ''
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "upgrade";
+            proxy_set_header Host $host;
+          '';
         };
       };
     };
