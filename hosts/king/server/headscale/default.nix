@@ -32,7 +32,7 @@ in {
         log.level = "debug";
         log.format = "text";
         noise.private_key_path = "/var/lib/headscale/noise_private.key";
-        server_url = "https://headscale.${domain}";
+        server_url = "http://headscale.${domain}";
         dns = {
           magic_dns = true;
           base_domain = "hs.${domain}";
