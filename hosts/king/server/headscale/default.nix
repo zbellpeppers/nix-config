@@ -24,7 +24,7 @@ in {
 
     headscale = {
       enable = true;
-      address = "::";
+      address = "0.0.0.0";
       port = 8080;
       user = "headscale";
       group = "headscale";
