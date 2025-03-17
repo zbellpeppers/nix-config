@@ -5,9 +5,14 @@
 }: let
   domain = "bell-peppers.com";
 in {
+  networking.localCommands = ''
+    NETDEV=$(ip -o route get 8.8.8.8 | cut -f 5 -d " ")
+    ${pkgs.ethtool}/bin/ethtool -K $NETDEV rx-udp-gro-forwarding on rx-gro-list off
+  '';
   services = {
     tailscale = {
       enable = true;
+      port = 41641;
       useRoutingFeatures = "both";
       openFirewall = true;
     };
@@ -18,9 +23,6 @@ in {
       port = 8080;
       user = "headscale";
       group = "headscale";
-      # tls_letsencrypt_hostname = "headscale.yourdomain.com";
-      # tls_letsencrypt_challenge_type = "HTTP-01";
-      # tls_letsencrypt_listen = ":http";
       settings = {
         log.level = "debug";
         log.format = "text";
@@ -28,7 +30,7 @@ in {
         server_url = "https://headscale.${domain}";
         dns = {
           magic_dns = true;
-          base_domain = "${domain}";
+          base_domain = "hs.${domain}";
           nameservers.global = ["1.1.1.1" "8.8.8.8"];
         };
         prefixes = {
@@ -45,18 +47,25 @@ in {
         };
       };
     };
+    nginx = {
+      enable = true;
+      recommendedGzipSettings = true;
+      recommendedOptimisation = true;
+      recommendedProxySettings = true;
+      recommendedTlsSettings = true;
 
-    nginx.virtualHosts."headscale.${domain}" = {
-      forceSSL = true;
-      enableACME = true;
-      locations."/" = {
-        proxyPass = "http://localhost:${toString config.services.headscale.port}";
-        proxyWebsockets = true;
+      virtualHosts."headscale.${domain}" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://localhost:${toString config.services.headscale.port}";
+          proxyWebsockets = true;
+        };
       };
     };
   };
-  # environment.systemPackages = with pkgs; [
-  #   headscale
-  #   tailscale
-  # ];
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "zbellpeppers@pm.me";
+  };
 }
