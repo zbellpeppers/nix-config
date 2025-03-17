@@ -23,10 +23,8 @@
           ports = ["127.0.0.1:5006:5006"];
           volumes = ["/home/zachary/Desktop/All/Documents/Accounting/actual-budget:/data"];
           environment = {
-            BUDGET_PASSWORD_FILE = config.age.secrets.actualbudget-password.path;
-            API_KEY_FILE = config.age.secrets.actualbudget-apikey.path;
-            HOSTNAME = "0.0.0.0";
-            PORT = "5006";
+            ACTUAL_HOSTNAME = "0.0.0.0";
+            ACTUAL_PORT = "5006";
           };
         };
       };

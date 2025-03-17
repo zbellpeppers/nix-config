@@ -4,10 +4,11 @@
     protocol = "cloudflare";
     server = "api.cloudflare.com/client/v4";
     username = "token"; # Your Cloudflare account email
-    passwordFile = config.age.secrets.actualbudget-ddclient-apitoken.path; # File containing just your API token
+    passwordFile = config.age.secrets.cloudflare-dns-apitoken.path; # File containing just your API token
     zone = "bell-peppers.com"; # Your root domain
     domains = [
       "actualbudget.bell-peppers.com"
+      "headscale.bell-peppers.com"
     ]; # The subdomain to update
     ssl = true;
     interval = "5min"; # Check every 10 minutes
