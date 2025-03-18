@@ -1,4 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
+  xdg.configFile."fish/fish_variables".source =
+    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/home-manager/common/fish/fish_variables.txt";
+
   programs.fish = {
     enable = true;
     plugins = [
@@ -36,15 +44,6 @@
         src = pkgs.fishPlugins.puffer.src;
       }
       {
-        name = "projectdo";
-        src = pkgs.fetchFromGitHub {
-          owner = "paldepind";
-          repo = "projectdo";
-          rev = "main";
-          sha256 = "sha256-ZBAzHo7/Sy8uyjWganSFs/uOJkmuDP8WxU3WVGttPTo=";
-        };
-      }
-      {
         name = "virtualfish";
         src = pkgs.fetchFromGitHub {
           owner = "justinmayer";
@@ -63,20 +62,8 @@
         };
       }
       {
-        name = "grc-colorizer";
-        src = pkgs.fishPlugins.grc.src;
-      }
-      {
-        name = "fifc";
-        src = pkgs.fishPlugins.fifc.src;
-      }
-      {
         name = "fzf";
         src = pkgs.fishPlugins.fzf.src;
-      }
-      {
-        name = "forgit";
-        src = pkgs.fishPlugins.forgit.src;
       }
       {
         name = "colored-man-pages";
@@ -87,8 +74,6 @@
       # Format man pages
       set -x MANROFFOPT -c
       set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-      # Configure tide
-      tide configure --auto --style=Rainbow --prompt_colors='16 colors' --show_time='12-hour format' --rainbow_prompt_separators=Angled --powerline_prompt_heads=Sharp --powerline_prompt_tails=Flat --powerline_prompt_style='Two lines, frame' --prompt_connection=Solid --powerline_right_prompt_frame=Yes --prompt_spacing=Sparse --icons='Many icons' --transient=Yes
     '';
     functions = {
       fish_greeting = "fastfetch";
