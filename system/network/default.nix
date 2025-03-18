@@ -1,8 +1,17 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   # Networking / Ethernet / Wifi Configuration
   networking = {
     # Enable Network Manager
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      plugins = [
+        pkgs.networkmanager-openvpn
+      ];
+    };
 
     # Enable NfTables - Updated Firewall
     nftables.enable = true;

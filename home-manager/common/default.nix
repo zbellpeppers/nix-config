@@ -38,16 +38,13 @@ in {
 
     # Office Apps
     kdePackages.skanpage
+    protonmail-desktop
 
     # Spell Checks and Dictionaries
     aspell
     aspellDicts.en
     hunspell
     hunspellDicts.en-us
-
-    # Proton Apps
-    protonmail-desktop
-    protonvpn-gui
 
     # Programming
     alejandra
