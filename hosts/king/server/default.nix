@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./caddy
     ./ddclient
     ./podman
   ];
