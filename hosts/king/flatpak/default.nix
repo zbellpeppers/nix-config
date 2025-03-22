@@ -19,7 +19,6 @@
     packages = [
       "com.stremio.Stremio"
       "org.onlyoffice.desktopeditors"
-      "org.tribler.Tribler"
       "com.protonvpn.www"
     ];
   };
