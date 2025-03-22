@@ -8,28 +8,32 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    # extensions = with pkgs.vscode-marketplace; [
-    #   kamadorueda.alejandra
-    #   bierner.emojisense
-    #   aaron-bond.better-comments
-    #   jeff-hykin.better-nix-syntax
-    #   jeff-hykin.better-shellscript-syntax
-    #   alefragnani.bookmarks
-    #   naumovs.color-highlight
-    #   bmalehorn.vscode-fish
-    #   mhutchie.git-graph
-    #   donjayamanne.githistory
-    #   codezombiech.gitignore
-    #   oderwat.indent-rainbow
-    #   pkief.material-icon-theme
-    #   jnoortheen.nix-ide
-    #   aleksa-codes.one-dark-modern-pro
-    #   ibm.output-colorizer
-    #   mechatroner.rainbow-csv
-    #   timonwong.shellcheck
-    #   gruntfuggly.todo-tree
-    #   redhat.vscode-yaml
-    # ];
+    profiles.default.extensions = with pkgs.vscode-marketplace; [
+      # Nix
+      kamadorueda.alejandra
+      jnoortheen.nix-ide
+      jeff-hykin.better-nix-syntax
+      # General
+      bierner.emojisense
+      aaron-bond.better-comments
+      alefragnani.bookmarks
+      naumovs.color-highlight
+      oderwat.indent-rainbow
+      ibm.output-colorizer
+      mechatroner.rainbow-csv
+      # Git
+      mhutchie.git-graph
+      donjayamanne.githistory
+      codezombiech.gitignore
+      gruntfuggly.todo-tree
+      # Themes
+      pkief.material-icon-theme
+      aleksa-codes.one-dark-modern-pro
+      # Language support
+      redhat.vscode-yaml
+      bmalehorn.vscode-fish
+      tamasfe.even-better-toml
+    ];
     mutableExtensionsDir = true;
     profiles.default.userSettings = {
       "workbench.colorTheme" = "One Dark Modern Pro";

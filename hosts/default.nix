@@ -81,6 +81,7 @@ in {
     modules = [
     ];
     overlays = [
+      inputs.nix-vscode-extensions.overlays.default
     ];
   };
 
@@ -92,6 +93,7 @@ in {
     modules = [
     ];
     overlays = [
+      inputs.nix-vscode-extensions.overlays.default
     ];
   };
 }
