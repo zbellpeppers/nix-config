@@ -4,9 +4,6 @@
   lib,
   ...
 }: {
-  xdg.configFile."fish/fish_variables".source =
-    config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/home-manager/common/fish/fish_variables.txt";
-
   programs.fish = {
     enable = true;
     plugins = [
