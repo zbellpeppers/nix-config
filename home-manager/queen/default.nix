@@ -7,6 +7,7 @@
 
   # Home packages specific to sarah
   home.packages = with pkgs; [
+    flameshot
   ];
 
   home.username = "sarah";
