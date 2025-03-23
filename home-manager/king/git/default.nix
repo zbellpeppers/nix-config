@@ -8,16 +8,16 @@
     enable = true;
 
     # Credentials
-    userName = "tkmockingbird";
+    userName = "zbellpeppers";
     userEmail = "zbellpeppers@pm.me";
 
     package = pkgs.git;
 
     # SSH key configuration
     signing = {
-      key = "/home/zachary/.ssh/id_ed25519.pub";
+      key = "9EFE29683CB660DD0C67B6AB780996F7F20545BD";
       signByDefault = true;
-      format = "ssh";
+      format = "openpgp";
     };
 
     # Useful aliases
