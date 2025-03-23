@@ -13,11 +13,11 @@
 
     package = pkgs.git;
 
-    # SSH key configuration
+    # Signing Configuration
     signing = {
       key = "9EFE29683CB660DD0C67B6AB780996F7F20545BD";
       signByDefault = true;
-      format = "openpgp";
+      signer = "${pkgs.gnupg}/bin/gpg2"; # Explicit path for NixOS
     };
 
     # Useful aliases
@@ -33,6 +33,12 @@
 
     # Additional config
     extraConfig = {
+      gpg = {
+        format = "openpgp";
+        ssh = {
+          allowedSignersFile = "/etc/ssh/allowed_signers";
+        };
+      };
       core = {
         editor = "codium";
         autocrlf = "input";
@@ -47,11 +53,11 @@
         default = "simple";
       };
       init = {
-        defaultBranch = "main";
+        defaultBranch = "master";
       };
       url = {
-        "git@gitlab.com:" = {
-          insteadOf = "https://gitlab.com/";
+        "git@codeberg.org:" = {
+          insteadOf = "https://codeberg.org/";
         };
       };
     };
