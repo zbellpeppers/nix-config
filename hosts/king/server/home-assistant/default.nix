@@ -1,4 +1,8 @@
-{...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   networking.firewall.allowedTCPPorts = [8123];
   services.home-assistant = {
     enable = true;
@@ -20,6 +24,9 @@
       # https://www.home-assistant.io/integrations/default_config/
       default_config = {};
       lovelace.mode = "storage";
+      logger = {
+        default = "info";
+      };
     };
   };
 }
