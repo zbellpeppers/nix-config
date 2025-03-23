@@ -7,7 +7,7 @@
 
   # Home packages specific to sarah
   home.packages = with pkgs; [
-    satty
+    kdePackages.spectacle
   ];
 
   home.username = "sarah";
