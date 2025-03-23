@@ -35,43 +35,46 @@
         bmalehorn.vscode-fish
       ];
       userSettings = {
-        "git.enableSmartCommit" = true;
+        # Editor
+        "editor.fontFamily" = "FiraCode Nerd Font Mono";
+        "editor.fontWeight" = "600";
+        "editor.wordWrap" = "on";
+        "editor.formatOnSave" = true;
+        "editor.fontLigatures" = true;
+        "editor.fontSize" = 15;
+        "editor.quickSuggestions" = {
+          "comments" = "on";
+          "strings" = "on";
+        };
+        "editor.snippetSuggestions" = "top";
+        "editor.tokenColorCustomizations" = {
+          textMateRules = [
+            {
+              scope = "comment";
+              settings = {
+                foreground = "#a0a0a0";
+              };
+            }
+          ];
+        };
+        "editor.cursorStyle" = "line";
+        "editor.overviewRulerBorder" = false;
+        "editor.renderWhitespace" = "all";
+        "editor.rulers" = [80 120];
+        "editor.minimap.enabled" = false;
+        # Extensions
+        "extensions.autoCheckUpdates" = true;
+        "extensions.autoUpdate" = true;
+        # Themes
         "workbench.colorTheme" = "One Dark Modern Pro";
         "workbench.iconTheme" = "material-icon-theme";
-        "redhat.telemetry.enabled" = false;
+        # Git
+        "git.enableSmartCommit" = true;
         "git.autofetch" = true;
-        editor = {
-          "fontFamily" = "FiraCode Nerd Font Mono";
-          "fontWeight" = "600";
-          "wordWrap" = "on";
-          "formatOnSave" = true;
-          "fontLigatures" = true;
-          "fontSize" = 15;
-          "quickSuggestions" = {
-            "other" = true;
-            "comments" = false;
-            "strings" = true;
-          };
-          "snippetSuggestions" = "top";
-          "tokenColorCustomizations" = {
-            "textMateRules" = [
-              {
-                "scope" = "comment";
-                "settings" = {
-                  "foreground" = "#a0a0a0";
-                };
-              }
-            ];
-          };
-          "cursorStyle" = "line";
-          "overviewRulerBorder" = false;
-          "renderWhitespace" = "all";
-          "rulers" = [80 120];
-          "minimap.enabled" = false;
-        };
+        # Security
         "security.workspace.trust.untrustedFiles" = "open";
-        "extensions.autoCheckUpdates" = true;
-        "extensions.autoUpdate" = false;
+        # Telemetry
+        "redhat.telemetry.enabled" = false;
       };
     };
   };
