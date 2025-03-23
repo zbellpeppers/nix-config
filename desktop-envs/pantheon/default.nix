@@ -36,7 +36,7 @@
     pantheon.contractor
   ];
 
-  # You can remove the Pantheon default apps by uncommenting:
+  # Removes all default Pantheon apps
   services.pantheon.apps.enable = false;
 
   # Pantheon has plugins but they're installed differently than with Gnome. Example:
