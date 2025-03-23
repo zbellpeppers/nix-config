@@ -35,6 +35,7 @@
         bmalehorn.vscode-fish
       ];
       userSettings = {
+        "git.enableSmartCommit" = true;
         "workbench.colorTheme" = "One Dark Modern Pro";
         "workbench.iconTheme" = "material-icon-theme";
         "redhat.telemetry.enabled" = false;
