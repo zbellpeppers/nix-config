@@ -1,17 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # Git configuration
   programs.git = {
     enable = true;
 
     # Credentials
     userName = "zbellpeppers";
-    userEmail = "zbellpeppers@pm.me";
-
-    package = pkgs.git;
+    userEmail = "codeberg@bell-peppers.com";
 
     # Signing Configuration
     signing = {

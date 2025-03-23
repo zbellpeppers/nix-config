@@ -1,19 +1,13 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   # Git configuration
   programs.git = {
     enable = true;
 
     # Credentials
-    userName = "lqmbies";
-    userEmail = "sarahnsmallwood@proton.me";
+    userName = "zbellpeppers";
+    userEmail = "codeberg@bell-peppers.com";
 
-    package = pkgs.git;
-
-    # SSH key configuration
+    # Signing Configuration
     signing = {
       key = "/home/sarah/.ssh/id_ed25519.pub";
       signByDefault = true;
@@ -33,6 +27,12 @@
 
     # Additional config
     extraConfig = {
+      gpg = {
+        format = "openpgp";
+        ssh = {
+          allowedSignersFile = "/etc/ssh/allowed_signers";
+        };
+      };
       core = {
         editor = "codium";
         autocrlf = "input";
@@ -47,11 +47,11 @@
         default = "simple";
       };
       init = {
-        defaultBranch = "main";
+        defaultBranch = "master";
       };
       url = {
-        "git@gitlab.com:" = {
-          insteadOf = "https://gitlab.com/";
+        "git@codeberg.org:" = {
+          insteadOf = "https://codeberg.org/";
         };
       };
     };
