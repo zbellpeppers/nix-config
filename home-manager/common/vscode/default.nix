@@ -35,11 +35,6 @@
         bmalehorn.vscode-fish
       ];
       userSettings = {
-        "git.enableSmartCommit" = true;
-        "workbench.colorTheme" = "One Dark Modern Pro";
-        "workbench.iconTheme" = "material-icon-theme";
-        "redhat.telemetry.enabled" = false;
-        "git.autofetch" = true;
         editor = {
           "fontFamily" = "FiraCode Nerd Font Mono";
           "fontWeight" = "600";
@@ -71,7 +66,12 @@
         };
         "security.workspace.trust.untrustedFiles" = "open";
         "extensions.autoCheckUpdates" = true;
-        "extensions.autoUpdate" = false;
+        "extensions.autoUpdate" = true;
+        "git.enableSmartCommit" = true;
+        "workbench.colorTheme" = "One Dark Modern Pro";
+        "workbench.iconTheme" = "material-icon-theme";
+        "redhat.telemetry.enabled" = false;
+        "git.autofetch" = true;
       };
     };
   };
