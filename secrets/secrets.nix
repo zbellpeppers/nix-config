@@ -8,4 +8,7 @@ let
   systems = [king queen];
 in {
   "cloudflare-dns-apitoken.age".publicKeys = [zachary sarah];
+  "latitude.age".publicKeys = [zachary sarah];
+  "longitude.age".publicKeys = [zachary sarah];
+  "elevation-in-meters.age".publicKeys = [zachary sarah];
 }
