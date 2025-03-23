@@ -27,12 +27,12 @@
 
     # Additional config
     extraConfig = {
-      gpg = {
-        format = "openpgp";
-        ssh = {
-          allowedSignersFile = "/etc/ssh/allowed_signers";
-        };
-      };
+      # gpg = {
+      #   format = "openpgp";
+      #   ssh = {
+      #     allowedSignersFile = "/etc/ssh/allowed_signers";
+      #   };
+      # };
       core = {
         editor = "codium";
         autocrlf = "input";
