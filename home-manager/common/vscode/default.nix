@@ -61,7 +61,6 @@
         "editor.overviewRulerBorder" = false;
         "editor.renderWhitespace" = "all";
         "editor.rulers" = [80 120];
-        "editor.minimap.enabled" = false;
         # Extensions
         "extensions.autoCheckUpdates" = true;
         "extensions.autoUpdate" = true;

@@ -1,7 +1,7 @@
 {...}: {
   xdg.configFile."konsolerc".text = ''
     [Desktop Entry]
-    DefaultProfile=Fish.profile
+    DefaultProfile=Zsh.profile
 
     [General]
     ConfigVersion=1
