@@ -22,10 +22,8 @@
           # Host-specific configuration
           ./${hostname}
           ../desktop-envs/${desktop}
-
           # Common modules
           ../system
-
           # Nixpkgs configuration
           {
             nixpkgs = {
@@ -36,7 +34,6 @@
               overlays = overlays;
             };
           }
-
           # Home Manager configuration
           inputs.home-manager.nixosModules.home-manager
           {
@@ -51,10 +48,8 @@
               }
               // extraHomeManagerConfig;
           }
-
           # Flatpak
           inputs.nix-flatpak.nixosModules.nix-flatpak
-
           # Sops-nix
           inputs.agenix.nixosModules.default
           {
@@ -64,6 +59,7 @@
               "/home/${username}/.ssh/id_ed25519"
             ];
           }
+          inputs.chaotic.nixosModules.default
         ]
         ++ modules;
 
