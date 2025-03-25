@@ -8,14 +8,5 @@
     cloudflare-dns-apitoken = {
       file = ../../secrets/cloudflare-dns-apitoken.age;
     };
-    elevation-in-meters = {
-      file = ../../secrets/elevation-in-meters.age;
-    };
-    latitude = {
-      file = ../../secrets/latitude.age;
-    };
-    longitude = {
-      file = ../../secrets/longitude.age;
-    };
   };
 }

@@ -9,9 +9,9 @@
 
     # Signing Configuration
     signing = {
-      key = "9EFE29683CB660DD0C67B6AB780996F7F20545BD";
+      key = "/home/zachary/.ssh/id_ed25519.pub";
       signByDefault = true;
-      signer = "${pkgs.gnupg}/bin/gpg2"; # Explicit path for NixOS
+      format = "ssh";
     };
 
     # Useful aliases
@@ -27,12 +27,6 @@
 
     # Additional config
     extraConfig = {
-      gpg = {
-        format = "openpgp";
-        ssh = {
-          allowedSignersFile = "/etc/ssh/allowed_signers";
-        };
-      };
       core = {
         editor = "codium";
         autocrlf = "input";
