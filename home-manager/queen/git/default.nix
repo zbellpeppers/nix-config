@@ -5,7 +5,7 @@
 
     # Credentials
     userName = "zbellpeppers";
-    userEmail = "codeberg@bell-peppers.com";
+    userEmail = "github@bell-peppers.com";
 
     # Signing Configuration
     signing = {
@@ -50,8 +50,8 @@
         defaultBranch = "master";
       };
       url = {
-        "git@codeberg.org:" = {
-          insteadOf = "https://codeberg.org/";
+        "git@github.com:" = {
+          insteadOf = "https://github.com/";
         };
       };
     };
