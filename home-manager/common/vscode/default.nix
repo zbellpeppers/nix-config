@@ -12,7 +12,7 @@
       extensions = with pkgs.vscode-marketplace; [
         # Nix
         kamadorueda.alejandra
-        bbenoist.nix
+        jnoortheen.nix-ide
         jeff-hykin.better-nix-syntax
         # General
         bierner.emojisense
