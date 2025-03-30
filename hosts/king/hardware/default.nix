@@ -76,6 +76,5 @@
       enable = true;
       powerOnBoot = true;
     };
-    xone.enable = true; # support for the xbox controller USB dongle
   };
 }

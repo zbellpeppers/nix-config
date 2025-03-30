@@ -30,7 +30,7 @@
       log-lines = 20;
 
       # Enables Flakes and other experimental commands
-      extra-experimental-features = ["flakes" "nix-command" "recursive-nix" "ca-derivations"];
+      extra-experimental-features = ["flakes" "nix-command"];
 
       # Automatic usage of --show-trace when a build error occurs
       show-trace = true;
