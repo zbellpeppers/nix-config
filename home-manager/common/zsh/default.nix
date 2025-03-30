@@ -4,9 +4,9 @@
     antidote = {
       enable = true;
       plugins = [
-        "djui/alias-tips"
         "Aloxaf/fzf-tab"
         "rupa/z"
+        "MichaelAquilina/zsh-you-should-use"
       ];
     };
 
