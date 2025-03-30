@@ -3,18 +3,18 @@
   pkgs,
   ...
 }: {
-  hardware.printers = {
-    ensurePrinters = [
-      {
-        name = "Canon_MF460_Series_UFR_II";
-        location = "Kitchen";
-        description = "Canon Laser Printer";
-        deviceUri = "ipp://192.168.1.83/ipp/print";
-        model = "CNRCUPSMF460ZK.ppd";
-      }
-    ];
-    ensureDefaultPrinter = "Canon_MF460_Series_UFR_II";
-  };
+  # hardware.printers = {
+  #   ensurePrinters = [
+  #     {
+  #       name = "Canon_MF460_Series_UFR_II";
+  #       location = "Kitchen";
+  #       description = "Canon Laser Printer";
+  #       deviceUri = "ipp://192.168.1.83/ipp/print";
+  #       model = "CNRCUPSMF460ZK.ppd";
+  #     }
+  #   ];
+  #   ensureDefaultPrinter = "Canon_MF460_Series_UFR_II";
+  # };
   # Enable Printing & Specify Drivers
   services.printing = {
     enable = true;
