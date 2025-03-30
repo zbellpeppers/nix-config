@@ -9,8 +9,9 @@
       "actualbudget.bell-peppers.com"
     ]; # The subdomain to update
     ssl = true;
-    interval = "10min"; # Check every 10 minutes
+    interval = "5min"; # Check every 10 minutes
     usev4 = "webv4, webv4=https://cloudflare.com/cdn-cgi/trace, webv4-skip=ip=";
+    usev6 = "";
     verbose = true; # For debugging, can set to false later
     extraConfig = ''
       ttl=1
