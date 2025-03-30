@@ -14,97 +14,30 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/nix-root";
-    fsType = "btrfs";
-    options = [
-      "subvol=root"
-      "compress=lzo"
-      "noatime"
-      "space_cache=v2"
-      "discard=async"
-    ];
-  };
+  fileSystems."/" =
+    { device = "zpool/root";
+      fsType = "zfs";
+    };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-label/nix-root";
-    fsType = "btrfs";
-    options = [
-      "subvol=home"
-      "compress=lzo"
-      "noatime"
-      "space_cache=v2"
-      "discard=async"
-    ];
-  };
+  fileSystems."/nix" =
+    { device = "zpool/nix";
+      fsType = "zfs";
+    };
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-label/nix-root";
-    fsType = "btrfs";
-    options = [
-      "subvol=nix"
-      "compress=lzo"
-      "noatime"
-      "space_cache=v2"
-      "discard=async"
-    ];
-  };
+  fileSystems."/var" =
+    { device = "zpool/var";
+      fsType = "zfs";
+    };
 
-  fileSystems."/var" = {
-    device = "/dev/disk/by-label/nix-root";
-    fsType = "btrfs";
-    options = [
-      "subvol=var"
-      "compress=lzo"
-      "noatime"
-      "space_cache=v2"
-      "discard=async"
-    ];
-  };
+  fileSystems."/home" =
+    { device = "zpool/home";
+      fsType = "zfs";
+    };
 
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-label/nix-root";
-    fsType = "btrfs";
-    options = [
-      "subvol=log"
-      "compress=lzo"
-      "noatime"
-      "space_cache=v2"
-      "discard=async"
-    ];
-  };
-
-  fileSystems."/tmp" = {
-    device = "/dev/disk/by-label/nix-root";
-    fsType = "btrfs";
-    options = [
-      "subvol=tmp"
-      "compress=lzo"
-      "noatime"
-      "space_cache=v2"
-      "discard=async"
-    ];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/nix-boot";
-    fsType = "vfat";
-    options = ["fmask=0022" "dmask=0022"];
-  };
-
-  # Enable btrfs autoscrubbing
-  services.btrfs.autoScrub = {
-    enable = true;
-    fileSystems = [
-      "/"
-      "/home"
-      "/nix"
-      "/var"
-      "/var/log"
-      "/tmp"
-    ];
-    interval = "weekly";
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/2A11-F4EF";
+      fsType = "vfat";
+    };
 
   # Enable zram swap
   swapDevices = [];
