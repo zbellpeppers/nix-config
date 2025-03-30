@@ -87,22 +87,5 @@
     };
   };
 
-  location.provider = "manual";
-  location.latitude = 33.734497;
-  location.longitude = -84.111847;
-  services.redshift = {
-    enable = true;
-    # location.latitude = 33.734497;
-    # location.longitude = -84.111847;
-    brightness = {
-      day = "1";
-      night = "1";
-    };
-    temperature = {
-      day = 2200;
-      night = 2200;
-    };
-  };
-
   system.stateVersion = "25.05";
 }
