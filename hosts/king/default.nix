@@ -12,6 +12,8 @@
   ];
   # Host-specific configuration goes here
   networking.hostName = "king";
+  # Zfs unique ID
+  networking.hostId = "ea18dad8";
 
   # User creation
   users.users.zachary = {

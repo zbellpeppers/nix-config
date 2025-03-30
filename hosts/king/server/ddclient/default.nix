@@ -4,7 +4,7 @@
     protocol = "cloudflare";
     server = "api.cloudflare.com/client/v4";
     username = "token"; # token if using apitoken or Cloudflare email
-    passwordFile = config.age.secrets.cloudflare-dns-apitoken.path;
+    passwordFile = config.age.secrets.cf-dns-token.path;
     zone = "bell-peppers.com"; # Your root domain
     domains = [
       "actualbudget.bell-peppers.com"

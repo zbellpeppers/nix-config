@@ -59,7 +59,6 @@
               "/home/${username}/.ssh/id_ed25519"
             ];
           }
-          inputs.chaotic.nixosModules.default
         ]
         ++ modules;
 

@@ -5,7 +5,7 @@
 }: {
   boot = {
     # Specifices the Linux Kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_6_13;
 
     # Enables r8125 Realtek Ethernet Driver
     extraModulePackages = with config.boot.kernelPackages; [r8125];

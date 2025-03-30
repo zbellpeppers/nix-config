@@ -1,11 +1,9 @@
 let
-  zachary = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE7x6V7LeZK9N5vxBKUG1sB96EWTz4jqu9nR0WnzaBFx";
-  sarah = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICJtMs0C0iUNAoWGt3BDQk4iv7mFu8HWCqCMKFKT4n9A";
-  users = [zachary sarah];
+  zachary = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIID+lc8OXN8J15tOj2Q+d4R6Zl/82FiUKLN5pPMIgR/E";
+  users = [zachary];
 
-  king = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIATX6qsFw0xedh64vcngiIleBmVQ4lnvyntqmkyrKK2k";
-  queen = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEqPNjO8VCHW2DCxOBJWcrBpet/hB++ohhQIYRDF+lAl";
-  systems = [king queen];
+  king = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKG/aELnbQOQOxr4k1zrHNjVFiwMxWx2OGlVETsmYMJ1";
+  systems = [king];
 in {
-  "cloudflare-dns-apitoken.age".publicKeys = [zachary sarah];
+  "cf-dns-token.age".publicKeys = [zachary];
 }

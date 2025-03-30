@@ -10,7 +10,6 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     agenix.url = "github:ryantm/agenix";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs = {
@@ -20,7 +19,6 @@
     nix-flatpak,
     agenix,
     nix-vscode-extensions,
-    chaotic,
     ...
   } @ inputs: {
     nixosConfigurations = import ./hosts {
