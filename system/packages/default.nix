@@ -35,8 +35,6 @@
     ethtool
     dconf2nix
     vulkan-tools
-    nix-fast-build
-    nix-output-monitor
 
     # GUI Tools
     kdePackages.partitionmanager

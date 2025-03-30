@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 set -e
@@ -54,30 +55,12 @@ sudo rsync -a --delete --exclude='.git' ~/nix-config/ /etc/nixos/
 echo "Starting NixOS rebuild with command: $rebuild_type"
 cd /etc/nixos
 
-# Run the rebuild with nix-fast-build
-if [ -f /etc/nixos/flake.nix ]; then
-    echo "Using nix-fast-build for faster evaluation and building..."
-    
-    # First use nix-fast-build to build the system
-    if nix-fast-build --skip-cached --no-nom -j 32 --eval-workers 4 --eval-max-memory-size 4096 --flake .#nixosConfigurations.$(hostname).config.system.build.toplevel; then
-        # Then use nixos-rebuild with --fast to activate the configuration
-        if sudo nixos-rebuild "$rebuild_type" --fast --flake .#; then
-            rebuild_success=true
-        else
-            rebuild_success=false
-        fi
-    else
-        rebuild_success=false
-    fi
-else
-    # Fallback to traditional nixos-rebuild if no flake.nix is found
-    echo "No flake.nix found, using traditional nixos-rebuild..."
-    if sudo nixos-rebuild "$rebuild_type" --fast; then
+# Run the rebuild
+    if sudo nixos-rebuild "$rebuild_type"; then
         rebuild_success=true
     else
         rebuild_success=false
     fi
-fi
 
 if [ "$rebuild_success" = true ]; then
     echo "NixOS rebuild completed successfully."
