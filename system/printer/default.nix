@@ -20,10 +20,6 @@
     enable = true;
     drivers = [
       pkgs.canon-cups-ufr2
-      #TODO An old temporary fix for the canon cups driver error - Remove 04-11-2025
-      # (pkgs.canon-cups-ufr2.overrideAttrs (oldAttrs: {
-      #   dontCheckForBrokenSymlinks = true;
-      # }))
     ];
   };
   # SCANNER CONFIGURATION
