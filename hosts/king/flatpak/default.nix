@@ -20,6 +20,7 @@
       "com.stremio.Stremio"
       "org.onlyoffice.desktopeditors"
       "com.protonvpn.www"
+      "com.rustdesk.RustDesk"
     ];
   };
 }

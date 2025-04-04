@@ -17,7 +17,7 @@ in {
   ];
   home.packages = with pkgs; [
     # Remote Access
-    # rustdesk-flutter
+    # rustdesk-flutter # CURRENTLY BROKEN
 
     # Browser Related
     persepolis
