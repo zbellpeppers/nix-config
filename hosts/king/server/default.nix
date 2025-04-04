@@ -1,7 +1,7 @@
 {...}: {
   imports = [
-    # ./caddy
+    ./caddy
     ./ddclient
-    # ./podman
+    ./podman
   ];
 }

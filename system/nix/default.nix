@@ -38,18 +38,11 @@
       # Uses binary Cache - Saves download time
       substituters = [
         "https://cache.nixos.org"
-        # "https://cosmic.cachix.org/"
       ];
 
       trusted-public-keys = [
         "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-        # "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
       ];
     };
-  };
-
-  # Moves builds to /tmp - A btrfs subvolume
-  systemd.services.nix-daemon = {
-    environment.TMPDIR = "/tmp";
   };
 }
