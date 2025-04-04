@@ -5,7 +5,7 @@
 }: {
   imports = [
     ../common
-    # ./git
+    ./git
     ./desktop-entries
   ];
 
