@@ -102,6 +102,7 @@
       garbage = "sudo nix-collect-garbage -d";
       upflake = "cd $HOME/nix-config && nix flake update";
       nixsearch = "nix search nixpkgs";
+      upplasma = "$HOME/nix-config/update-plasmamanager.sh";
     };
     interactiveShellInit = ''
       # Functions needed for !! and !$

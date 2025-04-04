@@ -1,12 +1,9 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../common
     ./git
     ./desktop-entries
+    ./plasma-manager
   ];
 
   home.packages = with pkgs; [
