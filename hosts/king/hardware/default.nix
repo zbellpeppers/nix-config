@@ -15,28 +15,95 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "zpool/root";
-    fsType = "zfs";
-  };
-
-  fileSystems."/nix" = {
-    device = "zpool/nix";
-    fsType = "zfs";
-  };
-
-  fileSystems."/var" = {
-    device = "zpool/var";
-    fsType = "zfs";
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=root"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
   };
 
   fileSystems."/home" = {
-    device = "zpool/home";
-    fsType = "zfs";
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=home"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=nix"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
+
+  fileSystems."/var" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=var"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
+
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=log"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
+  };
+
+  fileSystems."/tmp" = {
+    device = "/dev/disk/by-label/nix-root";
+    fsType = "btrfs";
+    options = [
+      "subvol=tmp"
+      "compress=lzo"
+      "noatime"
+      "space_cache=v2"
+      "discard=async"
+    ];
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/C4EB-F4B9";
+    device = "/dev/disk/by-label/nix-boot";
     fsType = "vfat";
+    options = ["fmask=0022" "dmask=0022"];
+  };
+
+  # Enable btrfs autoscrubbing
+  services.btrfs.autoScrub = {
+    enable = true;
+    fileSystems = [
+      "/"
+      "/home"
+      "/nix"
+      "/var"
+      "/var/log"
+      "/tmp"
+    ];
+    interval = "weekly";
   };
 
   # Enable zram swap
