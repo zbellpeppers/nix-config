@@ -10,8 +10,22 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
-
+  boot.kernelPackages = pkgs.linuxPackages_6_13;
+  
+  # Keyboard Layout
+  services = {
+    # Set default keyboard layout
+    xserver = {
+      xkb = {
+        layout = "us,us";
+        variant = "workman,";
+        options = "grp:win_space_toggle,caps:capslock";
+      };
+      autoRepeatDelay = 275;
+      autoRepeatInterval = 32;
+    };
+  };
+  
   # Add additional packages to the installation image
   environment.systemPackages = with pkgs; [
     # KDE Partition Manager
@@ -33,5 +47,5 @@
   ];
 
   # Ensure BTRFS support is enabled
-  boot.supportedFilesystems = ["btrfs"];
+  boot.supportedFilesystems = ["btrfs" "ntfs"];
 }
