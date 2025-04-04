@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  # To build use: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=iso.nix
+  # To build use: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=default.nix
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix>
   ];
