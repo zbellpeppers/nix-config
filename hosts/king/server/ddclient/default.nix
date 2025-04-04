@@ -1,19 +1,29 @@
-{config, ...}: {
+# ./king/configuration.nix (or relevant host config file)
+{
+  config,
+  pkgs,
+  ...
+}: {
+  systemd.services.ddclient = {
+    # Ensure networking is fully up, including the interface we bind to
+    after = ["network-online.target" "sops.service"];
+    wants = ["network-online.target"];
+  };
   services.ddclient = {
     enable = true;
     protocol = "cloudflare";
-    username = "token"; # token if using apitoken or Cloudflare email
-    passwordFile = config.age.secrets.cf-dns-token.path;
-    zone = "bell-peppers.com"; # Your root domain
+    username = "token";
+    passwordFile = config.sops.secrets.cf_dns_token_file.path; # From previous step
+    zone = "bell-peppers.com";
     domains = [
       "actualbudget.bell-peppers.com"
-    ]; # The subdomain to update
+    ];
     ssl = true;
-    interval = "5min"; # Check every 10 minutes
-    usev4 = "webv4, webv4=https://cloudflare.com/cdn-cgi/trace, webv4-skip=ip=";
-    usev6 = "";
-    verbose = true; # For debugging, can set to false later
+    interval = "60min";
+    verbose = true;
     extraConfig = ''
+      use=cmd
+      cmd='${pkgs.curl}/bin/curl --interface eno1 -4 --silent https://api.ipify.org'
       ttl=1
     '';
   };

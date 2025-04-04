@@ -9,11 +9,10 @@
     ./flatpak
     ./hardware
     ./server
+    ./sops
   ];
   # Host-specific configuration goes here
   networking.hostName = "king";
-  # Zfs unique ID
-  networking.hostId = "ea18dad8";
 
   # User creation
   users.users.zachary = {
@@ -32,8 +31,6 @@
       "i2c"
     ];
   };
-
-  programs.zsh.enable = true;
 
   services = {
     # Set default keyboard layout

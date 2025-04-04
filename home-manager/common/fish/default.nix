@@ -68,12 +68,16 @@
       }
     ];
     shellInit = ''
-      # Format man pages
-      set -x MANROFFOPT -c
-      set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+      # Set default editor (using Nix package path)
+      set -gx EDITOR ${pkgs.micro}/bin/micro
+      set -gx VISUAL ${pkgs.micro}/bin/micro
+
+      # Format man pages with bat (ensure bat is installed via Nix)
+      set -gx MANROFFOPT -c
+      set -gx MANPAGER "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'"
     '';
     functions = {
-      fish_greeting = "fastfetch";
+      fish_greeting = "${pkgs.fastfetch}/bin/fastfetch";
     };
     shellAliases = {
       # Replace ls with eza
@@ -103,14 +107,62 @@
       upflake = "cd $HOME/nix-config && nix flake update";
       nixsearch = "nix search nixpkgs";
       upplasma = "$HOME/nix-config/update-plasmamanager.sh";
+
+      # Process memory usage
+      psmem = "ps auxf | sort -nr -k 4";
+      psmem10 = "ps auxf | sort -nr -k 4 | head -10";
+
+      # System service management (System)
+      scstat = "systemctl status";
+      scstart = "sudo systemctl start";
+      scstop = "sudo systemctl stop";
+      screstart = "sudo systemctl restart";
+      scenable = "sudo systemctl enable";
+      scdisable = "sudo systemctl disable";
+      screload = "sudo systemctl daemon-reload";
+
+      # System service management (User)
+      usys = "systemctl --user";
+      uscstat = "systemctl --user status";
+      uscstart = "systemctl --user start"; # No sudo needed for user services usually
+      uscstop = "systemctl --user stop";
+      uscrestart = "systemctl --user restart";
+      uscenable = "systemctl --user enable";
+      uscdisable = "systemctl --user disable";
+      uscreload = "systemctl --user daemon-reload";
+
+      # Safety features
+      cp = "cp -i";
+      mv = "mv -i";
+      rm = "rm -i";
+
+      # Network utilities (ensure curl, hostname, net-tools installed)
+      myip = "${pkgs.curl}/bin/curl ifconfig.me";
+      localip = "${pkgs.hostname}/bin/hostname -I";
+      ports = "${pkgs.nettools}/bin/netstat -tulanp";
+
+      # System info and maintenance
+      df = "df -h";
+      free = "free -h";
+      diskspace = "du -S | sort -n -r | more"; # Ensure du, sort, more available
     };
     interactiveShellInit = ''
-      # Functions needed for !! and !$
+      # Add ~/.local/bin to PATH if it exists
+      if test -d "$HOME/.local/bin"
+        if not contains -- "$HOME/.local/bin" $PATH
+          set -p PATH "$HOME/.local/bin"
+        end
+      end
+
+      # --- Settings for done plugin ---
+      set -U __done_min_cmd_duration 10000
+      set -U __done_notification_urgency_level low
+
+      # --- Functions needed for !! and !$ history expansion ---
       function __history_previous_command
         switch (commandline -t)
         case "!"
-          commandline -t $history[1]
-          commandline -f repaint
+          commandline -t $history[1]; commandline -f repaint
         case "*"
           commandline -i !
         end
@@ -126,20 +178,21 @@
         end
       end
 
-      # Fish command history
+      # --- Fish command history with timestamps ---
       function history
         builtin history --show-time='%F %T '
       end
 
+      # --- Create backup of a file ---
       function backup --argument filename
         cp $filename $filename.bak
       end
 
-      # Copy DIR1 DIR2
+      # --- Copy DIR1 DIR2 (Consider if standard cp -r suffices) ---
       function copy
         set count (count $argv | tr -d \n)
         if test "$count" = 2; and test -d "$argv[1]"
-          set from (echo $argv[1] | trim-right /)
+          set from (echo $argv[1] | string trim -r /) # Use fish's string command
           set to (echo $argv[2])
           command cp -r $from $to
         else

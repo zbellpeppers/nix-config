@@ -32,6 +32,7 @@
     wl-clipboard-rs
     ventoy-full
     age
+    sops
     ethtool
     dconf2nix
     vulkan-tools
