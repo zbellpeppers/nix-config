@@ -5,8 +5,10 @@
   ...
 }: {
   systemd.services.ddclient = {
-    # Ensure networking is fully up, including the interface we bind to
-    after = ["network-online.target" "sops.service"];
+    # Wait for the specific service AND sops, not just the target
+    after = ["NetworkManager-wait-online.service" "sops.service"];
+    # Require it
+    requires = ["NetworkManager-wait-online.service"];
     wants = ["network-online.target"];
   };
   services.ddclient = {
@@ -23,7 +25,7 @@
     verbose = true;
     extraConfig = ''
       use=cmd
-      cmd='${pkgs.curl}/bin/curl --interface eno1 -4 --silent https://api.ipify.org'
+      cmd='${pkgs.curl}/bin/curl --interface eno1 -4 --silent --connect-timeout 10 https://api.ipify.org'
       ttl=1
     '';
   };

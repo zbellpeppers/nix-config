@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  systemd.services."NetworkManager-wait-online" = {
+    enable = true;
+  };
+
   # Networking / Ethernet / Wifi Configuration
   networking = {
     # Enable Network Manager
