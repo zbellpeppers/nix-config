@@ -3,9 +3,6 @@
     # Enable lix
     package = pkgs.lix;
 
-    # Prevent automated garbage collector
-    gc.automatic = false;
-
     settings = {
       auto-optimise-store = true;
 
