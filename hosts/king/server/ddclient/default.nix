@@ -25,7 +25,7 @@
     verbose = true;
     extraConfig = ''
       use=cmd
-      cmd='${pkgs.curl}/bin/curl --interface eno1 -4 --silent --connect-timeout 10 https://api.ipify.org'
+      cmd='curl --interface eno1 -4 --silent --connect-timeout 10 https://api.ipify.org'
       ttl=1
     '';
   };
