@@ -62,18 +62,6 @@
     ];
   };
 
-  fileSystems."/var/log" = {
-    device = "/dev/disk/by-label/nix-root";
-    fsType = "btrfs";
-    options = [
-      "subvol=@log"
-      "compress=lzo"
-      "noatime"
-      "space_cache=v2"
-      "discard=async"
-    ];
-  };
-
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/nix-boot";
     fsType = "vfat";
@@ -88,7 +76,6 @@
       "/home"
       "/nix"
       "/var"
-      "/var/log"
       "/tmp"
     ];
     interval = "weekly";
