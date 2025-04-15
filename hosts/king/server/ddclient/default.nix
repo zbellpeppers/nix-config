@@ -24,7 +24,7 @@
     interval = "60min";
     verbose = true;
     extraConfig = ''
-      use=cmd
+      usev4=cmd
       cmd='curl --interface eno1 -4 --silent --connect-timeout 10 https://api.ipify.org'
       ttl=1
     '';
