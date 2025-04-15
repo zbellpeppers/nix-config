@@ -1,4 +1,3 @@
-# ./king/configuration.nix (or relevant host config file)
 {
   config,
   pkgs,
@@ -13,6 +12,8 @@
   };
   services.ddclient = {
     enable = true;
+    usev4 = "webv4, webv4=ipify-ipv4";
+    usev6 = "";
     protocol = "cloudflare";
     username = "token";
     passwordFile = config.sops.secrets.cf_dns_token_file.path; # From previous step
@@ -24,8 +25,6 @@
     interval = "60min";
     verbose = true;
     extraConfig = ''
-      usev4=cmd
-      cmd='curl --interface eno1 -4 --silent --connect-timeout 10 https://api.ipify.org'
       ttl=1
     '';
   };
