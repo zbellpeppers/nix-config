@@ -1,5 +1,5 @@
 {...}: {
-  xdg.configFile."Speedcrunch/SpeedCrunch.ini".text = ''
+  xdg.configFile."SpeedCrunch/SpeedCrunch.ini".text = ''
     [General]
     ConfigVersion=1200
 
