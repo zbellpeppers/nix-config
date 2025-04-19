@@ -110,6 +110,9 @@
       enable32Bit = true;
     };
 
+    # Required for usevia.app
+    keyboard.qmk.enable = true;
+
     # Monitor Brightness Control
     i2c.enable = true;
 
