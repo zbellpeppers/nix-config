@@ -33,7 +33,7 @@
           owner = "jorgebucaran";
           repo = "getopts.fish";
           rev = "main";
-          sha256 = "1z5jvqip1hx59cggj9fyzaqqpz5rrsdjb3kv6ha042pbd034a57n";
+          sha256 = "sha256-vlIXBWCQrz2ZlxPhi2/+gweKnT6pcMQQ2NYlysqn7ig=";
         };
       }
       {
