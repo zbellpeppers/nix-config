@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ../common
     ./git
@@ -8,6 +12,7 @@
 
   home.packages = with pkgs; [
     obsidian
+    inputs.zen-browser.packages."x86_64-linux".default
   ];
 
   home.username = "zachary";
