@@ -113,7 +113,7 @@
     # Required for usevia.app
     keyboard.qmk.enable = true;
 
-    # Monitor Brightness Control
+    # Monitor brightness
     i2c.enable = true;
 
     # Enable bluetooth - Activate on boot

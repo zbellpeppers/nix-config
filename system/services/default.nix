@@ -7,8 +7,14 @@
   ];
 
   services = {
-    # Openrgb
+    # Packages that require higher permissions access
+    udev.packages = with pkgs; [
+      via
+    ];
+
+    # OpenRGB control
     hardware.openrgb.enable = true;
+
     # Openssh configuration
     openssh = {
       enable = true;
