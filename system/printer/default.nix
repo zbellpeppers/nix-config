@@ -3,18 +3,17 @@
   pkgs,
   ...
 }: {
-  # hardware.printers = {
-  #   ensurePrinters = [
-  #     {
-  #       name = "Canon_MF460_Series_UFR_II";
-  #       location = "Kitchen";
-  #       description = "Canon Laser Printer";
-  #       deviceUri = "ipp://192.168.1.83/ipp/print";
-  #       model = "CNRCUPSMF460ZK.ppd";
-  #     }
-  #   ];
-  #   ensureDefaultPrinter = "Canon_MF460_Series_UFR_II";
-  # };
+  hardware.printers = {
+    ensurePrinters = [
+      {
+        name = "Canon_MF460_Series_UFR_II";
+        location = "Kitchen";
+        description = "Canon_Laser_Printer";
+        deviceUri = "dnssd://Canon%20MF460%20Series._ipp._tcp.local/?uuid=6d4ff0ce-6b11-11d8-8020-6c3c7cf60976";
+        model = "CNRCUPSMF460ZK.ppd";
+      }
+    ];
+  };
   # Enable Printing & Specify Drivers
   services.printing = {
     enable = true;
@@ -27,6 +26,7 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
+    openFirewall = true;
   };
   # Enable Sane and Open Firewall
   hardware.sane = {

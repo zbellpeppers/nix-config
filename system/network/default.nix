@@ -25,20 +25,6 @@
       # 5006 - Actual Budget
       allowedTCPPorts = [80 443 5006];
       allowedUDPPorts = [];
-      allowedUDPPortRanges = [
-        # Port Forward - KDEConnect
-        {
-          from = 1714;
-          to = 1764;
-        }
-      ];
-      allowedTCPPortRanges = [
-        # Port Forward - KDEConnect
-        {
-          from = 1714;
-          to = 1764;
-        }
-      ];
     };
   };
 }

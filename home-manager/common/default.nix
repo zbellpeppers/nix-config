@@ -35,7 +35,6 @@ in {
 
     #Communication
     vesktop
-    kdePackages.kdeconnect-kde
 
     # Office Apps
     kdePackages.skanpage

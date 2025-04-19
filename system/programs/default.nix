@@ -7,6 +7,7 @@
   programs = {
     fish.enable = true;
     zsh.enable = true;
+    kdeconnect.enable = true;
 
     steam = {
       enable = true;

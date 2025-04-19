@@ -42,7 +42,6 @@
     ventoy-full
     fsearch
     ddcui
-    kdePackages.konsole
     kdePackages.yakuake
     kdePackages.kjournald
 
