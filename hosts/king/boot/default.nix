@@ -8,7 +8,7 @@
     supportedFilesystems = ["ntfs"];
 
     # Specifices the Linux Kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_zen;
 
     # Enables r8125 Realtek Ethernet Driver
     extraModulePackages = with config.boot.kernelPackages; [r8125];
@@ -21,7 +21,6 @@
       grub = {
         enable = true;
         efiSupport = true;
-        zfsSupport = true;
         device = "nodev";
         theme = "${pkgs.minimal-grub-theme}";
         extraEntries = ''
