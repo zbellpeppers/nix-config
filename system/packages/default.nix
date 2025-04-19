@@ -44,6 +44,7 @@
     ddcui
     kdePackages.yakuake
     kdePackages.kjournald
+    via
 
     # Hardware Control
     openrgb-with-all-plugins
