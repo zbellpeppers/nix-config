@@ -33,6 +33,8 @@
         # Language support
         redhat.vscode-yaml
         bmalehorn.vscode-fish
+        # Markdown support
+        zaaack.markdown-editor
       ];
       userSettings = {
         # Editor
