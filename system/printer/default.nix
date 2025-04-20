@@ -9,7 +9,7 @@
         name = "Canon_MF460_Series_UFR_II";
         location = "Kitchen";
         description = "Canon_Laser_Printer";
-        deviceUri = "dnssd://Canon%20MF460%20Series._ipp._tcp.local/?uuid=6d4ff0ce-6b11-11d8-8020-6c3c7cf60976";
+        deviceUri = "ipp://192.168.1.83/ipp/print";
         model = "CNRCUPSMF460ZK.ppd";
       }
     ];
