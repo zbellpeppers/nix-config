@@ -5,9 +5,10 @@
   inputs,
   ...
 }: let
+  inherit (inputs.nix-minecraft.lib) collectFilesAt;
   modpack = pkgs.fetchPackwizModpack {
     url = "https://github.com/zbellpeppers/packwiz/raw/refs/heads/main/pack.toml";
-    packHash = "sha256-DBcsop1/22KvrzrMKGgWT0hM45NPQevwtyTU6UXLlzg=";
+    packHash = "sha256-26Daud5cZIiPaxyCgLaG3fnZz6ItGhumKMKxe69n6xY=";
   };
 in {
   imports = [
@@ -23,6 +24,7 @@ in {
       symlinks = {
         "mods" = "${modpack}/mods";
       };
+      files = collectFilesAt modpack "config" // {};
       jvmOpts = "-Xms512M -Xmx8192M";
       # Specify the custom minecraft server package
       package = pkgs.fabricServers.fabric-1_21_1;
