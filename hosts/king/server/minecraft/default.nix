@@ -24,7 +24,7 @@ in {
       symlinks = {
         "mods" = "${modpack}/mods";
       };
-      files = collectFilesAt modpack "config" // {};
+      files = collectFilesAt modpack "config";
       jvmOpts = "-Xms512M -Xmx8192M";
       # Specify the custom minecraft server package
       package = pkgs.fabricServers.fabric-1_21_1;
