@@ -21,6 +21,7 @@ in {
     openFirewall = true;
     servers.fabric = {
       enable = true;
+      autoStart = false;
       symlinks = {
         "mods" = "${modpack}/mods";
       };
