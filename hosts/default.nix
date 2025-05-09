@@ -50,8 +50,6 @@
           }
           # Flatpak
           inputs.nix-flatpak.nixosModules.nix-flatpak
-          # Sops-nix
-          inputs.sops-nix.nixosModules.sops
         ]
         ++ modules;
 
