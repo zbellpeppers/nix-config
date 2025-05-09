@@ -21,6 +21,7 @@ in {
 
     # Gaming
     prismlauncher
+    packwiz
 
     # Browser Related
     persepolis

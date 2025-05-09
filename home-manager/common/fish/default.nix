@@ -86,6 +86,9 @@
       ll = "eza -l --color=always --group-directories-first --icons";
       lt = "eza -aT --color=always --group-directories-first --icons";
       "l." = "eza -a | grep -e '^\\.'";
+      # Minecraft
+      launch-minecraft = "systemctl start minecraft-server-fabric";
+      stop-minecraft = "systemctl stop minecraft-server-fabric";
       # Common use
       tarnow = "tar -acf";
       untar = "tar -zxvf";
