@@ -74,6 +74,7 @@ in {
     ];
     overlays = [
       inputs.nix-vscode-extensions.overlays.default
+      inputs.nix-minecraft.overlay
     ];
   };
 

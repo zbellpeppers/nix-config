@@ -24,6 +24,7 @@
       url = "github:yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = {
@@ -35,6 +36,7 @@
     plasma-manager,
     zen-browser,
     ragenix,
+    nix-minecraft,
     ...
   } @ inputs: {
     nixosConfigurations = import ./hosts {
