@@ -19,6 +19,9 @@ in {
     # Remote Access
     # rustdesk-flutter # CURRENTLY BROKEN
 
+    # Gaming
+    prismlauncher
+
     # Browser Related
     persepolis
     xclicker
