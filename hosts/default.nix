@@ -50,6 +50,9 @@
           }
           # Flatpak
           inputs.nix-flatpak.nixosModules.nix-flatpak
+
+          # Ragenix
+          agenix.nixosModules.default
         ]
         ++ modules;
 

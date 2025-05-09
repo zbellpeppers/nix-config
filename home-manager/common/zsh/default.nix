@@ -26,7 +26,7 @@
     };
 
     # Init commands
-    initExtra = "fastfetch";
+    initContent = "fastfetch";
 
     plugins = [
       {
