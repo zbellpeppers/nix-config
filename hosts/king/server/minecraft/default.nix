@@ -4,7 +4,12 @@
   lib,
   inputs,
   ...
-}: {
+}: let
+  modpack = pkgs.fetchPackwizModpack {
+    url = "https://github.com/zbellpeppers/packwiz/raw/refs/heads/main/pack.toml";
+    packHash = "sha256-DBcsop1/22KvrzrMKGgWT0hM45NPQevwtyTU6UXLlzg=";
+  };
+in {
   imports = [
     inputs.nix-minecraft.nixosModules.minecraft-servers
   ];
@@ -15,6 +20,9 @@
     openFirewall = true;
     servers.fabric = {
       enable = true;
+      symlinks = {
+        "mods" = "${modpack}/mods";
+      };
       jvmOpts = "-Xms512M -Xmx8192M";
       # Specify the custom minecraft server package
       package = pkgs.fabricServers.fabric-1_21_1;
@@ -40,6 +48,7 @@
         generate-structures = true;
         hardcore = false;
         hide-online-players = false;
+        initial-disabled-packs = "";
         initial-enabled-packs = "vanilla";
         level-name = "sarah_zach_forever";
         level-seed = 8696454726808067462;
