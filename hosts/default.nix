@@ -53,6 +53,9 @@
 
           # Ragenix
           inputs.ragenix.nixosModules.default
+          {
+            environment.systemPackages = [inputs.ragenix.packages.${system}.default];
+          }
         ]
         ++ modules;
 
