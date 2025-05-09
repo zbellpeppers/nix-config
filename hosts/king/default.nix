@@ -8,8 +8,7 @@
     ./boot
     ./flatpak
     ./hardware
-    # ./server
-    # ./sops
+    ./server
   ];
   # Host-specific configuration goes here
   networking.hostName = "king";

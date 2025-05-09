@@ -16,7 +16,7 @@
     usev6 = "";
     protocol = "cloudflare";
     username = "token";
-    passwordFile = config.sops.secrets.cf_dns_token_file.path; # From previous step
+    passwordFile = config.age.secrets.cf-ddclient-token.path;
     zone = "bell-peppers.com";
     domains = [
       "actualbudget.bell-peppers.com"
