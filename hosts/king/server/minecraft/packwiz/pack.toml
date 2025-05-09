@@ -1,0 +1,13 @@
+name = "Fabric-server"
+author = "Zachary Bell Peppers"
+version = "1.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "807b983febfe4ce2c783a80fe5e6f8ee904c4c6c5a9f7c7904202f2197ab6eea"
+
+[versions]
+fabric = "0.16.14"
+minecraft = "1.21.1"
