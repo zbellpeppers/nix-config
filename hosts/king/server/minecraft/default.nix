@@ -19,10 +19,6 @@
       # Specify the custom minecraft server package
       package = pkgs.fabricServers.fabric-1_21_1;
 
-      symlinks = {
-        "mods" = "/home/zachary/nix-config/hosts/king/server/minecraft/packwiz/mods";
-      };
-
       serverProperties = {
         accepts-transfers = false;
         allow-flight = true;
