@@ -52,7 +52,7 @@
           inputs.nix-flatpak.nixosModules.nix-flatpak
 
           # Ragenix
-          agenix.nixosModules.default
+          inputs.agenix.nixosModules.default
         ]
         ++ modules;
 

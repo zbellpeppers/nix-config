@@ -20,8 +20,8 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    inputs.agenix = {
-      url = "github.com/yaxitech/ragenix";
+    agenix = {
+      url = "github:yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
