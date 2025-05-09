@@ -36,8 +36,13 @@
     # Set default keyboard layout
     xserver = {
       xkb = {
-        layout = "us,us";
-        variant = "workman,";
+        extraLayouts.soul = {
+          description = "Soul layout";
+          languages = ["eng"];
+          symbolsFile = ./soul;
+        };
+        layout = "soul,us";
+        variant = ",";
         options = "grp:win_space_toggle,caps:capslock";
       };
       autoRepeatDelay = 275;
