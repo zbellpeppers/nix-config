@@ -7,8 +7,8 @@
 }: let
   inherit (inputs.nix-minecraft.lib) collectFilesAt;
   modpack = pkgs.fetchPackwizModpack {
-    url = "https://github.com/zbellpeppers/packwiz/raw/refs/tags/v0.1.0/pack.toml";
-    packHash = "sha256-26Daud5cZIiPaxyCgLaG3fnZz6ItGhumKMKxe69n6xY=";
+    url = "https://raw.githubusercontent.com/zbellpeppers/packwiz/refs/tags/v0.1.0/pack.toml";
+    packHash = "sha256-YziWemJw7JYvfyGvqOLGYxu1W+tSa8UOmBERJ35hcqc=";
   };
 in {
   imports = [
