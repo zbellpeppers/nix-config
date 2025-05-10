@@ -26,7 +26,7 @@ in {
         "mods" = "${modpack}/mods";
       };
       files = collectFilesAt modpack "config";
-      jvmOpts = "-Xms512M -Xmx8192M";
+      jvmOpts = "-Xms512M -Xmx10240M";
       # Specify the custom minecraft server package
       package = pkgs.fabricServers.fabric-1_21_1;
 
