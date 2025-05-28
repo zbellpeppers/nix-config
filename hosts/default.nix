@@ -36,7 +36,7 @@
                 allowUnfree = true;
                 allowBroken = true;
               };
-              overlays = [feriumOverlay] ++ overlays;
+              overlays = overlays;
             };
           }
           # Home Manager configuration
@@ -73,6 +73,7 @@ in {
     ];
     overlays = [
       inputs.nix-vscode-extensions.overlays.default
+      feriumOverlay
     ];
   };
 
