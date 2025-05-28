@@ -23,8 +23,8 @@
       enable = true;
       # 80 443 - http and https
       # 5006 - Actual Budget
-      allowedTCPPorts = [80 443 5006];
-      allowedUDPPorts = [];
+      allowedTCPPorts = [80 443 5006 25565];
+      allowedUDPPorts = [25565];
     };
   };
 }
