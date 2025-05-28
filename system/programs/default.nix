@@ -11,7 +11,7 @@
 
     java = {
       enable = true;
-      package = pkgs.graalvmPackages.graalvm-ce;
+      package = pkgs.zulu;
     };
 
     steam = {
