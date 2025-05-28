@@ -50,12 +50,6 @@
           }
           # Flatpak
           inputs.nix-flatpak.nixosModules.nix-flatpak
-
-          # Ragenix
-          inputs.ragenix.nixosModules.default
-          {
-            environment.systemPackages = [inputs.ragenix.packages.${system}.default];
-          }
         ]
         ++ modules;
 
@@ -74,7 +68,6 @@ in {
     ];
     overlays = [
       inputs.nix-vscode-extensions.overlays.default
-      inputs.nix-minecraft.overlay
     ];
   };
 

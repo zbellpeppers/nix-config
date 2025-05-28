@@ -30,7 +30,6 @@
     tealdeer
     grc
     wl-clipboard-rs
-    ventoy-full
     age
     sops
     ethtool
@@ -39,7 +38,6 @@
 
     # GUI Tools
     kdePackages.partitionmanager
-    ventoy-full
     fsearch
     ddcui
     kdePackages.yakuake

@@ -4,6 +4,5 @@
     # ./ddclient
     ./nginx
     ./podman
-    ./minecraft
   ];
 }

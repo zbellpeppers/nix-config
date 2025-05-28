@@ -20,11 +20,6 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ragenix = {
-      url = "github:yaxitech/ragenix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
   };
 
   outputs = {
@@ -35,8 +30,6 @@
     nix-vscode-extensions,
     plasma-manager,
     zen-browser,
-    ragenix,
-    nix-minecraft,
     ...
   } @ inputs: {
     nixosConfigurations = import ./hosts {

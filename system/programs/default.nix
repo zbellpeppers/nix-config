@@ -9,6 +9,11 @@
     zsh.enable = true;
     kdeconnect.enable = true;
 
+    java = {
+      enable = true;
+      package = pkgs.zulu;
+    };
+
     steam = {
       enable = true;
       remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
