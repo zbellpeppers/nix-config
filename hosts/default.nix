@@ -1,9 +1,14 @@
 {
   nixpkgs,
   self,
+  nixpkgs-ferium,
   ...
 }: let
   inherit (self) inputs;
+
+  feriumOverlay = final: prev: {
+    ferium = nixpkgs-ferium.legacyPackages.${prev.system}.ferium;
+  };
 
   # Function to create a NixOS system configuration
   mkHost = {
@@ -31,7 +36,7 @@
                 allowUnfree = true;
                 allowBroken = true;
               };
-              overlays = overlays;
+              overlays = [feriumOverlay] ++ overlays;
             };
           }
           # Home Manager configuration

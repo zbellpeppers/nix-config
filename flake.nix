@@ -20,6 +20,9 @@
       # to have it up-to-date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-ferium = {
+      url = "github:NixOS/nixpkgs/dc346fdf12f190192e80a6e6f57b185d510ccfb2";
+    };
   };
 
   outputs = {
@@ -30,10 +33,11 @@
     nix-vscode-extensions,
     plasma-manager,
     zen-browser,
+    nixpkgs-ferium,
     ...
   } @ inputs: {
     nixosConfigurations = import ./hosts {
-      inherit nixpkgs self;
+      inherit nixpkgs nixpkgs-ferium self;
     };
   };
 }
