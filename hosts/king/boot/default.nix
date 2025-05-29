@@ -3,12 +3,14 @@
   config,
   ...
 }: {
+  # Utilized with cachyos kernel
+  services.scx.enable = true;
   boot = {
     # Enable ntfs support
     supportedFilesystems = ["ntfs"];
 
     # Specifices the Linux Kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_cachyos;
 
     # Enables r8125 Realtek Ethernet Driver
     extraModulePackages = with config.boot.kernelPackages; [r8125];

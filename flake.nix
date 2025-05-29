@@ -23,6 +23,7 @@
     nixpkgs-ferium = {
       url = "github:NixOS/nixpkgs/dc346fdf12f190192e80a6e6f57b185d510ccfb2";
     };
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs = {
@@ -34,6 +35,7 @@
     plasma-manager,
     zen-browser,
     nixpkgs-ferium,
+    chaotic,
     ...
   } @ inputs: {
     nixosConfigurations = import ./hosts {

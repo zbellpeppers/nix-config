@@ -55,6 +55,9 @@
           }
           # Flatpak
           inputs.nix-flatpak.nixosModules.nix-flatpak
+
+          # Chaotic nix repo
+          inputs.chaotic.nixosModules.default
         ]
         ++ modules;
 
