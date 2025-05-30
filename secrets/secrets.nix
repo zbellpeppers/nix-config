@@ -1,8 +1,8 @@
 let
-  zachary = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFGth/M3cDvx9F4+Pb65uORRFYjaERZ4eajwPCtj8DOR";
+  zachary = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOw2QxFbEcUOt+FEnfcmbDXdvAyivyhnhhGcbV4Bme5H";
   users = [zachary];
 
-  king = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICyd7w56YoZaNJnrgrRWeU8Netw257ShiyrjE8bz4McF";
+  king = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICT6xOvW/SFpdqByD1Tp1fLzwSANaFQFu5FkkOo664JL";
   systems = [king];
 in {
   "cf-ddclient-token.age".publicKeys = [zachary];

@@ -58,6 +58,9 @@
 
           # Chaotic nix repo
           inputs.chaotic.nixosModules.default
+
+          # Ragenix repo
+          inputs.ragenix.nixosModules.default
         ]
         ++ modules;
 
@@ -73,6 +76,12 @@ in {
     username = "zachary";
     desktop = "plasma";
     modules = [
+      {
+        age.identityPaths = [
+          "/home/zachary/.ssh/id_ed25519"
+          "/etc/ssh/ssh_host_ed25519_key"
+        ];
+      }
     ];
     overlays = [
       inputs.nix-vscode-extensions.overlays.default

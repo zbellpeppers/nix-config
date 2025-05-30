@@ -3,8 +3,6 @@
   config,
   ...
 }: {
-  # Utilized with cachyos kernel
-  services.scx.enable = true;
   boot = {
     # Enable ntfs support
     supportedFilesystems = ["ntfs"];

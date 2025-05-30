@@ -35,6 +35,7 @@
     ethtool
     dconf2nix
     vulkan-tools
+    inputs.ragenix.packages.x86_64-linux.default
 
     # GUI Tools
     kdePackages.partitionmanager
