@@ -26,19 +26,6 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
 
-    # # Fix daemon mode for systemd compatibility
-    # appendConfig = ''
-    #   daemon off;
-    # '';
-
-    # Minecraft server
-    streamConfig = ''
-      server {
-        listen 25565;
-        proxy_pass localhost:25566;
-      }
-    '';
-
     # Actual Budget
     virtualHosts."actualbudget.bell-peppers.com" = {
       # Enable automatic certificate generation and renewal via ACME
