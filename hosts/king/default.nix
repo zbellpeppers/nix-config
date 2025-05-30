@@ -28,7 +28,6 @@
       "scanner"
       "podman"
       "i2c"
-      "minecraft"
     ];
   };
 

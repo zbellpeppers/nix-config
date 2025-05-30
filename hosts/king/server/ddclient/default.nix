@@ -70,7 +70,7 @@ in {
     usev6 = "cmd, cmd='${getIPv6Script}'";
     protocol = "cloudflare";
     username = "token";
-    passwordFile = config.age.secrets.cf-ddclient-token.path;
+    passwordFile = config.age.secrets.cf-dns-ddclient.path;
     zone = "bell-peppers.com";
     domains = [
       "actualbudget.bell-peppers.com"

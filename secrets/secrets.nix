@@ -5,6 +5,8 @@ let
   king = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICT6xOvW/SFpdqByD1Tp1fLzwSANaFQFu5FkkOo664JL";
   systems = [king];
 in {
-  "cf-ddclient-token.age".publicKeys = [zachary];
+  "cloudflare-dns-token.age".publicKeys = [zachary];
+  "cloudflare-dns-environment.age".publicKeys = [zachary];
+  "cloudflare-email.age".publicKeys = [zachary];
   # "secret2.age".publicKeys = users ++ systems;
 }
