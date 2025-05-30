@@ -5,7 +5,7 @@
 }: let
   # Create the IPv4 script
   getIPv4Script = pkgs.writeShellScript "get-ipv4" ''
-    #!/bin/bash
+    #!/bin/sh
 
     # --- CONFIGURATION ---
     REAL_INTERFACE="eno1"
@@ -33,7 +33,7 @@
 
   # Create the IPv6 script
   getIPv6Script = pkgs.writeShellScript "get-ipv6" ''
-    #!/bin/bash
+    #!/bin/sh
 
     # --- CONFIGURATION ---
     REAL_INTERFACE="eno1"
@@ -74,7 +74,6 @@ in {
     zone = "bell-peppers.com";
     domains = [
       "actualbudget.bell-peppers.com"
-      "minecraft.bell-peppers.com"
     ];
     ssl = true;
     interval = "120min";

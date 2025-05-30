@@ -23,6 +23,7 @@
       enable = true;
       # 80 443 - http and https
       # 5006 - Actual Budget
+      # 25565 - Minecraft
       allowedTCPPorts = [80 443 5006 25565];
       allowedUDPPorts = [25565];
     };
