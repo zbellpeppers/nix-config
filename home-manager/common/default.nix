@@ -17,11 +17,12 @@ in {
   ];
   home.packages = with pkgs; [
     # Remote Access
-    # rustdesk-flutter # CURRENTLY BROKEN
+    rustdesk-flutter
 
     # Gaming
     prismlauncher
     ferium
+    obs-studio
 
     # Browser Related
     persepolis
