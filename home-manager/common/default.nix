@@ -44,6 +44,7 @@ in {
     # Office Apps
     kdePackages.skanpage
     protonmail-desktop
+    freecad-wayland
 
     # Spell Checks and Dictionaries
     aspell
