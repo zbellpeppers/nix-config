@@ -66,8 +66,8 @@ in {
   };
   services.ddclient = {
     enable = true;
-    usev4 = "cmdv4, cmdv4='${getIPv4Script}'";
-    usev6 = "cmdv6, cmdv6='${getIPv6Script}'";
+    usev4 = "cmdv4, cmd='${getIPv4Script}'";
+    usev6 = "cmdv6, cmd='${getIPv6Script}'";
     protocol = "cloudflare";
     username = "token";
     passwordFile = config.age.secrets.cf-dns-ddclient.path;
