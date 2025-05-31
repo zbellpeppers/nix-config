@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  coordsFile = builtins.readFile /home/zachary/Desktop/All/coordinates.txt;
+  coordsFile = builtins.readFile ./coordinates.txt;
   coords = lib.strings.splitString "," coordsFile;
   latitude = builtins.fromJSON (lib.lists.elemAt coords 0);
   longitude = builtins.fromJSON (lib.lists.elemAt coords 1);
