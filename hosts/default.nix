@@ -56,9 +56,6 @@
           # Flatpak
           inputs.nix-flatpak.nixosModules.nix-flatpak
 
-          # Chaotic nix repo
-          inputs.chaotic.nixosModules.default
-
           # Ragenix repo
           inputs.ragenix.nixosModules.default
         ]
