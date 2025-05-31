@@ -8,5 +8,7 @@ in {
   "cloudflare-dns-token.age".publicKeys = [zachary];
   "cloudflare-dns-environment.age".publicKeys = [zachary];
   "cloudflare-email.age".publicKeys = [zachary];
+  "location-longitude.age".publicKeys = [zachary];
+  "location-latitude.age".publicKeys = [zachary];
   # "secret2.age".publicKeys = users ++ systems;
 }

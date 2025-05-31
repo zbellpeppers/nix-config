@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  system.rebuild.enableNg = true;
   nix = {
     # Enable lix
     package = pkgs.lix;

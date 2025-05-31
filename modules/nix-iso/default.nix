@@ -1,9 +1,15 @@
 {
   config,
   pkgs,
+  lib,
   ...
-}: {
-  # To build use: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=default.nix
+}: let
+  coordsFile = builtins.readFile /home/zachary/Desktop/All/coordinates.txt;
+  coords = lib.strings.splitString "," coordsFile;
+  latitude = builtins.fromJSON (lib.lists.elemAt coords 0);
+  longitude = builtins.fromJSON (lib.lists.elemAt coords 1);
+in {
+  # # To build use: REDSHIFT_LATITUDE=your_lat REDSHIFT_LONGITUDE=your_long nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=default.nix
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix>
   ];
@@ -12,6 +18,10 @@
   nixpkgs.config.allowUnfree = true;
   boot.kernelPackages = pkgs.linuxPackages_lqx;
   hardware.i2c.enable = true;
+
+  location.latitude = latitude;
+  location.longitude = longitude;
+
   # Keyboard Layout
   services = {
     # Enable and set redshift to 2200

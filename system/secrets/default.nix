@@ -20,5 +20,19 @@
       group = "root";
       mode = "0400";
     };
+
+    latitude = {
+      file = ../../secrets/location-latitude.age;
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
+
+    longitude = {
+      file = ../../secrets/location-longitude.age;
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
   };
 }

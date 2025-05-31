@@ -6,7 +6,7 @@ set -e
 CURRENT_USER=$(logname || whoami)
 
 # Define valid rebuild commands
-valid_commands=("switch" "boot" "test" "build" "dry-activate" "build-vm" "build-vm-with-bootloader" "dry-build" "edit")
+valid_commands=("switch" "boot" "test" "build" "dry-activate" "build-vm" "build-vm-with-bootloader" "dry-build" "edit" "build-image")
 
 # Function to display usage
 show_usage() {

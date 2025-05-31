@@ -65,6 +65,9 @@
     Defaults pwfeedback
   '';
 
+  location.latitude = config.age.secrets.latitude.path;
+  location.longitude = config.age.secrets.longitude.path;
+
   # Uses local time
   time = {
     hardwareClockInLocalTime = true;
