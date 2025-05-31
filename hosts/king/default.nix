@@ -9,6 +9,7 @@
     ./flatpak
     ./hardware
     ./server
+    ./services
   ];
   # Host-specific configuration goes here
   networking.hostName = "king";
