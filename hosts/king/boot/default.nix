@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   ...
 }: {
   boot = {
@@ -17,9 +18,9 @@
     # Bootloader Configuration
     loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 8;
+      timeout = 10;
       grub = {
-        enable = true;
+        enable = lib.mkDefault true;
         efiSupport = true;
         device = "nodev";
         theme = "${pkgs.minimal-grub-theme}";

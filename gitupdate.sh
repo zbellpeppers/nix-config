@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 set -e
@@ -10,22 +9,33 @@ valid_commands=("switch" "boot" "test" "build" "dry-activate" "build-vm" "build-
 
 # Function to display usage
 show_usage() {
-    echo "Usage: $0 [command]"
+    echo "Usage: $0 [command] [flags...]"
     echo "Valid commands: ${valid_commands[*]}"
+    echo "Examples:"
+    echo "  $0 switch"
+    echo "  $0 build-image --image-variant iso"
+    echo "  $0 build --flake .#hostname"
 }
 
-# Parse command-line argument
-rebuild_type=${1:-switch}
+# Parse command-line arguments
+if [ $# -eq 0 ]; then
+    rebuild_command="switch"
+    rebuild_args=()
+else
+    rebuild_command="$1"
+    shift  # Remove the first argument
+    rebuild_args=("$@")  # Capture all remaining arguments
+fi
 
-# Validate the rebuild type
-if [[ ! " ${valid_commands[*]} " =~ " ${rebuild_type} " ]]; then
-    echo "Error: Invalid rebuild type: $rebuild_type"
+# Validate the rebuild command
+if [[ ! " ${valid_commands[*]} " =~ " ${rebuild_command} " ]]; then
+    echo "Error: Invalid rebuild command: $rebuild_command"
     show_usage
     exit 1
 fi
 
 # Skip git operations for test builds
-if [ "$rebuild_type" = "test" ]; then
+if [ "$rebuild_command" = "test" ]; then
     echo "Test build detected. Will skip git operations."
     commit_message=""
 else
@@ -52,16 +62,24 @@ echo "Syncing files from ~/nix-config to /etc/nixos"
 sudo rsync -a --delete --exclude='.git' ~/nix-config/ /etc/nixos/
 
 # Perform the rebuild
-echo "Starting NixOS rebuild with command: $rebuild_type"
+if [ ${#rebuild_args[@]} -eq 0 ]; then
+    echo "Starting NixOS rebuild with command: $rebuild_command"
+    rebuild_cmd=("sudo" "nixos-rebuild" "$rebuild_command")
+else
+    echo "Starting NixOS rebuild with command: $rebuild_command ${rebuild_args[*]}"
+    rebuild_cmd=("sudo" "nixos-rebuild" "$rebuild_command" "${rebuild_args[@]}")
+fi
+
 cd /etc/nixos
 
-# Run the rebuild
-    if sudo nixos-rebuild "$rebuild_type"; then
-        rebuild_success=true
-    else
-        rebuild_success=false
-    fi
+# Run the rebuild with all arguments
+if "${rebuild_cmd[@]}"; then
+    rebuild_success=true
+else
+    rebuild_success=false
+fi
 
+# Rest of your script remains the same...
 if [ "$rebuild_success" = true ]; then
     echo "NixOS rebuild completed successfully."
     
@@ -83,7 +101,7 @@ if [ "$rebuild_success" = true ]; then
     sudo rm -rf "$backup_dir"
     
     # Skip git operations for test builds
-    if [ "$rebuild_type" = "test" ]; then
+    if [ "$rebuild_command" = "test" ]; then
         echo "Test build completed. Skipping git operations."
         exit 0
     fi
