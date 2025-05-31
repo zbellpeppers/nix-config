@@ -76,7 +76,7 @@ in {
       "actualbudget.bell-peppers.com"
     ];
     ssl = true;
-    interval = "120min";
+    interval = "10min";
     verbose = true;
     extraConfig = ''
       ttl=1
