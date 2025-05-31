@@ -7,6 +7,9 @@ CURRENT_USER=$(logname || whoami)
 # Define valid rebuild commands
 valid_commands=("switch" "boot" "test" "build" "dry-activate" "build-vm" "build-vm-with-bootloader" "dry-build" "edit" "build-image")
 
+# Define commands that will skip the git process
+skip_git_commands=("test" "build" "dry-activate" "dry-build" "build-vm" "build-vm-with-bootloader" "build-image" "edit")
+
 # Function to display usage
 show_usage() {
     echo "Usage: $0 [command] [flags...]"
@@ -14,7 +17,14 @@ show_usage() {
     echo "Examples:"
     echo "  $0 switch"
     echo "  $0 build-image --image-variant iso"
-    echo "  $0 build --flake .#hostname"
+}
+
+# Function to restore backup on failure
+restore_backup() {
+    echo "Restoring backup from $backup_dir"
+    sudo rm -rf /etc/nixos
+    sudo cp -r "$backup_dir/nixos" /etc/nixos
+    sudo rm -rf "$backup_dir"
 }
 
 # Parse command-line arguments
@@ -34,10 +44,11 @@ if [[ ! " ${valid_commands[*]} " =~ " ${rebuild_command} " ]]; then
     exit 1
 fi
 
-# Skip git operations for test builds
-if [ "$rebuild_command" = "test" ]; then
-    echo "Test build detected. Will skip git operations."
+# Check if we should skip git operations
+if [[ " ${skip_git_commands[*]} " =~ " ${rebuild_command} " ]]; then
+    echo "Command '$rebuild_command' detected. Will skip git operations."
     commit_message=""
+    skip_git=true
 else
     # Ask user for a commit message at the beginning
     echo "Enter a commit message (or press Enter for default message):"
@@ -50,6 +61,7 @@ else
     else
         commit_message="$user_message"
     fi
+    skip_git=false
 fi
 
 # Create a temporary backup directory
@@ -75,14 +87,14 @@ cd /etc/nixos
 # Run the rebuild with all arguments
 if "${rebuild_cmd[@]}"; then
     rebuild_success=true
+    echo "NixOS rebuild completed successfully."
 else
     rebuild_success=false
+    echo "NixOS rebuild failed."
 fi
 
-# Rest of your script remains the same...
+# Handle success/failure
 if [ "$rebuild_success" = true ]; then
-    echo "NixOS rebuild completed successfully."
-    
     # Update flake.lock in the git repo if it exists in /etc/nixos
     if [ -f /etc/nixos/flake.lock ]; then
         echo "Updating flake.lock in git repository"
@@ -100,16 +112,17 @@ if [ "$rebuild_success" = true ]; then
     # Clean up the backup
     sudo rm -rf "$backup_dir"
     
-    # Skip git operations for test builds
-    if [ "$rebuild_command" = "test" ]; then
-        echo "Test build completed. Skipping git operations."
+    # Handle git operations based on command type
+    if [ "$skip_git" = true ]; then
+        echo "Command '$rebuild_command' completed. Skipping git operations as planned."
         exit 0
     fi
 
-    # Change to the nix-config directory
+    # Change to the nix-config directory for git operations
     cd ~/nix-config
 
     # Perform Git operations
+    echo "Performing git operations..."
     git add .
     echo "Using commit message: $commit_message"
     git commit -m "$commit_message"
@@ -117,9 +130,6 @@ if [ "$rebuild_success" = true ]; then
 
     echo "Changes committed and pushed to Git repository."
 else
-    echo "NixOS rebuild failed. Restoring backup."
-    sudo rm -rf /etc/nixos
-    sudo cp -r "$backup_dir/nixos" /etc/nixos
-    sudo rm -rf "$backup_dir"
+    restore_backup
     exit 1
 fi
