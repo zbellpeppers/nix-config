@@ -3,7 +3,12 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  coordsFile = builtins.readFile /home/zachary/Desktop/All/coordinates.txt;
+  coords = lib.strings.splitString "," coordsFile;
+  latitude = builtins.fromJSON (lib.lists.elemAt coords 0);
+  longitude = builtins.fromJSON (lib.lists.elemAt coords 1);
+in {
   imports = [
     ./boot
     ./flatpak
@@ -66,8 +71,8 @@
     Defaults pwfeedback
   '';
 
-  location.latitude = config.age.secrets.latitude.path;
-  location.longitude = config.age.secrets.longitude.path;
+  location.latitude = latitude;
+  location.longitude = longitude;
 
   # Uses local time
   time = {
