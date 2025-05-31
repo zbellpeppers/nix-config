@@ -3,6 +3,6 @@
     ./konsole
     ./persepolis
     ./speedcrunch
-    #./yakuake
+    ./yakuake
   ];
 }
