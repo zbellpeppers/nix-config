@@ -315,8 +315,8 @@
       "kscreenlockerrc"."Daemon"."Autolock" = false;
       "kscreenlockerrc"."Daemon"."LockGrace" = 30;
       "kscreenlockerrc"."Daemon"."Timeout" = 0;
-      "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."Image" = "/nix/store/6sp5mm3175bw2q4xw49n0idrrjkkpl79-plasma-workspace-wallpapers-6.3.4/share/wallpapers/Path/";
-      "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = "/nix/store/6sp5mm3175bw2q4xw49n0idrrjkkpl79-plasma-workspace-wallpapers-6.3.4/share/wallpapers/Path/";
+      "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."Image" = "/nix/store/dzhc9jwvrxk4q2y80kql2kc1g8digbcg-plasma-workspace-wallpapers-6.3.5/share/wallpapers/Path/";
+      "kscreenlockerrc"."Greeter/Wallpaper/org.kde.image/General"."PreviewImage" = "/nix/store/dzhc9jwvrxk4q2y80kql2kc1g8digbcg-plasma-workspace-wallpapers-6.3.5/share/wallpapers/Path/";
       "ksmserverrc"."General"."loginMode" = "emptySession";
       "ksplashrc"."KSplash"."Theme" = "a2n.kuro";
       "ktrashrc"."\\/home\\/zachary\\/.local\\/share\\/Trash"."Days" = 7;
@@ -332,8 +332,8 @@
       "kwinrc"."NightColor"."Mode" = "Constant";
       "kwinrc"."NightColor"."NightTemperature" = 2200;
       "kwinrc"."Tiling"."padding" = 4;
-      "kwinrc"."Tiling/6658d5bc-2de5-5706-a3dc-884add4e97b7"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
-      "kwinrc"."Tiling/7418b520-0e3e-5a43-8c74-67b2ea22689f"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":\x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}\x5d}";
+      "kwinrc"."Tiling/6658d5bc-2de5-5706-a3dc-884add4e97b7"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
+      "kwinrc"."Tiling/7418b520-0e3e-5a43-8c74-67b2ea22689f"."tiles" = "{\"layoutDirection\":\"horizontal\",\"tiles\":x5b{\"width\":0.25},{\"width\":0.5},{\"width\":0.25}x5d}";
       "kwinrc"."Xwayland"."Scale" = 1;
       "kwinrc"."org.kde.kdecoration2"."theme" = "__aurorae__svg__MoeDark";
       "kxkbrc"."Layout"."DisplayNames" = "sou,";
