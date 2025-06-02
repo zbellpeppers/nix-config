@@ -50,6 +50,8 @@ in {
     gcc
     kdePackages.kate
     python313
+    python313Packages.pip
+    python313Packages.pipx
 
     # General Apps
     speedcrunch
