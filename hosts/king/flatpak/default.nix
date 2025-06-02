@@ -21,6 +21,7 @@
       "org.onlyoffice.desktopeditors"
       "com.protonvpn.www"
       "com.vivaldi.Vivaldi"
+      "org.freecad.FreeCAD"
     ];
   };
 }
