@@ -10,7 +10,6 @@
     winetricks
     protontricks
     mono
-    bottles
     lutris
 
     # CLI Tools

@@ -22,6 +22,7 @@
       "com.protonvpn.www"
       "com.vivaldi.Vivaldi"
       "org.freecad.FreeCAD"
+      "com.usebottles.bottles"
     ];
   };
 }
