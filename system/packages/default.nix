@@ -6,7 +6,7 @@
   environment.systemPackages = with pkgs; [
     # Gaming
     mangohud
-    wineWowPackages.unstableFull
+    wineWowPackages.full
     winetricks
     protontricks
     mono
