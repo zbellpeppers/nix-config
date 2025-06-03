@@ -36,6 +36,8 @@
     dconf2nix
     vulkan-tools
     inputs.ragenix.packages.x86_64-linux.default
+    exiftool
+    imagemagick
 
     # GUI Tools
     kdePackages.partitionmanager
@@ -45,7 +47,7 @@
     kdePackages.kjournald
     via
 
-    # Hardware Control
+    # Hardware RGB Control
     openrgb-with-all-plugins
   ];
 }
