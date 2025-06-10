@@ -22,7 +22,7 @@ in
     # Gaming
     prismlauncher
     ferium
-    bottles
+    (bottles.override { removeWarningPopup = true; })
 
     # Browser Related
     persepolis
