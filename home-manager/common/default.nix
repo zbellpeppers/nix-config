@@ -37,7 +37,7 @@ in
     # Office Apps
     kdePackages.skanpage
     protonmail-desktop
-    freecad-qt6
+    protonvpn-gui
 
     # Spell Checks and Dictionaries
     aspell
