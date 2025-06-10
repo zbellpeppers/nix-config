@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   xdg.desktopEntries = {
     "vesktop" = {
       name = "Discord";
@@ -16,7 +17,12 @@
       icon = "code-oss";
       terminal = false;
       type = "Application";
-      categories = ["Utility" "TextEditor" "Development" "IDE"];
+      categories = [
+        "Utility"
+        "TextEditor"
+        "Development"
+        "IDE"
+      ];
     };
     "codium-url-handler" = {
       name = "VSCodium - URL Handler";
@@ -24,8 +30,13 @@
       icon = "vscodium";
       terminal = false;
       type = "Application";
-      categories = ["Utility" "TextEditor" "Development" "IDE"];
-      mimeType = ["x-scheme-handler/vscodium"];
+      categories = [
+        "Utility"
+        "TextEditor"
+        "Development"
+        "IDE"
+      ];
+      mimeType = [ "x-scheme-handler/vscodium" ];
       noDisplay = true;
     };
   };

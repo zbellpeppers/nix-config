@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
@@ -14,9 +15,9 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = ["Roboto Serif"];
-        sansSerif = ["Roboto"];
-        monospace = ["Roboto Mono"];
+        serif = [ "Roboto Serif" ];
+        sansSerif = [ "Roboto" ];
+        monospace = [ "Roboto Mono" ];
       };
     };
   };

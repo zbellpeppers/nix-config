@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   # Tealdeer (TLDR) Configuration
   programs.tealdeer = {
     enable = true;

@@ -4,7 +4,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   nixpkgs.overlays = [
     (self: super: {
       python313Packages = super.python313Packages.overrideAttrs (oldAttrs: {

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Needed for sound configuration
   security.rtkit.enable = true;
 
@@ -16,7 +17,14 @@
           "bluez.enable-sbc-xq" = true;
           "bluez.enable-msbc" = true;
           "bluez.enable-hw-volume" = true;
-          "bluez.codecs" = ["sbc" "sbc_xq" "aac" "ldac" "aptx" "aptx_hd"];
+          "bluez.codecs" = [
+            "sbc"
+            "sbc_xq"
+            "aac"
+            "ldac"
+            "aptx"
+            "aptx_hd"
+          ];
         };
       };
     };

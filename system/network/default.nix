@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   systemd.services."NetworkManager-wait-online" = {
     enable = true;
   };
@@ -23,8 +24,12 @@
       enable = true;
       # 80 443 - http and https
       # 25565 - Minecraft
-      allowedTCPPorts = [80 443 25565];
-      allowedUDPPorts = [25565];
+      allowedTCPPorts = [
+        80
+        443
+        25565
+      ];
+      allowedUDPPorts = [ 25565 ];
     };
   };
 }

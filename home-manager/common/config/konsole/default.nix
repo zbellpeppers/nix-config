@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   xdg.configFile."konsolerc".text = ''
     [Desktop Entry]
     DefaultProfile=Fish.profile

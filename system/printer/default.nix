@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   hardware.printers = {
     ensurePrinters = [
       {

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.zsh = {
     enable = true;
     antidote = {
@@ -12,7 +13,10 @@
 
     autosuggestion = {
       enable = true;
-      strategy = ["completion" "history"];
+      strategy = [
+        "completion"
+        "history"
+      ];
     };
 
     enableCompletion = true;
@@ -76,7 +80,7 @@
 
     syntaxHighlighting = {
       enable = true;
-      highlighters = ["brackets"];
+      highlighters = [ "brackets" ];
     };
   };
 }

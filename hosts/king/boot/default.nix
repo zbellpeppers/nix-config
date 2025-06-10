@@ -3,17 +3,18 @@
   config,
   lib,
   ...
-}: {
+}:
+{
   boot = {
     # Enable ntfs support
-    supportedFilesystems = ["ntfs"];
+    supportedFilesystems = [ "ntfs" ];
 
     # Specifices the Linux Kernel
     kernelPackages = pkgs.linuxPackages_lqx;
 
     # Enables r8125 Realtek Ethernet Driver
-    extraModulePackages = with config.boot.kernelPackages; [r8125];
-    kernelModules = ["r8125"];
+    extraModulePackages = with config.boot.kernelPackages; [ r8125 ];
+    kernelModules = [ "r8125" ];
 
     # Bootloader Configuration
     loader = {

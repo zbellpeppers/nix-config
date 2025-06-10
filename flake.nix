@@ -23,19 +23,21 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    nix-flatpak,
-    nix-vscode-extensions,
-    plasma-manager,
-    nixpkgs-ferium,
-    ragenix,
-    ...
-  } @ inputs: {
-    nixosConfigurations = import ./hosts {
-      inherit nixpkgs nixpkgs-ferium self;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nix-flatpak,
+      nix-vscode-extensions,
+      plasma-manager,
+      nixpkgs-ferium,
+      ragenix,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = import ./hosts {
+        inherit nixpkgs nixpkgs-ferium self;
+      };
     };
-  };
 }

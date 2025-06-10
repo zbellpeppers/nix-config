@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   xdg.configFile."persepolis_download_manager/persepolis.conf".text = ''
     [General]
     ui_direction=ltr

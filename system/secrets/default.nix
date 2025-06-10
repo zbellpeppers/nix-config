@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   age.secrets = {
     cf-dns-nginx = {
       file = ../../secrets/cloudflare-dns-environment.age;

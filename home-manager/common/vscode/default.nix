@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
   ];
   programs.vscode = {
@@ -61,7 +62,10 @@
         "editor.cursorStyle" = "line";
         "editor.overviewRulerBorder" = false;
         "editor.renderWhitespace" = "all";
-        "editor.rulers" = [80 120];
+        "editor.rulers" = [
+          80
+          120
+        ];
         # Extensions
         "extensions.autoCheckUpdates" = true;
         "extensions.autoUpdate" = true;

@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   # Create the IPv4 script
   getIPv4Script = pkgs.writeShellScript "get-ipv4" ''
     #!/bin/sh
@@ -58,11 +59,12 @@
         exit 1
     fi
   '';
-in {
+in
+{
   systemd.services.ddclient = {
-    after = ["NetworkManager-wait-online.service"];
-    requires = ["NetworkManager-wait-online.service"];
-    wants = ["network-online.target"];
+    after = [ "NetworkManager-wait-online.service" ];
+    requires = [ "NetworkManager-wait-online.service" ];
+    wants = [ "network-online.target" ];
   };
   services.ddclient = {
     enable = true;

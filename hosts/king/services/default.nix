@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   services = {
     actual = {
       enable = true;

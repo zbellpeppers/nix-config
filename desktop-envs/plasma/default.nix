@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   monochrome-sddm-theme = pkgs.stdenv.mkDerivation {
     name = "monochrome-sddm-theme";
     src = pkgs.fetchFromGitLab {
@@ -12,7 +13,8 @@
       cp -r "$src/sddm/themes/monochrome" "$out/share/sddm/themes"
     '';
   };
-in {
+in
+{
   qt.platformTheme = "kde";
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     oxygen

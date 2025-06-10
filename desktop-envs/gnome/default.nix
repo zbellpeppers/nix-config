@@ -3,7 +3,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   # Base gnome desktop environment
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
@@ -27,17 +28,19 @@
 
         # GNOME 47 requires the gvdb subproject which is not included in the triple-buffering branch
         # This copies the necessary gvdb files from the official GNOME repository
-        preConfigure = let
-          gvdb = final.fetchFromGitLab {
-            domain = "gitlab.gnome.org";
-            owner = "GNOME";
-            repo = "gvdb";
-            rev = "2b42fc75f09dbe1cd1057580b5782b08f2dcb400";
-            hash = "sha256-CIdEwRbtxWCwgTb5HYHrixXi+G+qeE1APRaUeka3NWk=";
-          };
-        in ''
-          cp -a "${gvdb}" ./subprojects/gvdb
-        '';
+        preConfigure =
+          let
+            gvdb = final.fetchFromGitLab {
+              domain = "gitlab.gnome.org";
+              owner = "GNOME";
+              repo = "gvdb";
+              rev = "2b42fc75f09dbe1cd1057580b5782b08f2dcb400";
+              hash = "sha256-CIdEwRbtxWCwgTb5HYHrixXi+G+qeE1APRaUeka3NWk=";
+            };
+          in
+          ''
+            cp -a "${gvdb}" ./subprojects/gvdb
+          '';
       });
     })
   ];

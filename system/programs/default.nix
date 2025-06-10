@@ -3,7 +3,8 @@
   config,
   inputs,
   ...
-}: {
+}:
+{
   programs = {
     fish.enable = true;
     zoxide.enable = true;

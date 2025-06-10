@@ -3,9 +3,11 @@
   pkgs,
   inputs,
   ...
-}: let
+}:
+let
   # appflowy = pkgs.callPackage ../../../../modules/appflowy {};
-in {
+in
+{
   imports = [
     ./bash
     ./config

@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   xdg.configFile."yakuakerc".text = ''
     [Appearance]
     Skin=yakuake-breeze_perfect_dark-2.0

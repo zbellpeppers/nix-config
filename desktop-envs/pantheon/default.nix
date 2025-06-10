@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   # Visit: https://wiki.nixos.org/wiki/Pantheon for information
 
   # Enables Pantheon desktop environment and the LightDM display manager

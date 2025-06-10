@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   system.rebuild.enableNg = true;
   nix = {
     # Enable lix
@@ -11,8 +12,8 @@
       builders-use-substitutes = true;
 
       # allow sudo users to mark the following values as trusted
-      allowed-users = ["@wheel"];
-      trusted-users = ["@wheel"];
+      allowed-users = [ "@wheel" ];
+      trusted-users = [ "@wheel" ];
       accept-flake-config = true;
 
       # Prevents certain build items from being removed via nix-collect-garbage
@@ -28,7 +29,10 @@
       log-lines = 20;
 
       # Enables Flakes and other experimental commands
-      extra-experimental-features = ["flakes" "nix-command"];
+      extra-experimental-features = [
+        "flakes"
+        "nix-command"
+      ];
 
       # Automatic usage of --show-trace when a build error occurs
       show-trace = true;

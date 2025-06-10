@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   # Required for https cert generation via nginx
   security.acme = {
     acceptTerms = true;
@@ -14,7 +15,7 @@
   };
 
   # Add nginx to acme group so it can access the environmental variable
-  users.users.nginx.extraGroups = ["acme"];
+  users.users.nginx.extraGroups = [ "acme" ];
 
   # Nginx config
   services.nginx = {

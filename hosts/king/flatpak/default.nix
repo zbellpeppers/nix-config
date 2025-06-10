@@ -2,7 +2,8 @@
   lib,
   inputs,
   ...
-}: {
+}:
+{
   # Flatpak management
   services.flatpak = {
     enable = true;

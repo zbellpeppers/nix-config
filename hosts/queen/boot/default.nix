@@ -3,7 +3,8 @@
   config,
   inputs,
   ...
-}: {
+}:
+{
   boot = {
     # Specifices the Linux Kernel
     kernelPackages = pkgs.linuxPackages_latest;

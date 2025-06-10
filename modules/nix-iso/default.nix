@@ -3,12 +3,14 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   coordsFile = builtins.readFile /home/zachary/Desktop/All/coordinates.txt;
   coords = lib.strings.splitString "," coordsFile;
   latitude = builtins.fromJSON (lib.lists.elemAt coords 0);
   longitude = builtins.fromJSON (lib.lists.elemAt coords 1);
-in {
+in
+{
   # # To build use: REDSHIFT_LATITUDE=your_lat REDSHIFT_LONGITUDE=your_long nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=default.nix
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix>
@@ -37,7 +39,7 @@ in {
       xkb = {
         extraLayouts.soul = {
           description = "Soul layout";
-          languages = ["eng"];
+          languages = [ "eng" ];
           symbolsFile = ./soul;
         };
         layout = "soul,us";
@@ -70,5 +72,8 @@ in {
   ];
 
   # Ensure BTRFS support is enabled
-  boot.supportedFilesystems = ["btrfs" "ntfs"];
+  boot.supportedFilesystems = [
+    "btrfs"
+    "ntfs"
+  ];
 }

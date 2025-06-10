@@ -3,12 +3,14 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   coordsFile = builtins.readFile ./coordinates.txt;
   coords = lib.strings.splitString "," coordsFile;
   latitude = builtins.fromJSON (lib.lists.elemAt coords 0);
   longitude = builtins.fromJSON (lib.lists.elemAt coords 1);
-in {
+in
+{
   imports = [
     ./boot
     ./flatpak
@@ -43,7 +45,7 @@ in {
       xkb = {
         extraLayouts.soul = {
           description = "Soul layout";
-          languages = ["eng"];
+          languages = [ "eng" ];
           symbolsFile = ./soul;
         };
         layout = "soul,us";
