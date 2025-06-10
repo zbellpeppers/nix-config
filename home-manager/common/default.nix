@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  inputs,
   ...
 }:
 let
@@ -24,6 +22,7 @@ in
     # Gaming
     prismlauncher
     ferium
+    bottles
 
     # Browser Related
     persepolis
@@ -38,6 +37,7 @@ in
     # Office Apps
     kdePackages.skanpage
     protonmail-desktop
+    freecad-qt6
 
     # Spell Checks and Dictionaries
     aspell
