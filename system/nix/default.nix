@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   system.rebuild.enableNg = true;
   nix = {
+    # Set specific nix path for nixd
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
     # Enable lix
     package = pkgs.lix;
 

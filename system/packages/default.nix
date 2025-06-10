@@ -7,6 +7,7 @@
   environment.systemPackages = with pkgs; [
     # Nix specific tooling
     nixfmt-rfc-style
+    nixd
     inputs.ragenix.packages.x86_64-linux.default
     dconf2nix
     nix-prefetch-git

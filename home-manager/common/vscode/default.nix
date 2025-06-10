@@ -38,6 +38,15 @@
       ];
       userSettings = {
         # Editor
+        "nix.enableLanguageServer" = true;
+        "nix.serverPath" = "nixd";
+        "nix.serverSettings" = {
+          "nixd" = {
+            "formatting" = {
+              "command" = [ "nixfmt" ];
+            };
+          };
+        };
         "editor.fontFamily" = "FiraCode Nerd Font Mono";
         "editor.fontWeight" = "600";
         "editor.wordWrap" = "on";
