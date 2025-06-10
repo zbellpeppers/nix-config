@@ -36,6 +36,5 @@ in {
   environment.systemPackages = with pkgs; [
     monochrome-sddm-theme
     kdePackages.filelight
-    (papirus-icon-theme.override {color = "black";})
   ];
 }

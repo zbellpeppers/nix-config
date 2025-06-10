@@ -11,7 +11,6 @@
     profiles.default = {
       extensions = with pkgs.vscode-marketplace; [
         # Nix
-        kamadorueda.alejandra
         jnoortheen.nix-ide
         jeff-hykin.better-nix-syntax
         # General

@@ -62,6 +62,7 @@ in {
     variables = {
       EDITOR = "micro";
       VISUAL = "micro";
+      RUST_MIN_STACK = "16777216";
     };
   };
 

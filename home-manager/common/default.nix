@@ -45,7 +45,6 @@ in {
     hunspellDicts.en-us
 
     # Programming
-    alejandra
     gcc
     kdePackages.kate
     python313

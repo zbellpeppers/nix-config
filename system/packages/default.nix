@@ -4,6 +4,13 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
+    # Nix specific tooling
+    nixfmt-rfc-style
+    inputs.ragenix.packages.x86_64-linux.default
+    dconf2nix
+    nix-prefetch-git
+    nix-prefetch-github
+
     # Gaming
     mangohud
     wineWowPackages.full
@@ -21,8 +28,6 @@
     unrar
     appimage-run
     efibootmgr
-    nix-prefetch-git
-    nix-prefetch-github
     eza
     bat
     hwinfo
@@ -32,9 +37,7 @@
     age
     sops
     ethtool
-    dconf2nix
     vulkan-tools
-    inputs.ragenix.packages.x86_64-linux.default
     exiftool
     imagemagick
 
