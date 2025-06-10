@@ -12,7 +12,6 @@
 
   home.packages = with pkgs; [
     obsidian
-    inputs.zen-browser.packages."${system}".default
   ];
 
   home.username = "zachary";

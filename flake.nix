@@ -14,10 +14,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixpkgs-ferium = {
       url = "github:NixOS/nixpkgs/dc346fdf12f190192e80a6e6f57b185d510ccfb2";
     };
@@ -34,7 +30,6 @@
     nix-flatpak,
     nix-vscode-extensions,
     plasma-manager,
-    zen-browser,
     nixpkgs-ferium,
     ragenix,
     ...
