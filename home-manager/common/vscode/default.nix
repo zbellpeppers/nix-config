@@ -45,6 +45,15 @@
             "formatting" = {
               "command" = [ "nixfmt" ];
             };
+            "options" = {
+              "nixos" = {
+                "expr" = "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.king.options";
+              };
+              "home-manager" = {
+                "expr" =
+                  "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.king.options.home-manager.users.type.getSubOptions []";
+              };
+            };
           };
         };
         "editor.fontFamily" = "FiraCode Nerd Font Mono";

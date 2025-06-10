@@ -1,7 +1,5 @@
 {
   pkgs,
-  config,
-  inputs,
   ...
 }:
 {
@@ -10,6 +8,14 @@
     zoxide.enable = true;
     zsh.enable = true;
     kdeconnect.enable = true;
+
+    obs-studio = {
+      enable = true;
+      enableVirtualCamera = true;
+      plugins = with pkgs; [
+        obs-studio-plugins.obs-pipewire-audio-capture
+      ];
+    };
 
     java = {
       enable = true;

@@ -24,7 +24,6 @@ in
     # Gaming
     prismlauncher
     ferium
-    obs-studio
 
     # Browser Related
     persepolis
