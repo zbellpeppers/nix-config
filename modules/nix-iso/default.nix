@@ -11,7 +11,7 @@ let
   longitude = builtins.fromJSON (lib.lists.elemAt coords 1);
 in
 {
-  # # To build use: REDSHIFT_LATITUDE=your_lat REDSHIFT_LONGITUDE=your_long nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=default.nix
+  # # To build use: nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=default.nix
   imports = [
     <nixpkgs/nixos/modules/installer/cd-dvd/installation-cd-graphical-calamares-plasma6.nix>
   ];
@@ -26,11 +26,11 @@ in
 
   # Keyboard Layout
   services = {
-    # Enable and set redshift to 2200
+    # Enable and set redshift to 2000
     redshift = {
       enable = true;
-      temperature.night = 2200;
-      temperature.day = 2200;
+      temperature.night = 2000;
+      temperature.day = 2000;
       brightness.day = "0.4";
       brightness.night = "0.4";
     };
