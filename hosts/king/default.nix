@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   ...
@@ -58,7 +57,7 @@ in
   };
 
   environment = {
-    systemPackages = with pkgs; [
+    systemPackages = [
     ];
     # Set default terminal editor to micro
     variables = {
