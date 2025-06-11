@@ -15,6 +15,7 @@ in
     ./vscode
     ./zsh
   ];
+  home.enableNixpkgsReleaseCheck = true;
   home.packages = with pkgs; [
     # Remote Access
     rustdesk-flutter

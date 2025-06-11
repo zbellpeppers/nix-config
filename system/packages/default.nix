@@ -46,7 +46,6 @@
     # GUI Tools
     kdePackages.partitionmanager
     fsearch
-    ddcui
     kdePackages.yakuake
     kdePackages.kjournald
     via
