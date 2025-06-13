@@ -1,87 +1,56 @@
-{
-  config,
-  pkgs,
-  ...
-}:
+{ config, pkgs, ... }:
+
 let
-  # Create the IPv4 script
+  # ——————————————————————————————————————————————————————
+  # Helper scripts
+  # ——————————————————————————————————————————————————————
   getIPv4Script = pkgs.writeShellScript "get-ipv4" ''
-    #!/bin/sh
-
-    # --- CONFIGURATION ---
-    REAL_INTERFACE="eno1"
-    CHECK_URL="https://cloudflare.com/cdn-cgi/trace"
-
-    # --- SCRIPT LOGIC ---
-    TRACE_OUTPUT=$(${pkgs.curl}/bin/curl --silent --fail -4 --interface "$REAL_INTERFACE" "$CHECK_URL")
-    CURL_EXIT_CODE=$?
-
-    if [ $CURL_EXIT_CODE -eq 0 ] && [ -n "$TRACE_OUTPUT" ]; then
-        EXTRACTED_IP=$(echo "$TRACE_OUTPUT" | ${pkgs.gnugrep}/bin/grep '^ip=' | ${pkgs.coreutils}/bin/cut -d= -f2)
-
-        if [ -n "$EXTRACTED_IP" ] && [[ "$EXTRACTED_IP" =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-            echo "$EXTRACTED_IP"
-            exit 0
-        else
-            echo "Error: Could not parse valid IPv4 from Cloudflare trace (IP found: '$EXTRACTED_IP')" >&2
-            exit 1
-        fi
-    else
-        echo "Error fetching IPv4 trace via $REAL_INTERFACE (curl code: $CURL_EXIT_CODE)" >&2
-        exit 1
-    fi
+    #!${pkgs.stdenv.shell}
+    # Query Cloudflare’s trace endpoint *with IPv4 only* and on the
+    # real interface (so the VPN tunnel is bypassed).
+    EXTRACTED_IP=$(
+      ${pkgs.curl}/bin/curl -s --fail -4 --interface eno1 \
+        https://cloudflare.com/cdn-cgi/trace  | \
+      ${pkgs.gnugrep}/bin/grep '^ip='           | \
+      ${pkgs.coreutils}/bin/cut  -d= -f2
+    )
+    test -n "$EXTRACTED_IP" && echo "$EXTRACTED_IP"
   '';
 
-  # Create the IPv6 script
   getIPv6Script = pkgs.writeShellScript "get-ipv6" ''
-    #!/bin/sh
-
-    # --- CONFIGURATION ---
-    REAL_INTERFACE="eno1"
-    CHECK_URL="https://cloudflare.com/cdn-cgi/trace"
-
-    # --- SCRIPT LOGIC ---
-    TRACE_OUTPUT=$(${pkgs.curl}/bin/curl --silent --fail -6 --interface "$REAL_INTERFACE" "$CHECK_URL")
-    CURL_EXIT_CODE=$?
-
-    if [ $CURL_EXIT_CODE -eq 0 ] && [ -n "$TRACE_OUTPUT" ]; then
-        EXTRACTED_IP=$(echo "$TRACE_OUTPUT" | ${pkgs.gnugrep}/bin/grep '^ip=' | ${pkgs.coreutils}/bin/cut -d= -f2)
-
-        if [ -n "$EXTRACTED_IP" ]; then
-            echo "$EXTRACTED_IP"
-            exit 0
-        else
-            echo "Error: Could not parse IP from Cloudflare trace" >&2
-            exit 1
-        fi
-    else
-        echo "Error fetching IPv6 trace via $REAL_INTERFACE (curl code: $CURL_EXIT_CODE)" >&2
-        exit 1
-    fi
+    #!${pkgs.stdenv.shell}
+    EXTRACTED_IP=$(
+      ${pkgs.curl}/bin/curl -s --fail -6 --interface eno1 \
+        https://cloudflare.com/cdn-cgi/trace  | \
+      ${pkgs.gnugrep}/bin/grep '^ip='           | \
+      ${pkgs.coreutils}/bin/cut  -d= -f2
+    )
+    test -n "$EXTRACTED_IP" && echo "$EXTRACTED_IP"
   '';
 in
 {
-  systemd.services.ddclient = {
-    after = [ "NetworkManager-wait-online.service" ];
-    requires = [ "NetworkManager-wait-online.service" ];
-    wants = [ "network-online.target" ];
-  };
   services.ddclient = {
     enable = true;
-    usev4 = "cmdv4, cmd='${getIPv4Script}'";
-    usev6 = "cmdv6, cmd='${getIPv6Script}'";
+
+    # --- Tell ddclient *how* to discover an address ----------------
+    # “cmd” means “run an external command”.
+    usev4 = "cmdv4, cmd=${getIPv4Script}";
+    usev6 = "cmdv6, cmd=${getIPv6Script}";
+
+    # --- Cloudflare update parameters ------------------------------
     protocol = "cloudflare";
     username = "token";
     passwordFile = config.age.secrets.cf-dns-ddclient.path;
     zone = "bell-peppers.com";
     domains = [
       "actualbudget.bell-peppers.com"
+      "headscale.bell-peppers.com"
     ];
-    ssl = true;
-    interval = "10min";
+    ssl = true; # use HTTPS to talk to Cloudflare
+    interval = "10m"; # how often ddclient re-checks the IP
     verbose = true;
     extraConfig = ''
-      ttl=1
+      ttl=1             # any additional raw ddclient.conf lines
     '';
   };
 }

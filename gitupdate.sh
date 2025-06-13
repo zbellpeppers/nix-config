@@ -59,20 +59,48 @@ update_flake_inputs() {
 validate_configuration() {
     echo "🔍 Validating NixOS configuration..."
     cd /etc/nixos
-    if sudo nixos-rebuild dry-build &>/dev/null; then
+    
+    # Create a temporary file to capture output
+    temp_output=$(mktemp)
+    
+    echo "🔧 Running dry-build validation..."
+    
+    # Run the dry-build with timeout and capture both stdout and stderr
+    if timeout 300 sudo nixos-rebuild dry-build > "$temp_output" 2>&1; then
+        dry_build_exit_code=0
         echo "✅ Configuration validation passed"
     else
-        echo "⚠️ The NixOS build did not validate correctly."
+        dry_build_exit_code=$?
+        echo "❌ The NixOS build did not validate correctly."
         
         # Show commit message if we're not skipping git operations
         if [ "$skip_git" = false ] && [ -n "$commit_message" ]; then
             echo "   You entered this commit message: \"$commit_message\""
         fi
         
-        echo "   Run 'sudo nixos-rebuild dry-build' for detailed error information."
+        echo ""
+        echo "📋 Configuration Error Details:"
+        echo "================================"
+        cat "$temp_output"
+        echo "================================"
+        echo ""
+        
+        # Log the error to the log file as well
+        echo "Configuration validation failed at $(date)" >> "$LOG_FILE"
+        echo "Exit code: $dry_build_exit_code" >> "$LOG_FILE"
+        echo "Error output:" >> "$LOG_FILE"
+        cat "$temp_output" >> "$LOG_FILE"
+        echo "================================" >> "$LOG_FILE"
+        
+        # Clean up temp file
+        rm -f "$temp_output"
+        
         restore_backup
         exit 1
     fi
+    
+    # Clean up temp file
+    rm -f "$temp_output"
 }
 
 # Function to send desktop notification

@@ -21,7 +21,7 @@
   services.nginx = {
     enable = true;
 
-    # Recommended security settings (optional but good practice)
+    # Recommended security settings
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
@@ -29,72 +29,55 @@
 
     # Actual Budget
     virtualHosts."actualbudget.bell-peppers.com" = {
-      # Enable automatic certificate generation and renewal via ACME
       enableACME = true;
-      # Automatically redirect HTTP traffic to HTTPS
       forceSSL = true;
+      acmeRoot = null; # Use DNS challenge
 
-      # Define where requests to the root path "/" should go
       locations."/" = {
-        # The address of your running Actual Budget server
-        proxyPass = "http://localhost:5006"; # Default port for Actual Budget
-
-        # Add WebSocket support (often needed for modern web apps)
-        proxyWebsockets = true; # Handles Upgrade and Connection headers automatically
+        proxyPass = "http://localhost:5006";
+        proxyWebsockets = true;
       };
 
-      # Optional: Add extra security headers (good practice)
       extraConfig = ''
-        # Add HSTS header to force HTTPS in the browser for future visits
+        # Security headers
         add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-        # Prevent clickjacking
         add_header X-Frame-Options "SAMEORIGIN" always;
-        # Prevent MIME-type sniffing
         add_header X-Content-Type-Options "nosniff" always;
-        # Enable basic XSS protection
         add_header X-XSS-Protection "1; mode=block" always;
-        # Control referrer policy
         add_header Referrer-Policy "strict-origin-when-cross-origin" always;
       '';
     };
+
     # Headscale
     virtualHosts."headscale.bell-peppers.com" = {
-      # Enable automatic certificate generation and renewal via ACME
       enableACME = true;
-      # Automatically redirect HTTP traffic to HTTPS
       forceSSL = true;
+      acmeRoot = null; # Use DNS challenge
 
-      # Define where requests to the root path "/" should go
       locations."/" = {
-        # The address of your running Headscale server
-        proxyPass = "http://localhost:8080"; # Default port for Headscale
-
-        # Add WebSocket support (needed for Headscale control protocol)
+        proxyPass = "http://localhost:8080";
         proxyWebsockets = true;
-
-        # Additional headers for Headscale
-        extraConfig = ''
-          # Add HSTS header to force HTTPS in the browser for future visits
-          add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-          # Prevent clickjacking
-          add_header X-Frame-Options "SAMEORIGIN" always;
-          # Prevent MIME-type sniffing
-          add_header X-Content-Type-Options "nosniff" always;
-          # Enable basic XSS protection
-          add_header X-XSS-Protection "1; mode=block" always;
-          # Control referrer policy
-          add_header Referrer-Policy "strict-origin-when-cross-origin" always;
-          # Pass the real IP to Headscale
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_set_header Host $host;
-          # Increase proxy timeouts for long-polling connections
-          proxy_connect_timeout 60s;
-          proxy_send_timeout 60s;
-          proxy_read_timeout 60s;
-        '';
       };
+
+      extraConfig = ''
+        # Proxy headers for Headscale
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header Host $host;
+
+        # Proxy timeouts
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+
+        # Security headers
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+        add_header X-Frame-Options "SAMEORIGIN" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-XSS-Protection "1; mode=block" always;
+        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+      '';
     };
   };
 }
