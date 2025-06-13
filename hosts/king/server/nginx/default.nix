@@ -57,5 +57,44 @@
         add_header Referrer-Policy "strict-origin-when-cross-origin" always;
       '';
     };
+    # Headscale
+    virtualHosts."headscale.bell-peppers.com" = {
+      # Enable automatic certificate generation and renewal via ACME
+      enableACME = true;
+      # Automatically redirect HTTP traffic to HTTPS
+      forceSSL = true;
+
+      # Define where requests to the root path "/" should go
+      locations."/" = {
+        # The address of your running Headscale server
+        proxyPass = "http://localhost:8080"; # Default port for Headscale
+
+        # Add WebSocket support (needed for Headscale control protocol)
+        proxyWebsockets = true;
+
+        # Additional headers for Headscale
+        extraConfig = ''
+          # Add HSTS header to force HTTPS in the browser for future visits
+          add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+          # Prevent clickjacking
+          add_header X-Frame-Options "SAMEORIGIN" always;
+          # Prevent MIME-type sniffing
+          add_header X-Content-Type-Options "nosniff" always;
+          # Enable basic XSS protection
+          add_header X-XSS-Protection "1; mode=block" always;
+          # Control referrer policy
+          add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+          # Pass the real IP to Headscale
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header Host $host;
+          # Increase proxy timeouts for long-polling connections
+          proxy_connect_timeout 60s;
+          proxy_send_timeout 60s;
+          proxy_read_timeout 60s;
+        '';
+      };
+    };
   };
 }
