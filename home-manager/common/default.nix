@@ -24,6 +24,12 @@ in
     prismlauncher
     ferium
     (bottles.override { removeWarningPopup = true; })
+    mangohud
+    wineWowPackages.full
+    winetricks
+    protontricks
+    mono
+    lutris
 
     # Browser Related
     persepolis
@@ -55,6 +61,8 @@ in
 
     # General Apps
     speedcrunch
+    fsearch
+    via
 
     # Torrenting
     calibre

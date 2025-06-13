@@ -13,14 +13,6 @@
     nix-prefetch-git
     nix-prefetch-github
 
-    # Gaming
-    mangohud
-    wineWowPackages.full
-    winetricks
-    protontricks
-    mono
-    lutris
-
     # CLI Tools
     wget
     pciutils
@@ -45,10 +37,8 @@
 
     # GUI Tools
     kdePackages.partitionmanager
-    fsearch
     kdePackages.yakuake
     kdePackages.kjournald
-    via
 
     # Hardware RGB Control
     openrgb-with-all-plugins
