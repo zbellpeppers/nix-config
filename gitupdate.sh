@@ -29,27 +29,8 @@ show_usage() {
     echo "Examples:"
     echo "  $0 switch"
     echo "  $0 switch --gc"
-    echo "  $0 switch --update-inputs"
+    echo "  $0 switch --upflake"
     echo "  $0 build-image --image-variant iso"
-}
-
-# Function to check disk space
-check_disk_space() {
-    echo "Checking available disk space..."
-    available_space=$(df /nix/store --output=avail | tail -n1)
-    available_gb=$((available_space / 1048576))  # Convert KB to GB
-    
-    if [ "$available_space" -lt 2097152 ]; then  # Less than 2GB in KB
-        echo "⚠️  Warning: Low disk space on /nix/store (${available_gb}GB available)"
-        echo "   Consider running with --gc flag or manually: 'sudo nix-collect-garbage -d'"
-        read -p "Continue anyway? (y/N): " -n 1 -r
-        echo
-        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-            exit 1
-        fi
-    else
-        echo "✅ Sufficient disk space: ${available_gb}GB available"
-    fi
 }
 
 # Function to run garbage collection
@@ -64,12 +45,12 @@ run_gc() {
 
 # Function to update flake inputs
 update_flake_inputs() {
-    echo "📦 Updating flake inputs..."
+    echo "❄️ Updating flake inputs..."
     cd ~/nix-config
     if nix flake update 2>&1 | tee -a "$LOG_FILE"; then
         echo "✅ Flake inputs updated"
     else
-        echo "❌ Failed to update flake inputs"
+        echo "⚠️ Failed to update flake inputs"
         exit 1
     fi
 }
@@ -81,8 +62,14 @@ validate_configuration() {
     if sudo nixos-rebuild dry-build &>/dev/null; then
         echo "✅ Configuration validation passed"
     else
-        echo "❌ Configuration validation failed. Please check your NixOS configuration."
-        echo "Run 'sudo nixos-rebuild dry-build' for detailed error information."
+        echo "❌ The NixOS build did not validate correctly."
+        
+        # Show commit message if we're not skipping git operations
+        if [ "$skip_git" = false ] && [ -n "$commit_message" ]; then
+            echo "   You entered this commit message: \"$commit_message\""
+        fi
+        
+        echo "   Run 'sudo nixos-rebuild dry-build' for detailed error information."
         restore_backup
         exit 1
     fi
@@ -169,7 +156,7 @@ else
             --gc)
                 run_garbage_collection=true
                 ;;
-            --update-inputs)
+            --upflake)
                 update_flake_inputs=true
                 ;;
             *)
@@ -200,9 +187,6 @@ echo "NixOS Rebuild Log - $(date)" > "$LOG_FILE"
 echo "Command: $rebuild_command ${rebuild_args[*]}" >> "$LOG_FILE"
 echo "Flags: GC=$run_garbage_collection, Update-Inputs=$update_flake_inputs" >> "$LOG_FILE"
 echo "========================================" >> "$LOG_FILE"
-
-# Check disk space early
-check_disk_space
 
 # Run garbage collection if requested
 if [ "$run_garbage_collection" = true ]; then
