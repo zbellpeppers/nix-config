@@ -5,5 +5,6 @@
     ./headscale
     ./nginx
     ./podman
+    ./tailscale
   ];
 }
