@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   ...
 }:
 {
@@ -10,6 +11,18 @@
   boot.kernel.sysctl = {
     "net.ipv4.ip_forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
+  };
+
+  services = {
+    networkd-dispatcher = {
+      enable = true;
+      rules."50-tailscale" = {
+        onState = [ "routable" ];
+        script = ''
+          ${lib.getExe pkgs.ethtool} -K eno1 rx-udp-gro-forwarding on rx-gro-list off
+        '';
+      };
+    };
   };
 
   # Networking / Ethernet / Wifi Configuration
@@ -31,6 +44,7 @@
       # 80 443 - http and https
       # 25565 - Minecraft
       # 41641 - Tailscale
+      # 8080 - Headscale
       allowedTCPPorts = [
         80
         443

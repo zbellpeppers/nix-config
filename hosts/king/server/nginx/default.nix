@@ -8,8 +8,8 @@
       dnsProvider = "cloudflare";
       # Use the agenix secret file for Cloudflare credentials
       credentialFiles = {
-        "CLOUDFLARE_EMAIL_FILE" = config.age.secrets.cf-email-nginx.path;
-        "CLOUDFLARE_API_KEY_FILE" = config.age.secrets.cf-dns-nginx.path;
+        # "CLOUDFLARE_EMAIL_FILE" = config.age.secrets.cf-email-nginx.path;
+        "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.age.secrets.cf-dns-ddclient.path;
       };
     };
   };
