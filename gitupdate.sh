@@ -62,7 +62,7 @@ validate_configuration() {
     if sudo nixos-rebuild dry-build &>/dev/null; then
         echo "✅ Configuration validation passed"
     else
-        echo "❌ The NixOS build did not validate correctly."
+        echo "⚠️ The NixOS build did not validate correctly."
         
         # Show commit message if we're not skipping git operations
         if [ "$skip_git" = false ] && [ -n "$commit_message" ]; then
@@ -281,8 +281,8 @@ if [ "$rebuild_success" = true ]; then
         # Display success message with report location
         echo ""
         echo "✅ NixOS rebuild completed successfully!"
-        echo "📋 You can find a list of all packages that were updated this rebuild at '$report_file'"
-        echo "📝 Full rebuild log available at '$LOG_FILE'"
+        echo "🗒️ You can find a list of all packages that were updated this rebuild at '$report_file'"
+        echo "📔 Full rebuild log available at '$LOG_FILE'"
         echo "⏱️  Rebuild duration: ${duration} seconds"
         echo ""
         
@@ -335,8 +335,8 @@ else
     # Send desktop notification for failure
     send_desktop_notification "NixOS Update Failed" "System rebuild encountered errors. Check the logs." "dialog-error"
     
-    echo "❌ Rebuild failed after ${duration} seconds"
-    echo "📝 Check the full log at '$LOG_FILE' for details"
+    echo "⚠️ Rebuild failed after ${duration} seconds"
+    echo "📔 Check the full log at '$LOG_FILE' for details"
     restore_backup
     exit 1
 fi
