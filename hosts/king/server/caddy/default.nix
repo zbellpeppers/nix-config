@@ -3,67 +3,40 @@
 {
   services.caddy = {
     enable = true;
-
-    # Build Caddy with the Cloudflare DNS plugin for ACME challenges
-    # This is required to get SSL certificates when using Cloudflare's proxy.
     package = pkgs.caddy.withPlugins {
-      plugins = [
-        "github.com/caddy-dns/cloudflare"
-      ];
-      # On your first build, nix will fail with a hash mismatch.
-      # Replace the hash below with the one provided in the error message.
-      hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      plugins = [ "github.com/caddy-dns/cloudflare@v0.2.1" ];
+      hash = "sha256-Gsuo+ripJSgKSYOM9/yl6Kt/6BFCA6BuTDvPdteinAI=";
     };
-
-    # Configure Caddy to use the Cloudflare DNS challenge globally
+    environmentFile = config.age.secrets.cloudflare-env-api-caddy.path;
+    # The file must export CLOUDFLARE_DNS_API_TOKEN=xxxxxxxx
     globalConfig = ''
-      acme_dns cloudflare {env.CLOUDFLARE_DNS_API_TOKEN}
+      acme_dns cloudflare {$CLOUDFLARE_DNS_API_TOKEN}
     '';
 
-    # Securely provide the Cloudflare API token to Caddy via an environment file.
-    # This reads the secret from your agenix-managed path.
-    environmentFile = pkgs.writeText "caddy-secrets" ''
-      CLOUDFLARE_DNS_API_TOKEN=$(<${config.age.secrets.cf-dns-ddclient.path})
-    '';
-
-    # Define your reverse proxies using a Caddyfile-like structure
     virtualHosts = {
-      # Proxy for Actual Budget
-      "actualbudget.bell-peppers.com" = {
-        extraConfig = ''
-          # Proxy requests to the Actual Budget server.
-          # Caddy handles WebSockets automatically.
-          reverse_proxy localhost:5006
+      "actualbudget.bell-peppers.com".extraConfig = ''
+        # Reverse proxy + WebSockets (Caddy upgrades automatically)
+        reverse_proxy http://localhost:5006
+        # Security headers
+        header {
+          Strict-Transport-Security "max-age=31536000; includeSubDomains"
+          X-Frame-Options "SAMEORIGIN"
+          X-Content-Type-Options "nosniff"
+          X-XSS-Protection "1; mode=block"
+          Referrer-Policy "strict-origin-when-cross-origin"
+        }
+      '';
+      "headscale.bell-peppers.com".extraConfig = ''
+        reverse_proxy 0.0.0.0:8080
 
-          # Add security headers
-          header {
-            Strict-Transport-Security "max-age=31536000; includeSubDomains"
-            X-Frame-Options "SAMEORIGIN"
-            X-Content-Type-Options "nosniff"
-            X-XSS-Protection "1; mode=block"
-            Referrer-Policy "strict-origin-when-cross-origin"
-          }
-        '';
-      };
-
-      # Proxy for Headscale
-      "headscale.bell-peppers.com" = {
-        extraConfig = ''
-          # Proxy requests to the Headscale server.
-          # Caddy's reverse_proxy automatically handles the long-lived
-          # connections and WebSockets needed by Headscale without extra config.
-          reverse_proxy 127.0.0.1:8080
-
-          # Add security headers
-          header {
-            Strict-Transport-Security "max-age=31536000; includeSubDomains"
-            X-Frame-Options "SAMEORIGIN"
-            X-Content-Type-Options "nosniff"
-            X-XSS-Protection "1; mode=block"
-            Referrer-Policy "strict-origin-when-cross-origin"
-          }
-        '';
-      };
+        # Optional: extra proxy headers; most are set automatically
+        header {
+          Strict-Transport-Security "max-age=31536000; includeSubDomains"
+          X-Frame-Options "SAMEORIGIN"
+          X-Content-Type-Options "nosniff"
+          Referrer-Policy "strict-origin-when-cross-origin"
+        }
+      '';
     };
   };
 }

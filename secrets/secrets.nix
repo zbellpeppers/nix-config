@@ -9,5 +9,6 @@ in
   "cloudflare-dns-token.age".publicKeys = [ zachary ];
   "cloudflare-dns-environment.age".publicKeys = [ zachary ];
   "cloudflare-email.age".publicKeys = [ zachary ];
+  "cloudflare-env-api-caddy.age".publicKeys = [ zachary ];
   # "secret2.age".publicKeys = users ++ systems;
 }
