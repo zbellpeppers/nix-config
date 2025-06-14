@@ -6,6 +6,7 @@
     ./headscale
     #./nginx
     ./podman
+    ./samba
     ./tailscale
   ];
 }
