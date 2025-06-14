@@ -7,8 +7,8 @@
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
-        "server string" = "smbnix";
-        "netbios name" = "smbnix";
+        "server string" = "file_server";
+        "netbios name" = "sambanix";
         "security" = "user";
         "hosts allow" = "100.64.0.0/10";
         "hosts deny" = "0.0.0.0/0";
