@@ -29,6 +29,23 @@
           "1.1.1.1"
           "8.8.8.8"
         ];
+        extra_records = [
+          {
+            name = "actualbudget.bpf.lan"; # full FQDN
+            type = "A"; # only A / AAAA are supported
+            value = "100.64.0.1"; # king’s Tailscale IPv4
+          }
+          {
+            name = "actualbudget.bpf.lan"; # full FQDN
+            type = "AAAA"; # only A / AAAA are supported
+            value = "fd7a:115c:a1e0::1"; # king’s Tailscale IPv6
+          }
+          {
+            name = "minecraft.bpf.lan"; # full FQDN
+            type = "A"; # only A / AAAA are supported
+            value = "100.64.0.1"; # king’s Tailscale IPv4
+          }
+        ];
       };
 
       # DERP configuration for NAT traversal

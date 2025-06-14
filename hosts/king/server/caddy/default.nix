@@ -14,21 +14,13 @@
     '';
 
     virtualHosts = {
-      "actualbudget.bell-peppers.com".extraConfig = ''
-        # Reverse proxy + WebSockets (Caddy upgrades automatically)
+      "actualbudget.bpf.lan".extraConfig = ''
+        tls internal
+        encode gzip zstd
         reverse_proxy http://localhost:5006
-        # Security headers
-        header {
-          Strict-Transport-Security "max-age=31536000; includeSubDomains"
-          X-Frame-Options "SAMEORIGIN"
-          X-Content-Type-Options "nosniff"
-          X-XSS-Protection "1; mode=block"
-          Referrer-Policy "strict-origin-when-cross-origin"
-        }
       '';
       "headscale.bell-peppers.com".extraConfig = ''
         reverse_proxy 0.0.0.0:8080
-
         # Optional: extra proxy headers; most are set automatically
         header {
           Strict-Transport-Security "max-age=31536000; includeSubDomains"

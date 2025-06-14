@@ -45,6 +45,7 @@
       # 25565 - Minecraft
       # 41641 - Tailscale
       # 8080 - Headscale
+      # 5006 - actual_budget
       allowedTCPPorts = [
         80
         443
