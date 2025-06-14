@@ -40,6 +40,7 @@
         # Editor
         "nix.enableLanguageServer" = true;
         "nix.serverPath" = "nixd";
+        "nix.diagnosticLevel" = "information";
         "nix.serverSettings" = {
           "nixd" = {
             "formatting" = {
