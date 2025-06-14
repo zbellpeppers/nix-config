@@ -20,6 +20,12 @@
   # Nginx config
   services.nginx = {
     enable = true;
+    appendHttpConfig = ''
+      map ''$http_upgrade ''$connection_upgrade {
+        default upgrade;
+        ""      close;
+      }
+    '';
 
     # Recommended security settings
     recommendedGzipSettings = true;
@@ -52,32 +58,23 @@
     virtualHosts."headscale.bell-peppers.com" = {
       enableACME = true;
       forceSSL = true;
-      acmeRoot = null; # Use DNS challenge
+      acmeRoot = null;
 
       locations."/" = {
-        proxyPass = "http://localhost:8080";
-        proxyWebsockets = true;
+        proxyPass = "http://0.0.0.0:8080";
+        proxyWebsockets = true; # Keep this
+        # Add these extra proxy settings
+        extraConfig = ''
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection $connection_upgrade;
+          proxy_set_header Host $host;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_buffering off;
+        '';
       };
-
-      extraConfig = ''
-        # Proxy headers for Headscale
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header Host $host;
-
-        # Proxy timeouts
-        proxy_connect_timeout 60s;
-        proxy_send_timeout 60s;
-        proxy_read_timeout 60s;
-
-        # Security headers
-        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-        add_header X-Frame-Options "SAMEORIGIN" always;
-        add_header X-Content-Type-Options "nosniff" always;
-        add_header X-XSS-Protection "1; mode=block" always;
-        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
-      '';
     };
   };
 }

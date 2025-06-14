@@ -34,6 +34,7 @@
     vulkan-tools
     exiftool
     imagemagick
+    dig
 
     # GUI Tools
     kdePackages.partitionmanager

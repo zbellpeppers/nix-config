@@ -2,14 +2,16 @@
 {
   services.headscale = {
     enable = true;
-    address = "127.0.0.1";
+    address = "0.0.0.0";
     port = 8080;
 
     settings = {
       server_url = "https://headscale.bell-peppers.com";
-      listen_addr = "127.0.0.1:8080";
+      listen_addr = "0.0.0.0:8080";
       metrics_listen_addr = "127.0.0.1:9090";
 
+      # Private key settings
+      noise.private_key_path = "/var/lib/headscale/noise_private.key";
       # Database
       database = {
         type = "sqlite3";
