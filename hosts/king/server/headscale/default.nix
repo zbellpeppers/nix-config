@@ -45,6 +45,11 @@
             type = "A"; # only A / AAAA are supported
             value = "100.64.0.1"; # king’s Tailscale IPv4
           }
+          {
+            name = "samba.bpf.lan"; # the alias you want to use
+            type = "A"; # only A/AAAA are supported
+            value = "100.64.0.1";
+          }
         ];
       };
 
