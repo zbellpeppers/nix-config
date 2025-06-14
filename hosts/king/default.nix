@@ -8,6 +8,7 @@ let
   coords = lib.strings.splitString "," coordsFile;
   latitude = builtins.fromJSON (lib.lists.elemAt coords 0);
   longitude = builtins.fromJSON (lib.lists.elemAt coords 1);
+  sambashareGid = 3000; # Pick some GID > 1000
 in
 {
   imports = [
@@ -19,6 +20,7 @@ in
   ];
   # Host-specific configuration goes here
   networking.hostName = "king";
+  users.groups.sambashare.gid = sambashareGid;
 
   # User creation
   users.users.zachary = {
@@ -35,6 +37,23 @@ in
       "scanner"
       "podman"
       "i2c"
+      "sambashare"
+    ];
+  };
+
+  users.groups = {
+    sarah = {
+      gid = 1001;
+    };
+  };
+  # Sarah system user
+  users.users.sarah = {
+    isSystemUser = true;
+    description = "Sarah Bell Peppers";
+    shell = pkgs.fish;
+    group = "sarah";
+    extraGroups = [
+      "sambashare"
     ];
   };
 
