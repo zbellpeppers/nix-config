@@ -1,5 +1,29 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  # This systemd service syncs changes made to documents to the samba server.
+  systemd = {
+    services.sync-family-documents = {
+      description = "Sync Family Documents to the public Samba share";
+      serviceConfig = {
+        Type = "oneshot";
+        User = "zachary";
+      };
+      # The command that performs the synchronization.
+      script = ''
+        ${pkgs.rsync}/bin/rsync -a --delete /home/zachary/Desktop/All/Documents/ /home/zachary/Desktop/samba_share/public/
+      '';
+    };
+
+    # Add this section to schedule the sync service.
+    timers.sync-family-documents = {
+      description = "Run the document sync job every 15 minutes";
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "*:0/15"; # Runs every 15 minutes of every hour.
+        Persistent = true; # If the machine was off, run on the next boot.
+      };
+    };
+  };
   services.samba = {
     enable = true;
     openFirewall = true;
