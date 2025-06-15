@@ -92,8 +92,8 @@ in
     Defaults pwfeedback
   '';
 
-  location.latitude = latitude;
-  location.longitude = longitude;
+  services.geoclue2.enable = true;
+  location.provider = "geoclue2";
 
   # Uses local time
   time = {
