@@ -35,7 +35,7 @@ in
     # Browser Related
     persepolis
     xclicker
-    microsoft-edge
+    brave
 
     # Entertainment
     vlc
