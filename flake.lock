@@ -278,7 +278,8 @@
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-ferium": "nixpkgs-ferium",
         "plasma-manager": "plasma-manager",
-        "ragenix": "ragenix"
+        "ragenix": "ragenix",
+        "zen-browser": "zen-browser"
       }
     },
     "rust-overlay": {
@@ -344,6 +345,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1749874024,
+        "narHash": "sha256-bFNesH4+qRcsA/bL+HT4ep1rNkn1A1AZ2RmlZlETwlw=",
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
+        "rev": "d3d3c12550f1d4196bd7f2971c65ffde2bd92a07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "youwen5",
+        "repo": "zen-browser-flake",
         "type": "github"
       }
     }
