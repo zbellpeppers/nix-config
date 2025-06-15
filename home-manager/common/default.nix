@@ -35,6 +35,7 @@ in
     # Browser Related
     persepolis
     xclicker
+    microsoft-edge
 
     # Entertainment
     vlc
