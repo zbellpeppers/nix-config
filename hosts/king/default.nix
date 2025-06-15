@@ -1,13 +1,8 @@
 {
-  lib,
   pkgs,
   ...
 }:
 let
-  coordsFile = builtins.readFile ./coordinates.txt;
-  coords = lib.strings.splitString "," coordsFile;
-  latitude = builtins.fromJSON (lib.lists.elemAt coords 0);
-  longitude = builtins.fromJSON (lib.lists.elemAt coords 1);
   sambashareGid = 3000; # Pick some GID > 1000
 in
 {
@@ -16,7 +11,6 @@ in
     ./flatpak
     ./hardware
     ./server
-    ./services
   ];
   # Host-specific configuration goes here
   networking.hostName = "king";
@@ -91,9 +85,6 @@ in
     Defaults editor=${pkgs.micro}/bin/micro
     Defaults pwfeedback
   '';
-
-  services.geoclue2.enable = true;
-  location.provider = "geoclue2";
 
   # Uses local time
   time = {
