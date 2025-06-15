@@ -70,7 +70,7 @@ in
   king = mkHost {
     hostname = "king";
     username = "zachary";
-    desktop = "plasma";
+    desktop = "cosmic";
     modules = [
       {
         age.identityPaths = [
