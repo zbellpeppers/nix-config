@@ -207,6 +207,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1750268545,
+        "narHash": "sha256-9CBxih8ERwi4lHM6eUtRnjP4O0/czVPfSYUxdlRERhg=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "106daa382b3a5625c9698cbff9f13bbee8c62dbe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1750134718,
@@ -277,9 +293,9 @@
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-ferium": "nixpkgs-ferium",
+        "nixpkgs-master": "nixpkgs-master",
         "plasma-manager": "plasma-manager",
-        "ragenix": "ragenix",
-        "zen-browser": "zen-browser"
+        "ragenix": "ragenix"
       }
     },
     "rust-overlay": {
@@ -345,26 +361,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1750219862,
-        "narHash": "sha256-wce+erYDBm6wpLJm6IJh85KYqy/NtdKp6DZQCn4YP1Q=",
-        "owner": "youwen5",
-        "repo": "zen-browser-flake",
-        "rev": "18d6cd2f5a9cd1527d478d4f716e9b9ee6fb6cbb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "youwen5",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }

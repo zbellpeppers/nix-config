@@ -2,6 +2,7 @@
   nixpkgs,
   self,
   nixpkgs-ferium,
+  nixpkgs-master,
   ...
 }:
 let
@@ -10,7 +11,14 @@ let
   feriumOverlay = final: prev: {
     ferium = nixpkgs-ferium.legacyPackages.${prev.system}.ferium;
   };
-
+  plasmaOverlay = final: prev: {
+    kdePackages = nixpkgs-master.legacyPackages.${prev.system}.kdePackages;
+    # Optionally, you can be more selective and only override specific packages:
+    # kdePackages = prev.kdePackages.overrideScope (kdeFinal: kdePrev: {
+    #   plasma-desktop = nixpkgs-master.legacyPackages.${prev.system}.kdePackages.plasma-desktop;
+    #   # ...add more as needed
+    # });
+  };
   # Function to create a NixOS system configuration
   mkHost =
     {
@@ -82,6 +90,8 @@ in
     overlays = [
       inputs.nix-vscode-extensions.overlays.default
       feriumOverlay
+      plasmaOverlay
+
     ];
   };
 
