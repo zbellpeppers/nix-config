@@ -7,7 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
+      inputs.nixpkgs.follows = "nixpkgs-master";
+    };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
