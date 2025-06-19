@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   ...
 }:
@@ -37,6 +36,6 @@
   # Provides IP for Specific Scanner
   services.saned = {
     enable = true;
-    extraConfig = "192.168.1.83";
+    extraConfig = "192.168.1.109";
   };
 }

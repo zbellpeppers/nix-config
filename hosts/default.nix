@@ -2,7 +2,6 @@
   nixpkgs,
   self,
   nixpkgs-ferium,
-  nixpkgs-master,
   ...
 }:
 let
@@ -10,10 +9,6 @@ let
 
   feriumOverlay = final: prev: {
     ferium = nixpkgs-ferium.legacyPackages.${prev.system}.ferium;
-  };
-  plasmaOverlay = final: prev: {
-    kdePackages = nixpkgs-master.legacyPackages.${prev.system}.kdePackages;
-    qt6Packages = nixpkgs-master.legacyPackages.${prev.system}.qt6Packages;
   };
   # Function to create a NixOS system configuration
   mkHost =

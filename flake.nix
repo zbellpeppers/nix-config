@@ -23,14 +23,12 @@
       url = "github:/yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      nixpkgs-master,
       nixpkgs-ferium,
       ...
     }@inputs:
@@ -39,7 +37,6 @@
         inherit
           inputs
           nixpkgs
-          nixpkgs-master
           nixpkgs-ferium
           self
           ;
