@@ -23,6 +23,7 @@
       url = "github:/yaxitech/ragenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
   };
 
   outputs =

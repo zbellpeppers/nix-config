@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
+set -euo pipefail
 
 CURRENT_USER=$(logname || whoami)
 
