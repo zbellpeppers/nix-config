@@ -1,11 +1,11 @@
 {
   pkgs,
-  config,
   ...
 }:
 {
-  imports = [
-  ];
+  systemd.services = {
+    systemd-udev-settle.enable = false; # May reduce booting time
+  };
 
   services = {
     # Packages that require higher permissions access

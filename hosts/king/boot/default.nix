@@ -5,12 +5,19 @@
   ...
 }:
 {
+  nixpkgs.overlays = [
+    (final: prev: {
+      linux_xanmod_latest = prev.linux_xanmod_latest.overrideAttrs (old: {
+        NIX_CFLAGS_COMPILE = (old.NIX_CFLAGS_COMPILE or "") + " -march=znver5 -O3";
+      });
+    })
+  ];
   boot = {
     # Enable ntfs support
     supportedFilesystems = [ "ntfs" ];
 
     # Specifices the Linux Kernel
-    kernelPackages = pkgs.linuxPackages_lqx;
+    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
 
     # Enables r8125 Realtek Ethernet Driver
     extraModulePackages = with config.boot.kernelPackages; [ r8125 ];
@@ -19,7 +26,7 @@
     # Bootloader Configuration
     loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 10;
+      timeout = 5;
       grub = {
         enable = lib.mkDefault true;
         efiSupport = true;

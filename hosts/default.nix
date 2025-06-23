@@ -81,11 +81,11 @@ in
     overlays = [
       inputs.nix-vscode-extensions.overlays.default
       feriumOverlay
-      (final: prev: {
-        # Use rocmPackages from master
-        rocmPackages = inputs.nixpkgs-master.legacyPackages.${prev.system}.rocmPackages;
-        rocmPackages_6 = inputs.nixpkgs-master.legacyPackages.${prev.system}.rocmPackages_6;
-      })
+      # (final: prev: {
+      #   # Use rocmPackages from master
+      #   rocmPackages = inputs.nixpkgs-master.legacyPackages.${prev.system}.rocmPackages;
+      #   rocmPackages_6 = inputs.nixpkgs-master.legacyPackages.${prev.system}.rocmPackages_6;
+      # })
     ];
   };
 
