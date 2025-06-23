@@ -21,7 +21,6 @@
       "org.onlyoffice.desktopeditors"
       "com.vivaldi.Vivaldi"
       "org.freecad.FreeCAD"
-      "app.zen_browser.zen"
     ];
   };
 }
