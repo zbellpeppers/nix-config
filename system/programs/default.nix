@@ -39,7 +39,7 @@
     # Enable gamescope
     gamescope = {
       enable = true;
-      capSysNice = false;
+      capSysNice = true;
     };
 
     # Enable gamemode
