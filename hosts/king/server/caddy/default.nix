@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
-
 {
+  environment.variables = {
+    JAVA_HOME = "${pkgs.graalvmPackages.graalvm-ce}";
+  };
   services.caddy = {
     enable = true;
     package = pkgs.caddy.withPlugins {
