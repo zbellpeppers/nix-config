@@ -41,6 +41,9 @@
     kdePackages.yakuake
     kdePackages.kjournald
 
+    # Server tools
+    nss_latest
+
     # Hardware RGB Control
     openrgb-with-all-plugins
   ];
