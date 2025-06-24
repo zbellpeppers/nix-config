@@ -5,19 +5,14 @@
   ...
 }:
 {
-  nixpkgs.overlays = [
-    (final: prev: {
-      linux_xanmod_latest = prev.linux_xanmod_latest.overrideAttrs (old: {
-        NIX_CFLAGS_COMPILE = (old.NIX_CFLAGS_COMPILE or "") + " -march=znver5 -O3";
-      });
-    })
-  ];
+  # Utilized alongside the cachyos kernel
+  services.scx.enable = true;
   boot = {
     # Enable ntfs support
     supportedFilesystems = [ "ntfs" ];
 
     # Specifices the Linux Kernel
-    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
+    kernelPackages = pkgs.linuxPackages_cachyos;
 
     # Enables r8125 Realtek Ethernet Driver
     extraModulePackages = with config.boot.kernelPackages; [ r8125 ];

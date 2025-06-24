@@ -56,6 +56,9 @@ let
 
         # Ragenix repo
         inputs.ragenix.nixosModules.default
+
+        # Chaotic nix
+        inputs.chaotic.nixosModules.default
       ] ++ modules;
 
       specialArgs = {
@@ -86,6 +89,11 @@ in
       #   rocmPackages = inputs.nixpkgs-master.legacyPackages.${prev.system}.rocmPackages;
       #   rocmPackages_6 = inputs.nixpkgs-master.legacyPackages.${prev.system}.rocmPackages_6;
       # })
+      (final: prev: {
+        linux_xanmod_latest = prev.linux_xanmod_latest.overrideAttrs (old: {
+          NIX_CFLAGS_COMPILE = (old.NIX_CFLAGS_COMPILE or "") + " -march=znver5 -O3";
+        });
+      })
     ];
   };
 
