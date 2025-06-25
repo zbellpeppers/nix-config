@@ -2,7 +2,7 @@
 {
   xdg.configFile."konsolerc".text = ''
     [Desktop Entry]
-    DefaultProfile=Fish.profile
+    DefaultProfile=Zsh.profile
 
     [General]
     ConfigVersion=1
@@ -25,7 +25,7 @@
     Command=/run/current-system/sw/bin/zsh
     Name=Zsh
     Parent=FALLBACK/
-    TerminalColumns=120
+    TerminalColumns=118
     TerminalRows=29
 
     [Interaction Options]
@@ -49,7 +49,7 @@
     Command=/run/current-system/sw/bin/fish
     Name=Fish
     Parent=FALLBACK/
-    TerminalColumns=120
+    TerminalColumns=118
     TerminalRows=29
 
     [Interaction Options]

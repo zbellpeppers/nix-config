@@ -11,16 +11,18 @@
     };
     environmentFile = config.age.secrets.cloudflare-env-api-caddy.path;
     # The file must export CLOUDFLARE_DNS_API_TOKEN=xxxxxxxx
-    globalConfig = ''
-      acme_dns cloudflare {$CLOUDFLARE_DNS_API_TOKEN}
-    '';
+    # globalConfig = ''
+    #   acme_dns cloudflare {$CLOUDFLARE_DNS_API_TOKEN}
+    # '';
 
     virtualHosts = {
-      "actualbudget.bpf.lan".extraConfig = ''
-        tls internal
-        encode gzip zstd
-        reverse_proxy http://localhost:5006
-      '';
+      # "actualbudget.bpf.lan".extraConfig = ''
+      #   tls {
+      #     dns cloudflare {$CLOUDFLARE_DNS_API_TOKEN}
+      #   }
+      #   encode gzip zstd
+      #   reverse_proxy http://localhost:5006
+      # '';
       "headscale.bell-peppers.com".extraConfig = ''
         reverse_proxy 0.0.0.0:8080
         # Optional: extra proxy headers; most are set automatically

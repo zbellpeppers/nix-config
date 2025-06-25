@@ -22,7 +22,7 @@
 
       # DNS configuration
       dns = {
-        override_local_dns = true;
+        override_local_dns = false;
         base_domain = "bpf.lan";
         magic_dns = true;
         nameservers.global = [
