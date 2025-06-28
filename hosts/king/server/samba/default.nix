@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-
-  virtualisation.waydroid.enable = true;
   # This systemd service syncs changes made to documents to the samba server.
   systemd = {
     services.sync-family-documents = {
@@ -29,7 +27,6 @@
   services.samba = {
     enable = true;
     openFirewall = true;
-    securityType = "user";
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
