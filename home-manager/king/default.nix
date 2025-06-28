@@ -13,6 +13,8 @@
 
   home.packages = with pkgs; [
     obsidian
+    rustc
+    cargo
   ];
 
   home.username = "zachary";

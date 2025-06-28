@@ -17,6 +17,8 @@
         bierner.emojisense
         aaron-bond.better-comments
         alefragnani.bookmarks
+        christian-kohler.path-intellisense
+        # Colorizers / Highlights
         naumovs.color-highlight
         oderwat.indent-rainbow
         ibm.output-colorizer
@@ -32,8 +34,12 @@
         # Language support
         redhat.vscode-yaml
         bmalehorn.vscode-fish
+        foxundermoon.shell-format
         # Markdown support
         zaaack.markdown-editor
+        # Rust
+        rust-lang.rust-analyzer
+        fill-labs.dependi
       ];
       userSettings = {
         # Editor
