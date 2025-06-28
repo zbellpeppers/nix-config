@@ -60,6 +60,9 @@
       upflake = "cd $HOME/nix-config && nix flake update";
       upplasma = "$HOME/nix-config/update-plasmamanager.sh";
 
+      # Minecaft
+      mc-server-up = "bash $HOME/.local/bin/launch-minecraft.sh";
+
       # Replace ls with eza
       ls = "eza -al --color=always --group-directories-first --icons";
       la = "eza -a --color=always --group-directories-first --icons";
