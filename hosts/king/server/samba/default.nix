@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+
+  virtualisation.waydroid.enable = true;
   # This systemd service syncs changes made to documents to the samba server.
   systemd = {
     services.sync-family-documents = {

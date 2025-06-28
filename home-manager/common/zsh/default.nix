@@ -53,6 +53,7 @@
       ll = "eza -l --color=always --group-directories-first --icons";
       lt = "eza -aT --color=always --group-directories-first --icons";
       "l." = "eza -a | grep -e '^\\.'";
+
       # Common use
       tarnow = "tar -acf";
       untar = "tar -zxvf";
@@ -68,14 +69,50 @@
       fgrep = "fgrep --color=auto";
       egrep = "egrep --color=auto";
       hw = "hwinfo --short";
-      big = "expac -H M '%m\t%n' | sort -h | nl";
-      please = "sudo";
       jctl = "journalctl -p 3 -xb";
-      rip = "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl";
-      upgit = "/home/$(whoami)/nix-config/gitupdate.sh";
+      upgit = "$HOME/nix-config/gitupdate.sh";
       garbage = "sudo nix-collect-garbage -d";
-      upflake = "cd /home/zachary/nix-config && nix flake update";
-      update = "/home/sarah/nix-config/queen-update.sh";
+      upflake = "cd $HOME/nix-config && nix flake update";
+      nixsearch = "nix search nixpkgs";
+      upplasma = "$HOME/nix-config/update-plasmamanager.sh";
+
+      # Process memory usage
+      psmem = "ps auxf | sort -nr -k 4";
+      psmem10 = "ps auxf | sort -nr -k 4 | head -10";
+
+      # System service management (System)
+      scstat = "systemctl status";
+      scstart = "sudo systemctl start";
+      scstop = "sudo systemctl stop";
+      screstart = "sudo systemctl restart";
+      scenable = "sudo systemctl enable";
+      scdisable = "sudo systemctl disable";
+      screload = "sudo systemctl daemon-reload";
+
+      # System service management (User)
+      usys = "systemctl --user";
+      uscstat = "systemctl --user status";
+      uscstart = "systemctl --user start"; # No sudo needed for user services usually
+      uscstop = "systemctl --user stop";
+      uscrestart = "systemctl --user restart";
+      uscenable = "systemctl --user enable";
+      uscdisable = "systemctl --user disable";
+      uscreload = "systemctl --user daemon-reload";
+
+      # Safety features
+      cp = "cp -i";
+      mv = "mv -i";
+      rm = "rm -i";
+
+      # Network utilities (ensure curl, hostname, net-tools installed)
+      myip = "${pkgs.curl}/bin/curl ifconfig.me";
+      localip = "${pkgs.hostname}/bin/hostname -I";
+      ports = "${pkgs.nettools}/bin/netstat -tulanp";
+
+      # System info and maintenance
+      df = "df -h";
+      free = "free -h";
+      diskspace = "du -S | sort -n -r | more"; # Ensure du, sort, more available
     };
 
     syntaxHighlighting = {

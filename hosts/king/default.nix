@@ -20,7 +20,7 @@ in
   users.users.zachary = {
     isNormalUser = true;
     description = "Zachary Bell Peppers";
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -44,7 +44,7 @@ in
   users.users.sarah = {
     isSystemUser = true;
     description = "Sarah Bell Peppers";
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     group = "sarah";
     extraGroups = [
       "sambashare"
