@@ -128,7 +128,10 @@
 
     syntaxHighlighting = {
       enable = true;
-      highlighters = [ "brackets" ];
+      highlighters = [
+        "main"
+        "brackets"
+      ];
     };
   };
 }
