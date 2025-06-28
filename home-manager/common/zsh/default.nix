@@ -8,6 +8,9 @@
         "Aloxaf/fzf-tab"
         "rupa/z"
         "MichaelAquilina/zsh-you-should-use"
+        "zsh-users/zsh-completions"
+        "wfxr/forgit"
+        "chisui/zsh-nix-shell"
       ];
     };
 
@@ -47,6 +50,16 @@
 
     # Aliases
     shellAliases = {
+      # Nix specific aliases
+      nwhy = "nix-store --query --referrers"; # "Nix, why is this here?"
+      nd = "nix develop"; # Nix Develop
+      ns = "nix shell nixpkgs#"; # Nix Shell (e.g., ns python3)
+      nixsearch = "nix search nixpkgs";
+      upgit = "$HOME/nix-config/gitupdate.sh";
+      garbage = "sudo nix-collect-garbage -d";
+      upflake = "cd $HOME/nix-config && nix flake update";
+      upplasma = "$HOME/nix-config/update-plasmamanager.sh";
+
       # Replace ls with eza
       ls = "eza -al --color=always --group-directories-first --icons";
       la = "eza -a --color=always --group-directories-first --icons";
@@ -70,11 +83,6 @@
       egrep = "egrep --color=auto";
       hw = "hwinfo --short";
       jctl = "journalctl -p 3 -xb";
-      upgit = "$HOME/nix-config/gitupdate.sh";
-      garbage = "sudo nix-collect-garbage -d";
-      upflake = "cd $HOME/nix-config && nix flake update";
-      nixsearch = "nix search nixpkgs";
-      upplasma = "$HOME/nix-config/update-plasmamanager.sh";
 
       # Process memory usage
       psmem = "ps auxf | sort -nr -k 4";
