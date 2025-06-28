@@ -55,13 +55,13 @@
       nd = "nix develop"; # Nix Develop
       ns = "nix shell nixpkgs#"; # Nix Shell (e.g., ns python3)
       nixsearch = "nix search nixpkgs";
-      upgit = "$HOME/nix-config/gitupdate.sh";
+      upgit = "~/nix-config/gitupdate.sh";
       garbage = "sudo nix-collect-garbage -d";
-      upflake = "cd $HOME/nix-config && nix flake update";
-      upplasma = "$HOME/nix-config/update-plasmamanager.sh";
+      upflake = "cd ~/nix-config && nix flake update";
+      upplasma = "~/nix-config/update-plasmamanager.sh";
 
       # Minecaft
-      mc-server-up = "bash $HOME/.local/bin/launch-minecraft.sh";
+      mc-server-up = "bash ~/.local/bin/launch-minecraft.sh";
 
       # Replace ls with eza
       ls = "eza -al --color=always --group-directories-first --icons";
