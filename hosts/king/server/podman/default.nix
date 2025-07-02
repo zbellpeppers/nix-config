@@ -27,6 +27,18 @@
             ACTUAL_PORT = "5006";
           };
         };
+        homeassistant = {
+          image = "ghcr.io/home-assistant/home-assistant:stable"; # Warning: if the tag does not change, the image will not be updated
+          pull = "always";
+          volumes = [
+            "/home/zachary/Desktop/All/Self-hosting/home_assistant:/config"
+            "/run/dbus:/run/dbus:ro"
+          ];
+          environment.TZ = "America/New_York";
+          extraOptions = [
+            "--network=host"
+          ];
+        };
       };
     };
   };

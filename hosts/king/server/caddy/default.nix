@@ -16,13 +16,10 @@
     # '';
 
     virtualHosts = {
-      # "actualbudget.bpf.lan".extraConfig = ''
-      #   tls {
-      #     dns cloudflare {$CLOUDFLARE_DNS_API_TOKEN}
-      #   }
-      #   encode gzip zstd
-      #   reverse_proxy http://localhost:5006
-      # '';
+      "homeassis.bell-peppers.com".extraConfig = ''
+        encode gzip zstd
+        reverse_proxy http://localhost:8123
+      '';
       "headscale.bell-peppers.com".extraConfig = ''
         reverse_proxy 0.0.0.0:8080
         # Optional: extra proxy headers; most are set automatically
