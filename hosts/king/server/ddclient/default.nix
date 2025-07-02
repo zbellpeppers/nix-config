@@ -31,13 +31,8 @@ in
 {
   services.ddclient = {
     enable = true;
-
-    # --- Tell ddclient *how* to discover an address ----------------
-    # “cmd” means “run an external command”.
     usev4 = "cmdv4, cmd=${getIPv4Script}";
     usev6 = "cmdv6, cmd=${getIPv6Script}";
-
-    # --- Cloudflare update parameters ------------------------------
     protocol = "cloudflare";
     username = "token";
     passwordFile = config.age.secrets.cf-dns-ddclient.path;
@@ -45,12 +40,13 @@ in
     domains = [
       "actualbudget.bell-peppers.com"
       "headscale.bell-peppers.com"
+      "homeassis.bell-peppers.com"
     ];
     ssl = true; # use HTTPS to talk to Cloudflare
     interval = "10m"; # how often ddclient re-checks the IP
     verbose = true;
     extraConfig = ''
-      ttl=1             # any additional raw ddclient.conf lines
+      ttl=1
     '';
   };
 }

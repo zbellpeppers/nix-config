@@ -4,6 +4,6 @@ let
 in
 {
   "cloudflare-dns-token.age".publicKeys = [ zachary ];
-  "cloudflare-env-api-caddy.age".publicKeys = [ zachary ];
+  "cloudflare-env-api-acme.age".publicKeys = [ zachary ];
   # "secret2.age".publicKeys = users ++ systems;
 }

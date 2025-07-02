@@ -1,78 +1,53 @@
 { config, ... }:
+
 {
-  # Required for https cert generation via nginx
+  # ACME for SSL Certificates via Cloudflare
   security.acme = {
     acceptTerms = true;
-    defaults = {
-      email = "zbellpeppers@pm.me";
-      dnsProvider = "cloudflare";
-      # Use the agenix secret file for Cloudflare credentials
-      credentialFiles = {
-        # "CLOUDFLARE_EMAIL_FILE" = config.age.secrets.cf-email-nginx.path;
-        "CLOUDFLARE_DNS_API_TOKEN_FILE" = config.age.secrets.cf-dns-ddclient.path;
-      };
-    };
+    defaults.email = "zbellpeppers@pm.me";
   };
 
-  # Add nginx to acme group so it can access the environmental variable
-  users.users.nginx.extraGroups = [ "acme" ];
+  security.acme.certs."bell-peppers.com" = {
+    dnsProvider = "cloudflare";
+    # This credentials file needs to be in INI format.
+    credentialsFile = config.age.secrets.cloudflare-acme-credentials.path;
+    domain = "homeassis.bell-peppers.com";
+    extraDomainNames = [ "headscale.bell-peppers.com" ];
+  };
 
-  # Nginx config
+  # NGINX Service Configuration
   services.nginx = {
     enable = true;
-    appendHttpConfig = ''
-      map ''$http_upgrade ''$connection_upgrade {
-        default upgrade;
-        ""      close;
-      }
-    '';
 
-    # Recommended security settings
+    # These options replicate best practices for security and performance.
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
 
-    # Actual Budget
-    virtualHosts."actualbudget.bell-peppers.com" = {
-      enableACME = true;
-      forceSSL = true;
-      acmeRoot = null; # Use DNS challenge
+    # Define virtual hosts
+    virtualHosts = {
+      "homeassis.bell-peppers.com" = {
+        # Automatically use the ACME cert and redirect HTTP to HTTPS.
+        forceSSL = true;
+        enableACME = true;
 
-      locations."/" = {
-        proxyPass = "http://localhost:5006";
-        proxyWebsockets = true;
+        locations."/".proxyPass = "http://localhost:8123";
       };
 
-      extraConfig = ''
-        # Security headers
-        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-        add_header X-Frame-Options "SAMEORIGIN" always;
-        add_header X-Content-Type-Options "nosniff" always;
-        add_header X-XSS-Protection "1; mode=block" always;
-        add_header Referrer-Policy "strict-origin-when-cross-origin" always;
-      '';
-    };
+      "headscale.bell-peppers.com" = {
+        # Automatically use the ACME cert and redirect HTTP to HTTPS.
+        forceSSL = true;
+        enableACME = true;
 
-    # Headscale
-    virtualHosts."headscale.bell-peppers.com" = {
-      enableACME = true;
-      forceSSL = true;
-      acmeRoot = null;
+        locations."/".proxyPass = "http://localhost:8080";
 
-      locations."/" = {
-        proxyPass = "http://0.0.0.0:8080";
-        proxyWebsockets = true; # Keep this
-        # Add these extra proxy settings
+        # Additional headers for headscale
         extraConfig = ''
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection $connection_upgrade;
-          proxy_set_header Host $host;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header X-Forwarded-Proto $scheme;
-          proxy_buffering off;
+          add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+          add_header X-Frame-Options "SAMEORIGIN" always;
+          add_header X-Content-Type-Options "nosniff" always;
+          add_header Referrer-Policy "strict-origin-when-cross-origin" always;
         '';
       };
     };
