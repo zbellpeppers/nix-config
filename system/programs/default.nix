@@ -4,7 +4,6 @@
 }:
 {
   programs = {
-    fish.enable = true;
     zoxide.enable = true;
     zsh.enable = true;
     kdeconnect.enable = true;

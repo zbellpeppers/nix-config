@@ -33,7 +33,6 @@
         aleksa-codes.one-dark-modern-pro
         # Language support
         redhat.vscode-yaml
-        bmalehorn.vscode-fish
         foxundermoon.shell-format
         # Markdown support
         zaaack.markdown-editor
