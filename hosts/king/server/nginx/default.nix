@@ -31,8 +31,12 @@
         # Automatically use the ACME cert and redirect HTTP to HTTPS.
         forceSSL = true;
         enableACME = true;
-
         locations."/".proxyPass = "http://localhost:8123";
+        locations."/api/websocket" = {
+          proxyPass = "http://localhost:8123/api/websocket";
+          # This NixOS option adds the required headers for WebSockets
+          proxyWebsockets = true;
+        };
       };
 
       "headscale.bell-peppers.com" = {

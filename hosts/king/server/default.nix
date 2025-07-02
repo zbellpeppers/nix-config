@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    #./caddy
     ./ddclient
     ./headscale
     ./nginx

@@ -17,7 +17,7 @@ in
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  boot.kernelPackages = pkgs.linuxPackages_lqx;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   hardware.i2c.enable = true;
 
   location.latitude = latitude;
