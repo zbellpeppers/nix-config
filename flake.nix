@@ -24,7 +24,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs =

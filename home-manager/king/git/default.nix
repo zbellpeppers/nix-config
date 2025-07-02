@@ -10,7 +10,7 @@
 
     # Signing Configuration
     signing = {
-      key = "28131B58DC654D223D96DAFAB6F66C11B6B8AB84";
+      key = "A9BA026E39F2A6441D4BE7AE2E84BE68FE7D27D3";
       signByDefault = true;
       signer = "${pkgs.gnupg}/bin/gpg2"; # Explicit path for NixOS
     };

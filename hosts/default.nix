@@ -56,9 +56,6 @@ let
 
         # Ragenix repo
         inputs.ragenix.nixosModules.default
-
-        # Chaotic nix
-        inputs.chaotic.nixosModules.default
       ] ++ modules;
 
       specialArgs = {

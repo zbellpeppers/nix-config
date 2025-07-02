@@ -12,7 +12,7 @@
     supportedFilesystems = [ "ntfs" ];
 
     # Specifices the Linux Kernel
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_zen;
 
     # Enables r8125 Realtek Ethernet Driver
     extraModulePackages = with config.boot.kernelPackages; [ r8125 ];
