@@ -29,6 +29,14 @@ let
   '';
 in
 {
+  # Secret for below
+  age.secrets.cf-dns-ddclient = {
+    file = ../../../../secrets/cloudflare-dns-token.age;
+    owner = "root";
+    group = "root";
+    mode = "0400";
+  };
+
   services.ddclient = {
     enable = true;
     usev4 = "cmdv4, cmd=${getIPv4Script}";

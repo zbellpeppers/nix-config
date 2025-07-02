@@ -1,6 +1,10 @@
 { config, ... }:
 
 {
+  # secret for below
+  age.secrets.cloudflare-acme-credentials = {
+    file = ../../../../secrets/cloudflare-env-api-acme.age;
+  };
   # ACME for SSL Certificates via Cloudflare
   security.acme = {
     acceptTerms = true;

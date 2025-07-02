@@ -8,7 +8,6 @@
     ./packages
     ./printer
     ./programs
-    ./secrets
     ./services
   ];
 }

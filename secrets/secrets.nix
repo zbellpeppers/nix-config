@@ -5,5 +5,8 @@ in
 {
   "cloudflare-dns-token.age".publicKeys = [ zachary ];
   "cloudflare-env-api-acme.age".publicKeys = [ zachary ];
+  "traccar-account-backup-token.age".publicKeys = [ zachary ];
+  "traccar-db-password.age".publicKeys = [ zachary ];
+  "traccar-smtp-token.age".publicKeys = [ zachary ];
   # "secret2.age".publicKeys = users ++ systems;
 }
