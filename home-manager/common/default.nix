@@ -26,7 +26,7 @@ in
     ferium
     (bottles.override { removeWarningPopup = true; })
     mangohud
-    wineWowPackages.full
+    wineWowPackages.waylandFull
     winetricks
     protontricks
     mono

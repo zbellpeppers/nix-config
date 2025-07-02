@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   # Needed for sound configuration
   security.rtkit.enable = true;
