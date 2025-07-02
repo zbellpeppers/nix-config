@@ -10,7 +10,7 @@ in
     ./boot
     ./flatpak
     ./hardware
-    #./server
+    ./server
   ];
   # Host-specific configuration goes here
   networking.hostName = "king";
