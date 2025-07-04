@@ -4,7 +4,6 @@ let
 in
 {
   "cloudflare-dns-token.age".publicKeys = [ zachary ];
-  "caddy-env-token.age".publicKeys = [ zachary ];
   "traccar-env.age".publicKeys = [ zachary ];
   "postgres-traccar-db-pw.age".publicKeys = [ zachary ];
   # "secret2.age".publicKeys = users ++ systems;

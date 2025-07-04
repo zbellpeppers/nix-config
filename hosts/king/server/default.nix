@@ -1,11 +1,11 @@
 { ... }:
 {
   imports = [
-    ./caddy
     ./ddclient
     ./headscale
+    ./mariadb
+    ./nginx
     ./podman
-    ./postgresql
     ./samba
     ./tailscale
     ./traccar

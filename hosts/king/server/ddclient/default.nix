@@ -39,8 +39,8 @@ in
 
   services.ddclient = {
     enable = true;
-    usev4 = "cmdv4, cmd=${getIPv4Script}";
-    usev6 = "cmdv6, cmd=${getIPv6Script}";
+    usev4 = "cmd, cmd=${getIPv4Script}";
+    usev6 = "cmd, cmd=${getIPv6Script}";
     protocol = "cloudflare";
     username = "token";
     passwordFile = config.age.secrets.cf-dns-ddclient.path;
@@ -48,7 +48,7 @@ in
     domains = [
       "actualbudget.bell-peppers.com"
       "headscale.bell-peppers.com"
-      "homeassis.bell-peppers.com"
+      "hoas.bell-peppers.com"
     ];
     ssl = true; # use HTTPS to talk to Cloudflare
     interval = "10m"; # how often ddclient re-checks the IP

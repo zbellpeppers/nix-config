@@ -8,7 +8,7 @@
   };
   services.traccar = {
     # The contents of this file should be:
-    # POSTGRES_DB_PASSWORD=PASSWORD
+    # DB_PASSWORD=PASSWORD
     # TRACCAR_SMTP_TOKEN=TOKEN
     # LOCATIONIQ_TOKEN=TOKEN
     # TRACCAR_BACKUP_TOKEN=TOKEN
@@ -17,9 +17,9 @@
     settings = {
       # Database settings
       databaseUser = "traccar";
-      databaseUrl = "jdbc:postgresql://localhost/traccar";
-      databaseDriver = "org.postgresql.Driver";
-      databasePassword = "";
+      databaseDriver = "com.mysql.cj.jdbc.Driver";
+      databaseUrl = "jdbc:mysql://localhost/traccar?zeroDateTimeBehavior=round&amp;serverTimezone=America/New_York&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8&amp;sessionVariables=sql_mode=''";
+      databasePassword = "$DB_PASSWORD";
       # Protocol settings
       protocolsEnable = "osmand";
       osmandPort = "5055";
