@@ -70,7 +70,7 @@
       };
       "traccar.bell-peppers.com" = {
         forceSSL = true;
-        enableACME = true;
+        useACMEHost = "bell-peppers.com";
         locations."/".proxyPass = "http://localhost:8082";
         # Include a proxy for web socket
         locations."/api/socket" = {
