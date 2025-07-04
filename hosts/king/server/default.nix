@@ -4,11 +4,10 @@
     ./caddy
     ./ddclient
     ./headscale
-    #./nginx
     ./podman
-    #./postgresql
+    ./postgresql
     ./samba
     ./tailscale
-    #./traccar
+    ./traccar
   ];
 }

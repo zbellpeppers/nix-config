@@ -19,7 +19,6 @@ in
   home.packages = with pkgs; [
     # Remote Access
     rustdesk-flutter
-    celeste
 
     # Gaming
     prismlauncher

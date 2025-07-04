@@ -17,8 +17,8 @@
     autosuggestion = {
       enable = true;
       strategy = [
-        "completion"
         "history"
+        "completion"
       ];
     };
 
@@ -27,7 +27,6 @@
     # History config
     history = {
       append = true;
-      findNoDups = true;
       save = 10000;
       size = 10000;
     };
