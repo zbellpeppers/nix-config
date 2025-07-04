@@ -24,7 +24,6 @@ in
     # Gaming
     prismlauncher
     ferium
-    (bottles.override { removeWarningPopup = true; })
     mangohud
     wineWowPackages.waylandFull
     winetricks
