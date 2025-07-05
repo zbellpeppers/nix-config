@@ -1,5 +1,13 @@
 { config, ... }:
 {
+  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [
+    8082
+    5055
+  ];
+  networking.firewall.interfaces."tailscale0".allowedUDPPorts = [
+    8082
+    5055
+  ];
   # Secret for below
   age.secrets = {
     traccar-env-file = {
@@ -24,9 +32,9 @@
       protocolsEnable = "osmand";
       osmandPort = "5055";
       # Web settings
-      webAddress = "127.0.0.1";
+      webAddress = "0.0.0.0";
       webPort = "8082";
-      webUrl = "https://traccar.bell-peppers.com";
+      webUrl = "http://king.bpf.lan:8082";
       serverTimeout = "600";
       # Smtp settings
       mailSmtpHost = "smtp-relay.proton.me";

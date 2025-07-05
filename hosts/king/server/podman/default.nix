@@ -3,6 +3,7 @@
   ...
 }:
 {
+  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 5006 ];
   # Enable common container config files in /etc/containers
   virtualisation.containers.enable = true;
   virtualisation = {
@@ -18,9 +19,9 @@
       containers = {
         actual-budget = {
           image = "ghcr.io/actualbudget/actual:latest";
-          pull = "always";
+          pull = "newer";
           autoStart = true;
-          ports = [ "127.0.0.1:5006:5006" ];
+          ports = [ "0.0.0.0:5006:5006" ];
           volumes = [ "/home/zachary/Desktop/All/Documents/Accounting/actual-budget:/data" ];
           environment = {
             ACTUAL_HOSTNAME = "0.0.0.0";
@@ -28,8 +29,8 @@
           };
         };
         homeassistant = {
-          image = "ghcr.io/home-assistant/home-assistant:stable"; # Warning: if the tag does not change, the image will not be updated
-          pull = "always";
+          image = "ghcr.io/home-assistant/home-assistant:stable";
+          pull = "newer";
           volumes = [
             "/home/zachary/Desktop/All/Self-hosting/home_assistant:/config"
             "/run/dbus:/run/dbus:ro"
