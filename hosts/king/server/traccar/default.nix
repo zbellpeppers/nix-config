@@ -20,6 +20,7 @@
     # TRACCAR_SMTP_TOKEN=TOKEN
     # LOCATIONIQ_TOKEN=TOKEN
     # TRACCAR_BACKUP_TOKEN=TOKEN
+    # NOTIFICATOR_KEY=TOKEN
     environmentFile = config.age.secrets.traccar-env-file.path;
     enable = true;
     settings = {
@@ -31,13 +32,14 @@
       # Protocol settings
       protocolsEnable = "osmand";
       osmandPort = "5055";
+      osmandAddress = "0.0.0.0";
       # Web settings
       webAddress = "0.0.0.0";
       webPort = "8082";
       webUrl = "http://king.bpf.lan:8082";
       serverTimeout = "600";
       # Smtp settings
-      mailSmtpHost = "smtp-relay.proton.me";
+      mailSmtpHost = "smtp.protonmail.ch";
       mailSmtpPort = "587";
       mailSmtpFrom = "zachary@bell-peppers.com";
       mailSmtpUsername = "zachary@bell-peppers.com";
@@ -49,7 +51,7 @@
       filterZero = "true";
       filterDuplicate = "true";
       filterOutdated = "true";
-      filterFuture = "86400L";
+      filterFuture = "86400";
       filterAccuracy = "50";
       # Geocoder settings
       geocoderEnable = "true";
@@ -58,6 +60,9 @@
       geocoderOnrequest = "true";
       # Backup account token
       webServiceaccounttoken = "$TRACCAR_BACKUP_TOKEN";
+      # Notificator settings
+      notificatorTypes = "mail,web,traccar";
+      notificatorTraccarKey = "$NOTIFICATOR_KEY";
     };
   };
 }
