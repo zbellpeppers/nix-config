@@ -77,8 +77,6 @@ in
       EDITOR = "micro";
       VISUAL = "micro";
       RUST_MIN_STACK = "16777216";
-      WINEARCH = "win64";
-      WINEPREFIX = "$HOME/.wine";
     };
   };
 

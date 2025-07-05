@@ -24,7 +24,7 @@ in
     prismlauncher
     ferium
     mangohud
-    wineWowPackages.unstableFull
+    wineWowPackages.waylandFull
     winetricks
     protontricks
     mono

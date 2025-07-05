@@ -47,12 +47,6 @@
       }
     ];
 
-    # Session variables
-    sessionVariables = {
-      WINEARCH = "win64";
-      WINEPREFIX = "$HOME/.wine";
-    };
-
     # Aliases
     shellAliases = {
       # Nix specific aliases
