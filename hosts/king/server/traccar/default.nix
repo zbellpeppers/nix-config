@@ -36,7 +36,7 @@
       # Web settings
       webAddress = "0.0.0.0";
       webPort = "8082";
-      webUrl = "http://king.bpf.lan:8082";
+      webUrl = "http://king:8082";
       serverTimeout = "600";
       # Smtp settings
       mailSmtpHost = "smtp.protonmail.ch";
