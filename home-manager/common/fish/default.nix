@@ -79,6 +79,16 @@
       fish_greeting = "${pkgs.fastfetch}/bin/fastfetch";
     };
     shellAliases = {
+      # Nixos specific
+      upgit = "$HOME/nix-config/gitupdate.sh";
+      garbage = "sudo nix-collect-garbage -d";
+      upflake = "cd $HOME/nix-config && nix flake update";
+      nixsearch = "nix search nixpkgs";
+      upplasma = "$HOME/nix-config/update-plasmamanager.sh";
+
+      # Headscale / Tailscale
+      uptail = "sudo tailscale up --login-server http://localhost:8080 --advertise-exit-node";
+
       # Replace ls with eza
       ls = "eza -al --color=always --group-directories-first --icons";
       la = "eza -a --color=always --group-directories-first --icons";
@@ -102,11 +112,6 @@
       egrep = "egrep --color=auto";
       hw = "hwinfo --short";
       jctl = "journalctl -p 3 -xb";
-      upgit = "$HOME/nix-config/gitupdate.sh";
-      garbage = "sudo nix-collect-garbage -d";
-      upflake = "cd $HOME/nix-config && nix flake update";
-      nixsearch = "nix search nixpkgs";
-      upplasma = "$HOME/nix-config/update-plasmamanager.sh";
 
       # Process memory usage
       psmem = "ps auxf | sort -nr -k 4";

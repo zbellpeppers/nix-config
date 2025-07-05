@@ -19,10 +19,9 @@
       credentialFiles = {
         "CLOUDFLARE_DNS_API_TOKEN_FILE" = "/run/secrets/cloudflare-acme-credentials";
       };
-      domain = "traccar.bell-peppers.com";
-      extraDomainNames = [
-        "actualbudget.bell-peppers.com"
-      ];
+      # domain = "traccar.bell-peppers.com";
+      # extraDomainNames = [
+      # ];
     };
   };
 
@@ -39,44 +38,50 @@
 
     # Define virtual hosts
     virtualHosts = {
-      "haos.bell-peppers.com" = {
-        forceSSL = true;
-        useACMEHost = "bell-peppers.com";
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:8123";
-          # proxyWebsockets = true; # Required for Home Assistant UI to function correctly
-          extraConfig = ''
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-          '';
-        };
-      };
       "headscale.bell-peppers.com" = {
-        forceSSL = true;
         enableACME = true;
-        locations."/".proxyPass = "http://localhost:8080";
-        # Additional headers for headscale
-        extraConfig = ''
-          proxy_headers_hash_max_size 512;
-          add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-          add_header X-Frame-Options "SAMEORIGIN" always;
-          add_header X-Content-Type-Options "nosniff" always;
-          add_header Referrer-Policy "strict-origin-when-cross-origin" always;
-        '';
-      };
-      "traccar.bell-peppers.com" = {
         forceSSL = true;
-        useACMEHost = "bell-peppers.com";
-        locations."/".proxyPass = "http://localhost:8082";
-        # Include a proxy for web socket
-        locations."/api/socket" = {
-          proxyPass = "http://localhost:8082/api/socket";
+        locations."/" = {
+          proxyPass = "http://localhost:8080";
           proxyWebsockets = true;
         };
+        # Additional headers for headscale
         extraConfig = ''
-          proxy_headers_hash_max_size 512;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection $connection_upgrade;
+          proxy_set_header Host $server_name;
+          proxy_redirect http:// https://;
+          proxy_buffering off;
+          proxy_set_header X-Real-IP $remote_addr;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $http_x_forwarded_proto;
+          add_header Strict-Transport-Security "max-age=15552000; includeSubDomains" always;
         '';
       };
+      # "haos.bell-peppers.com" = {
+      #   forceSSL = true;
+      #   useACMEHost = "bell-peppers.com";
+      #   locations."/" = {
+      #     proxyPass = "http://127.0.0.1:8123";
+      #     # proxyWebsockets = true; # Required for Home Assistant UI to function correctly
+      #     extraConfig = ''
+      #       proxy_set_header Host $host;
+      #       proxy_set_header X-Real-IP $remote_addr;
+      #     '';
+      #   };
+      # };
+      # "traccar.bell-peppers.com" = {
+      #   forceSSL = true;
+      #   useACMEHost = "bell-peppers.com";
+      #   locations."/".proxyPass = "http://localhost:8082";
+      #   # Include a proxy for web socket
+      #   locations."/api/socket" = {
+      #     proxyPass = "http://localhost:8082/api/socket";
+      #     proxyWebsockets = true;
+      #   };
+      #   extraConfig = '''';
+      # };
     };
   };
 }
