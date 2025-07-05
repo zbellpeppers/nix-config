@@ -31,23 +31,23 @@
         ];
         extra_records = [
           {
-            name = "actualbudget.bpf.lan"; # full FQDN
-            type = "A"; # only A / AAAA are supported
-            value = "100.64.0.1"; # king’s Tailscale IPv4
+            name = "actualbudget.bpf.lan";
+            type = "A";
+            value = "100.64.0.1";
           }
           {
-            name = "actualbudget.bpf.lan"; # full FQDN
-            type = "AAAA"; # only A / AAAA are supported
-            value = "fd7a:115c:a1e0::1"; # king’s Tailscale IPv6
+            name = "actualbudget.bpf.lan";
+            type = "AAAA";
+            value = "fd7a:115c:a1e0::1";
           }
           {
-            name = "minecraft.bpf.lan"; # full FQDN
-            type = "A"; # only A / AAAA are supported
-            value = "100.64.0.1"; # king’s Tailscale IPv4
+            name = "minecraft.bpf.lan";
+            type = "A";
+            value = "100.64.0.1";
           }
           {
-            name = "samba.bpf.lan"; # the alias you want to use
-            type = "A"; # only A/AAAA are supported
+            name = "samba.bpf.lan";
+            type = "A";
             value = "100.64.0.1";
           }
         ];

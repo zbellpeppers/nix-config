@@ -1,42 +1,5 @@
 { pkgs, ... }:
-let
-  nftablesRules = pkgs.writeText "vpn-bypass-rules.nft" ''
-    table inet mangle {
-      chain prerouting {
-        type filter hook prerouting priority mangle;
-        iifname "eno1" tcp dport 443 meta mark set 1;
-      }
-    }
-  '';
-in
 {
-  systemd.services.vpn-bypass = {
-    description = "Apply custom routing to bypass VPN for web services";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network-online.target" ];
-    wants = [ "network-online.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = pkgs.writeShellScript "vpn-bypass-script" ''
-        #!${pkgs.bash}/bin/bash
-        set -e
-
-        # A. Load the nftables ruleset.
-        ${pkgs.nftables}/bin/nft flush table inet mangle >/dev/null 2>&1 || true
-        ${pkgs.nftables}/bin/nft -f ${nftablesRules}
-
-        # B. THIS IS THE FIX: Delete the old rule first, ignoring errors if it doesn't exist.
-        ${pkgs.iproute2}/bin/ip rule del priority 99 >/dev/null 2>&1 || true
-
-        # C. Now, safely add the rule without fear of it already existing.
-        ${pkgs.iproute2}/bin/ip rule add fwmark 1 lookup 100 priority 99
-
-        # D. The route command remains the same, as 'replace' is already safe.
-        ${pkgs.iproute2}/bin/ip route replace default via 192.168.1.254 dev eno1 table 100
-      '';
-    };
-  };
   # secret for below
   age.secrets = {
     cloudflare-acme-credentials = {
