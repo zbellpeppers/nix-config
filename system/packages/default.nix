@@ -35,6 +35,7 @@
     exiftool
     imagemagick
     dig
+    clinfo
 
     # GUI Tools
     kdePackages.partitionmanager

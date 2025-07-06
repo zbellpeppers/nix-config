@@ -30,11 +30,10 @@
     ];
   };
 
-  programs.zsh.enable = true;
-
   services = {
     # Set default keyboard layout
     xserver = {
+      videoDrivers = [ "amdgpu" ];
       xkb = {
         layout = "us,us";
         variant = ",workman";

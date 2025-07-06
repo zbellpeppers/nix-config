@@ -8,7 +8,7 @@
     fish.enable = true;
     zsh.enable = true;
     kdeconnect.enable = true;
-
+    xwayland.enable = true;
     obs-studio = {
       enable = true;
       enableVirtualCamera = true;

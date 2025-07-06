@@ -44,7 +44,7 @@ in
   users.users.sarah = {
     isSystemUser = true;
     description = "Sarah Bell Peppers";
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     group = "sarah";
     extraGroups = [
       "sambashare"
@@ -54,6 +54,7 @@ in
   services = {
     # Set default keyboard layout
     xserver = {
+      videoDrivers = [ "amdgpu" ];
       xkb = {
         extraLayouts.soul = {
           description = "Soul layout";
