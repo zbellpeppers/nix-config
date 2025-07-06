@@ -1,5 +1,13 @@
 { pkgs, ... }:
 {
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [
+      80
+      443
+      8080
+    ]; # HTTP, HTTPS, and Headscale
+  };
   # secret for below
   age.secrets = {
     cloudflare-acme-credentials = {
@@ -42,7 +50,7 @@
         enableACME = true;
         forceSSL = true;
         locations."/" = {
-          proxyPass = "http://localhost:8080";
+          proxyPass = "http://127.0.0.1:8080";
           proxyWebsockets = true;
         };
         # Additional headers for headscale

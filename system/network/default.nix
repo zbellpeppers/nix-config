@@ -39,24 +39,6 @@
     nftables.enable = true;
     firewall = {
       enable = true;
-      # Allow tailscale traffic
-      trustedInterfaces = [ "tailscale0" ];
-      # 80 443 - http and https
-      # 25565 - Minecraft
-      # 41641 - Tailscale
-      # 8080 - Headscale
-      # 5006 - actual_budget
-      allowedTCPPorts = [
-        80
-        443
-        8080
-        25565
-      ];
-      allowedUDPPorts = [
-        80
-        443
-        41641
-      ];
     };
   };
 }
