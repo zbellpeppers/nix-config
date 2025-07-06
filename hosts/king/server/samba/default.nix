@@ -33,7 +33,7 @@
         "server string" = "file_server";
         "netbios name" = "sambanix";
         "security" = "user";
-        "hosts allow" = "100.64.0.0/10 localhost 127.0.0.1";
+        "hosts allow" = "100.64.0.2 100.64.0.3 100.64.0.5 100.64.0.7 localhost 127.0.0.1";
         "hosts deny" = "0.0.0.0/0";
         "map to guest" = "bad user";
       };
@@ -52,7 +52,6 @@
   };
   services.samba-wsdd = {
     enable = true;
-    openFirewall = true;
   };
   networking.firewall.allowPing = true;
 }

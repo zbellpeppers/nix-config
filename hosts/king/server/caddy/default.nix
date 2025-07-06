@@ -1,16 +1,12 @@
 { ... }:
 {
   networking.firewall = {
+    # HTTP & HTTPS
     allowedTCPPorts = [
       80
       443
-    ]; # HTTP & HTTPS
+    ];
   };
-  # caddy-env-token should contain:
-  # CF_API_TOKEN=your_actual_api_token_here
-  # age.secrets.caddy-cloudflare-credentials = {
-  #   file = ../../../../secrets/caddy-env-token.age;
-  # };
 
   # Caddy service
   services.caddy = {
