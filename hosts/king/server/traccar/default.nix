@@ -1,13 +1,13 @@
 { config, ... }:
 {
-  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [
-    8082
-    5055
-  ];
-  networking.firewall.interfaces."tailscale0".allowedUDPPorts = [
-    8082
-    5055
-  ];
+  # networking.firewall.interfaces."tailscale0".allowedTCPPorts = [
+  #   8082
+  #   5055
+  # ];
+  # networking.firewall.interfaces."tailscale0".allowedUDPPorts = [
+  #   8082
+  #   5055
+  # ];
   # Secret for below
   age.secrets = {
     traccar-env-file = {

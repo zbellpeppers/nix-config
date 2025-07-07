@@ -10,7 +10,7 @@
       };
       # The command that performs the synchronization.
       script = ''
-        ${pkgs.rsync}/bin/rsync -a --delete /home/zachary/Desktop/All/Documents/ /home/zachary/Desktop/samba_share/public/
+        ${pkgs.rsync}/bin/rsync -a --delete /home/zachary/Desktop/All/Documents/ /home/zachary/Desktop/samba_share/public/family_docs/
       '';
     };
 
@@ -24,16 +24,19 @@
       };
     };
   };
+  networking.firewall = {
+    allowPing = true;
+  };
   services.samba = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
         "server string" = "file_server";
         "netbios name" = "sambanix";
         "security" = "user";
-        "hosts allow" = "100.64.0.2 100.64.0.3 100.64.0.5 100.64.0.7 localhost 127.0.0.1";
+        "hosts allow" = "100.64.0.2 100.64.0.3 100.64.0.5 100.64.0.7 127.0.0.1";
         "hosts deny" = "0.0.0.0/0";
         "map to guest" = "bad user";
       };
@@ -52,6 +55,6 @@
   };
   services.samba-wsdd = {
     enable = true;
+    openFirewall = false;
   };
-  networking.firewall.allowPing = true;
 }

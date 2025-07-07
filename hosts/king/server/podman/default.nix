@@ -3,7 +3,6 @@
   ...
 }:
 {
-  networking.firewall.interfaces."tailscale0".allowedTCPPorts = [ 5006 ];
   # Enable common container config files in /etc/containers
   virtualisation.containers.enable = true;
   virtualisation = {
